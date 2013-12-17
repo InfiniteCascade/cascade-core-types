@@ -1,8 +1,10 @@
 <?php
 namespace cascade\modules\core;
 
+use Yii;
+
 class Extension extends \cascade\components\base\ModuleSetExtension {
-	public function init()
+	public static function init()
 	{
 		parent::init();
 		Yii::setAlias('@cascadeCoreTypes', __DIR__);

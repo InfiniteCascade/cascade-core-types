@@ -15,7 +15,7 @@
 	},
 	"autoload": {
 		"classmap": ["Extension.php"],
-		"psr-0": { "cascade\\modules\\core\\": "/src" }
+		"psr-0": { "cascade\\modules\\core\\": "" }
 	},
     "extra": {
     	"bootstrap": "cascade\\modules\\core\\Extension"
