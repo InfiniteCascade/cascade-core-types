@@ -18,7 +18,7 @@
 		"psr-0": { "cascade\\modules\\core\\": "/src" }
 	},
     "extra": {
-            "bootstrap": "cascade/modules/core/Extension"
+    	"bootstrap": "cascade\\modules\\core\\Extension"
     },
     "target-dir": "cascade/modules/core"
 }
