@@ -14,7 +14,7 @@
 		"phpunit/phpunit": "3.7.*"
 	},
 	"autoload": {
-		"classmap": ["CoreTypes.php"],
+		"classmap": ["Extension.php"],
 		"psr-0": { "cascade\\modules\\core\\": "/src" }
 	},
     "extra": {
