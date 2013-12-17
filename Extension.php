@@ -7,7 +7,7 @@ class Extension extends \cascade\components\base\ModuleSetExtension {
 	public static function init()
 	{
 		parent::init();
-		Yii::setAlias('@cascadeCoreTypes', __DIR__);
+		Yii::setAlias('@cascade/modules/core', __DIR__);
 	}
 
 	public function getModules()

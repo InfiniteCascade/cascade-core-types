@@ -21,7 +21,7 @@ class Module extends \cascade\components\types\Module
 	{
 		parent::init();
 		
-		Yii::$app->registerMigrationAlias('@cascadeCoreTypes/TypeWebAddress/migrations');
+		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeWebAddress/migrations');
 	}
 
 	/**

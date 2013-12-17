@@ -4,7 +4,7 @@ namespace cascade\modules\core\TypeAccount\widgets;
 
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
-	public function generateContent() {
+	public function generateContentDummy() {
 		return "<pre>Intelligentsia viral velit gentrify, art party bitters enim fanny pack proident butcher jean shorts leggings duis kogi keytar. Minim Austin cillum, sint sartorial do salvia viral fanny pack non semiotics occaecat distillery velit 8-bit. Butcher selvage deep v, salvia chillwave mollit aute eiusmod twee PBR leggings. Paleo sriracha veniam authentic, laborum qui lomo street art Bushwick. Fashion axe tofu direct trade, mumblecore gastropub Brooklyn dolore single-origin coffee pork belly gluten-free whatever gentrify aliqua farm-to-table anim. PBR&B letterpress assumenda, tote bag deep v iPhone nihil mumblecore. Esse butcher Pinterest try-hard.
 
 Swag freegan delectus sunt ad, Wes Anderson shabby chic occaecat. Portland sriracha organic adipisicing, pug non mumblecore banh mi PBR lomo pariatur. Asymmetrical readymade small batch vegan, Austin pug iPhone keytar meh kogi jean shorts. VHS officia Etsy ullamco sint, deep v art party mixtape ennui adipisicing plaid tote bag do fingerstache trust fund. Occupy eiusmod synth master cleanse, incididunt delectus Marfa aliquip duis voluptate freegan messenger bag gastropub. Lomo put a bird on it pop-up dolor. Wayfarers brunch biodiesel, cillum Pitchfork seitan Wes Anderson Echo Park Thundercats skateboard farm-to-table quinoa sustainable.
