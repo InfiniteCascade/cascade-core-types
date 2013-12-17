@@ -1,0 +1,24 @@
+{
+	"name": "infiniteCascade/cascade-core-types",
+	"description": "Core object types used in Cascade",
+	"keywords": ["cascade"],
+	"homepage": "http://www.infinitecascade.com",
+	"type": "yii2-extension",
+	"license": "GPL -2.0",
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=5.4.0",
+		"InfiniteCascade/cascade": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*"
+	},
+	"autoload": {
+		"classmap": ["CoreTypes.php"],
+		"psr-0": { "cascade\\modules\\core\\": "/src" }
+	},
+    "extra": {
+            "bootstrap": "cascade/modules/core/Extension"
+    },
+    "target-dir": "cascade/modules/core"
+}
