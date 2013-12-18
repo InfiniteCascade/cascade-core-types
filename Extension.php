@@ -10,7 +10,7 @@ class Extension extends \cascade\components\base\ModuleSetExtension {
 		Yii::setAlias('@cascade/modules/core', __DIR__);
 	}
 
-	public function getModules()
+	public static function getModules()
 	{
 		$m = [];
 		$m['TypeAccount'] = [
