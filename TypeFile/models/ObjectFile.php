@@ -58,7 +58,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'name' => [],
-			'file_name' => [],
+			'file_name' => ['formField' => ['type' => 'file']],
 			'type' => [],
 			'size' => []
 		];
@@ -70,7 +70,14 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		if (!array_key_exists('title', $settings)) {
+			$settings['title'] = false;
+		}
+		$settings['ignoreFields'] = ['size', 'type'];
+		$settings['fields'] = [];
+		$settings['fields'][] = ['file_name'];
+		$settings['fields'][] = ['name'];
+		return $settings;
 	}
 
 	/**

@@ -91,7 +91,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 		if (!array_key_exists('title', $settings)) {
 			$settings['title'] = false;
 		}
-		$settings['fields'] = array();
+		$settings['fields'] = [];
 		$settings['fields'][] = ['first_name', 'middle_name', 'last_name'];
 		$settings['fields'][] = ['title', 'department'];
 		if ($this->isNewRecord) {

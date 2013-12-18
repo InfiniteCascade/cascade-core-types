@@ -48,7 +48,7 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 			[['description'], 'string'],
 			[['start', 'end'], 'safe'],
 			[['active'], 'boolean'],
-			[['id', 'owner_user_id'], 'string', 'max' => 36],
+			[['id'], 'string', 'max' => 36],
 			[['title'], 'string', 'max' => 255]
 		];
 	}
@@ -61,10 +61,10 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'title' => [],
-			'description' => [],
-			'start' => [],
-			'end' => [],
-			'active' => []
+			'description' => ['formField' => ['type' => 'textarea']],
+			'start' => ['formField' => ['type' => 'date']],
+			'end' => ['formField' => ['type' => 'date']],
+			'active' => ['formField' => ['type' => 'checkBox']]
 		];
 	}
 
@@ -74,8 +74,16 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		$settings['fields'] = [];
+		$settings['fields'][] = ['title'];
+		$settings['fields'][] = ['description'];
+		$settings['fields'][] = ['start', 'end'];
+		if ($this->isNewRecord) {
+			$settings['fields'][] = ['active'];
+		}
+		return $settings;
 	}
+
 
 	/**
 	 * @inheritdoc
@@ -84,7 +92,6 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'id' => 'ID',
-			'owner_user_id' => 'Owner User ID',
 			'title' => 'Title',
 			'description' => 'Description',
 			'start' => 'Start',

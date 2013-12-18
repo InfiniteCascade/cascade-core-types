@@ -11,7 +11,6 @@ class m131213_230842_initial_object_project extends \infinite\db\Migration
 		
 		$this->createTable('object_project', [
 			'id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL PRIMARY KEY',
-			'owner_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
 			'title' => 'string(255) NOT NULL',
 			'description' => 'text DEFAULT NULL',
 			'start' => 'date DEFAULT NULL',
