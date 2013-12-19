@@ -69,8 +69,8 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'start' => [],
 			'end' => [],
 			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],
-			'revenue' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
-			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
+			'revenue' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
+			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
 		];
 	}
 
@@ -103,7 +103,6 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'description' => 'Description',
 			'start' => 'Start',
 			'end' => 'End',
-			'billable' => 'Billable',
 			'hours' => 'Hours',
 			'revenue' => 'Revenue',
 			'cost' => 'Cost',

@@ -70,8 +70,8 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 			'start' => [],
 			'end' => [],
 			'status' => [],
-			'ask' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
-			'award' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
+			'ask' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
+			'award' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
 		];
 	}
 
