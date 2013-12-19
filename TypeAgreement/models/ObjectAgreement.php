@@ -12,7 +12,6 @@ use cascade\models\Registry;
  * @property string $description
  * @property string $start
  * @property string $end
- * @property string $billable
  * @property string $hours
  * @property string $revenue
  * @property string $cost
@@ -48,7 +47,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			[['title', 'description'], 'required'],
-			[['description', 'billable'], 'string'],
+			[['description'], 'string'],
 			[['start', 'end'], 'safe'],
 			[['hours', 'revenue', 'cost'], 'number'],
 			[['id'], 'string', 'max' => 36],
@@ -69,10 +68,9 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'description' => [],
 			'start' => [],
 			'end' => [],
-			'billable' => [],
-			'hours' => [],
-			'revenue' => [],
-			'cost' => []
+			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],
+			'revenue' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
+			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
 		];
 	}
 
@@ -82,7 +80,15 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		if (!isset($settings['fields'])) {
+			$settings['fields'] = [];
+		}
+		$settings['fields'][] = ['number' => ['columns' => 4], 'title'];
+		$settings['fields'][] = ['description'];
+		$settings['fields'][] = ['start', 'end'];
+		$settings['fields'][] = ['hours', 'revenue', 'cost'];
+		// $settings['fields'][] = [];
+		return $settings;
 	}
 
 	/**

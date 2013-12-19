@@ -16,7 +16,6 @@ class m131217_212804_initial_object_agreement extends \infinite\db\Migration
 			'description' => 'text NOT NULL',
 			'start' => 'date DEFAULT NULL',
 			'end' => 'date DEFAULT NULL',
-			'billable' => 'enum(\'a\',\'m\',\'q\',\'fq\',\'fa\',\'req\') DEFAULT NULL',
 			'hours' => 'decimal(11,2) DEFAULT NULL',
 			'revenue' => 'decimal(11,2) DEFAULT NULL',
 			'cost' => 'decimal(11,2) DEFAULT NULL',

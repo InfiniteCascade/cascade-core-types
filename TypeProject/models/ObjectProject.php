@@ -74,11 +74,13 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		$settings['fields'] = [];
+		if (!isset($settings['fields'])) {
+			$settings['fields'] = [];
+		}
 		$settings['fields'][] = ['title'];
 		$settings['fields'][] = ['description'];
 		$settings['fields'][] = ['start', 'end'];
-		if ($this->isNewRecord) {
+		if (!$this->isNewRecord) {
 			$settings['fields'][] = ['active'];
 		}
 		return $settings;

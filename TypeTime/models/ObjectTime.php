@@ -56,7 +56,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'description' => [],
-			'hours' => [],
+			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],
 			'log_date' => []
 		];
 	}
@@ -67,7 +67,12 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		if (!isset($settings['fields'])) {
+			$settings['fields'] = [];
+		}
+		$settings['fields'][] = ['hours', 'log_date'];
+		$settings['fields'][] = ['description'];
+		return $settings;
 	}
 
 	/**

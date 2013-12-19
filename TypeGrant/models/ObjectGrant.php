@@ -1,6 +1,8 @@
 <?php
 namespace cascade\modules\core\TypeGrant\models;
 
+use Yii;
+
 use cascade\models\Registry;
 
 /**
@@ -63,13 +65,13 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'title' => [],
-			'description' => [],
+			'description' => ['formField' => ['type' => 'textarea']],
 			'determination' => [],
 			'start' => [],
 			'end' => [],
 			'status' => [],
-			'ask' => [],
-			'award' => []
+			'ask' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
+			'award' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => Yii::$app->params['currencySymbol']]]],
 		];
 	}
 
@@ -79,7 +81,17 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		if (!isset($settings['fields'])) {
+			$settings['fields'] = [];
+		}
+		$settings['fields'][] = ['title'];
+		$settings['fields'][] = ['description'];
+		$settings['fields'][] = ['determination', 'start', 'end'];
+		$settings['fields'][] = ['ask', 'award'];
+		if (!$this->isNewRecord) {
+			$settings['fields'][] = ['active'];
+		}
+		return $settings;
 	}
 
 	/**
@@ -91,9 +103,9 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 			'id' => 'ID',
 			'title' => 'Title',
 			'description' => 'Description',
-			'determination' => 'Determination',
-			'start' => 'Start',
-			'end' => 'End',
+			'determination' => 'Determination Date',
+			'start' => 'Start Date',
+			'end' => 'End Date',
 			'status' => 'Status',
 			'ask' => 'Ask',
 			'award' => 'Award',
