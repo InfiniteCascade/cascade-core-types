@@ -4,6 +4,8 @@ namespace cascade\modules\core\TypeEvent;
 
 use Yii;
 
+use cascade\components\types\Relationship;
+
 class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Event';
@@ -40,6 +42,7 @@ class Module extends \cascade\components\types\Module
 	{
 		return [
 			'Account' => [],
+			'Individual' => [],
 			'Grant' => [],
 			'Project' => [],
 		];
@@ -55,7 +58,6 @@ class Module extends \cascade\components\types\Module
 			'TaskSet' => [],
 			'Note' => [],
 			'File' => [],
-			'Individual' => [],
 ];
 	}
 

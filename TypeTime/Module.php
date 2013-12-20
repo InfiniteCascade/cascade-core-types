@@ -4,6 +4,8 @@ namespace cascade\modules\core\TypeTime;
 
 use Yii;
 
+use cascade\components\types\Relationship;
+
 use infinite\base\language\Noun;
 
 class Module extends \cascade\components\types\Module

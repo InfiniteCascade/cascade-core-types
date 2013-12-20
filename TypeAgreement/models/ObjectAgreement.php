@@ -67,7 +67,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 		return [
 			'number' => [],
 			'title' => [],
-			'description' => ['formField' => ['type' => 'textarea']],
+			'description' => [],
 			'start' => [],
 			'end' => [],
 			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],

@@ -4,6 +4,8 @@ namespace cascade\modules\core\TypeGrant;
 
 use Yii;
 
+use cascade\components\types\Relationship;
+
 class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Grant';
@@ -39,8 +41,6 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
-			'Account' => [],
-			'Individual' => [],
 		];
 	}
 
@@ -51,6 +51,8 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
+			'Account' => [],
+			'Individual' => [],
 			'File' => [],
 			'Time' => [],
 			'TaskSet' => [],

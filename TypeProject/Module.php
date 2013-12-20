@@ -4,6 +4,8 @@ namespace cascade\modules\core\TypeProject;
 
 use Yii;
 
+use cascade\components\types\Relationship;
+
 class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Project';
@@ -39,8 +41,6 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
-			'Individual' => [],
-			'Account' => [],
 		];
 	}
 
@@ -55,6 +55,9 @@ class Module extends \cascade\components\types\Module
 			'Note' => [],
 			'Time' => [],
 			'TaskSet' => [],
+			
+			'Individual' => [],
+			'Account' => [],
 ];
 	}
 

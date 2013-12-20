@@ -57,7 +57,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'name' => [],
-			'description' => ['formField' => ['type' => 'textarea']],
+			'description' => [],
 			'start' => [],
 			'end' => []
 		];

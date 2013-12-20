@@ -1,18 +1,21 @@
 <?php
 
-namespace cascade\modules\core\TypeTaskSet\modules\TypeTask;
+namespace cascade\modules\core\TypeTask;
 
 use Yii;
+
+use cascade\components\types\Relationship;
 
 class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Task';
 	public $icon = 'fa fa-check';
-	public $uniparental = true;
 	public $hasDashboard = false;
+	public $uniparental = false;
+	public $priority = 1000;
 
-	public $widgetNamespace = 'cascade\modules\core\TypeTaskSet\modules\TypeTask\widgets';
-	public $modelNamespace = 'cascade\modules\core\TypeTaskSet\modules\TypeTask\models';
+	public $widgetNamespace = 'cascade\modules\core\TypeTask\widgets';
+	public $modelNamespace = 'cascade\modules\core\TypeTask\models';
 
 	/**
 	 * @inheritdoc
@@ -21,7 +24,7 @@ class Module extends \cascade\components\types\Module
 	{
 		parent::init();
 		
-		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeTaskSet/modules/TypeTask/migrations');
+		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeTask/migrations');
 	}
 
 	/**
@@ -39,8 +42,11 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
-			'TaskSet' => [],
+			'Project' => [],
 			'Individual' => [],
+			'Grant' => [],
+			'Event' => [],
+			'Time' => [],
 		];
 	}
 
@@ -50,7 +56,10 @@ class Module extends \cascade\components\types\Module
 	 */
 	public function children()
 	{
-		return [];
+		return [
+			'File' => [],
+			'Note' => [],
+];
 	}
 
 	

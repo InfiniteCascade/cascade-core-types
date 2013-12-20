@@ -1,5 +1,5 @@
 <?php
-namespace cascade\modules\core\TypeTaskSet\modules\TypeTask\models;
+namespace cascade\modules\core\TypeTask\models;
 
 use cascade\models\Registry;
 
@@ -7,8 +7,7 @@ use cascade\models\Registry;
  * This is the model class for table "object_task".
  *
  * @property string $id
- * @property string $object_task_set_id
- * @property string $description
+ * @property string $task
  * @property string $start
  * @property string $end
  * @property boolean $completed
@@ -16,11 +15,10 @@ use cascade\models\Registry;
  * @property string $modified
  *
  * @property Registry $registry
- * @property ObjectTaskSet $objectTaskSet
  */
 class ObjectTask extends \cascade\components\types\ActiveRecord
 {
-	public $descriptorField = 'description';
+	public $descriptorField = 'task';
 
 	/**
 	 * @inheritdoc
@@ -44,11 +42,11 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['object_task_set_id', 'description'], 'required'],
-			[['description'], 'string'],
+			[['task'], 'required'],
+			[['task'], 'string'],
 			[['start', 'end'], 'safe'],
 			[['completed'], 'boolean'],
-			[['id', 'object_task_set_id'], 'string', 'max' => 36]
+			[['id'], 'string', 'max' => 36]
 		];
 	}
 
@@ -59,7 +57,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	public function fieldSettings()
 	{
 		return [
-			'description' => [],
+			'task' => [],
 			'start' => [],
 			'end' => [],
 			'completed' => []
@@ -72,7 +70,16 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		$settings = parent::formSettings($name, $settings);
+		if (!array_key_exists('title', $settings)) {
+			$settings['title'] = false;
+		}
+		$settings['fields'] = array();
+		$settings['fields'][] = ['task'];
+		$settings['fields'][] = ['start', 'end'];
+		$settings['fields'][] = ['completed'];
+
+		return $settings;
 	}
 
 	/**
@@ -82,10 +89,9 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'id' => 'ID',
-			'object_task_set_id' => 'Object Task Set ID',
-			'description' => 'Description',
-			'start' => 'Start',
-			'end' => 'End',
+			'task' => 'Task',
+			'start' => 'Start Date',
+			'end' => 'Due Date',
 			'completed' => 'Completed',
 			'created' => 'Created',
 			'modified' => 'Modified',
@@ -98,13 +104,5 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	public function getRegistry()
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
-	}
-
-	/**
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getObjectTaskSet()
-	{
-		return $this->hasOne(ObjectTaskSet::className(), ['id' => 'object_task_set_id']);
 	}
 }

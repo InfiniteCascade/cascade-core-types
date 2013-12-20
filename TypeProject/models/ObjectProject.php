@@ -61,7 +61,7 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'title' => [],
-			'description' => ['formField' => ['type' => 'textarea']],
+			'description' => [],
 			'start' => ['formField' => ['type' => 'date']],
 			'end' => ['formField' => ['type' => 'date']],
 			'active' => ['formField' => ['type' => 'checkBox']]

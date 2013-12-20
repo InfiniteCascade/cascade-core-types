@@ -65,7 +65,7 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'title' => [],
-			'description' => ['formField' => ['type' => 'textarea']],
+			'description' => [],
 			'determination' => [],
 			'start' => [],
 			'end' => [],

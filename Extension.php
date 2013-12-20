@@ -40,8 +40,8 @@ class Extension extends \cascade\components\base\ModuleSetExtension {
 		$m['TypeProject'] = [
 			'class' => 'cascade\\modules\\core\\TypeProject\\Module'
 		];
-		$m['TypeTaskSet'] = [
-			'class' => 'cascade\\modules\\core\\TypeTaskSet\\Module'
+		$m['TypeTask'] = [
+			'class' => 'cascade\\modules\\core\\TypeTask\\Module'
 		];
 		$m['TypeTime'] = [
 			'class' => 'cascade\\modules\\core\\TypeTime\\Module'

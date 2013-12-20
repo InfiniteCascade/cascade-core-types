@@ -1,6 +1,6 @@
 <?php
 
-namespace cascade\modules\core\TypeTaskSet\widgets;
+namespace cascade\modules\core\TypeTask\widgets;
 
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {

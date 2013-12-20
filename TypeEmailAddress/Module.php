@@ -4,6 +4,8 @@ namespace cascade\modules\core\TypeEmailAddress;
 
 use Yii;
 
+use cascade\components\types\Relationship;
+
 class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Email Address';
