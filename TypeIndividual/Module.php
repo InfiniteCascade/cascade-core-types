@@ -10,6 +10,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-user';
 	public $uniparental = false;
 	public $hasDashboard = true;
+	public $priority = 110;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeIndividual\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeIndividual\models';
@@ -29,7 +30,9 @@ class Module extends \cascade\components\types\Module
 	 */
 	public function widgets()
 	{
-		return parent::widgets();
+		$widgets = parent::widgets();
+		$widgets['EmbeddedIndividualBrowse']['section'] = Yii::$app->collectors['sections']->getOne('_side');
+		return $widgets;
 	}
 
 	
@@ -50,10 +53,10 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
-			'PostalAddress' => ['uniqueChild' => true],
-			'EmailAddress' => ['uniqueChild' => true],
-			'PhoneNumber' => ['uniqueChild' => true],
-			'WebAddress' => ['uniqueChild' => true],
+			'PostalAddress' => [],
+			'EmailAddress' => [],
+			'PhoneNumber' => [],
+			'WebAddress' => [],
 		];
 	}
 

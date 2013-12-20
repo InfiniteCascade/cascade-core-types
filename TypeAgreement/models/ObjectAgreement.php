@@ -1,6 +1,8 @@
 <?php
 namespace cascade\modules\core\TypeAgreement\models;
 
+use Yii;
+
 use cascade\models\Registry;
 
 /**
@@ -65,7 +67,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 		return [
 			'number' => [],
 			'title' => [],
-			'description' => [],
+			'description' => ['formField' => ['type' => 'textarea']],
 			'start' => [],
 			'end' => [],
 			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],

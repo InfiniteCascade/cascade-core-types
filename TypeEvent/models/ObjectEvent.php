@@ -1,14 +1,14 @@
 <?php
-namespace cascade\modules\core\TypeActivity\models;
+namespace cascade\modules\core\TypeEvent\models;
 
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_activity".
+ * This is the model class for table "object_event".
  *
  * @property string $id
- * @property string $summary
- * @property string $details
+ * @property string $name
+ * @property string $description
  * @property string $start
  * @property string $end
  * @property string $created
@@ -16,16 +16,16 @@ use cascade\models\Registry;
  *
  * @property Registry $registry
  */
-class ObjectActivity extends \cascade\components\types\ActiveRecord
+class ObjectEvent extends \cascade\components\types\ActiveRecord
 {
-	public $descriptorField = 'summary';
+	public $descriptorField = 'name';
 
 	/**
 	 * @inheritdoc
 	 */
 	public static function tableName()
 	{
-		return 'object_activity';
+		return 'object_event';
 	}
 
 	/**
@@ -42,11 +42,10 @@ class ObjectActivity extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['summary'], 'required'],
-			[['details'], 'string'],
+			[['description'], 'string'],
 			[['start', 'end'], 'safe'],
 			[['id'], 'string', 'max' => 36],
-			[['summary'], 'string', 'max' => 255]
+			[['name'], 'string', 'max' => 255]
 		];
 	}
 
@@ -57,8 +56,8 @@ class ObjectActivity extends \cascade\components\types\ActiveRecord
 	public function fieldSettings()
 	{
 		return [
-			'summary' => [],
-			'details' => [],
+			'name' => [],
+			'description' => ['formField' => ['type' => 'textarea']],
 			'start' => [],
 			'end' => []
 		];
@@ -70,7 +69,14 @@ class ObjectActivity extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		if (!isset($settings['fields'])) {
+			$settings['fields'] = [];
+		}
+		$settings['fields'][] = ['name'];
+		$settings['fields'][] = ['description'];
+		$settings['fields'][] = ['start', 'end'];
+		// $settings['fields'][] = [];
+		return $settings;
 	}
 
 	/**
@@ -80,8 +86,8 @@ class ObjectActivity extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'id' => 'ID',
-			'summary' => 'Summary',
-			'details' => 'Details',
+			'name' => 'Name',
+			'description' => 'Description',
 			'start' => 'Start',
 			'end' => 'End',
 			'created' => 'Created',

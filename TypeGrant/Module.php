@@ -51,12 +51,12 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
-			'File' => ['uniqueChild' => true],
-			'Time' => ['uniqueChild' => true],
-			'TaskSet' => ['uniqueChild' => true],
-			'Note' => ['uniqueChild' => true],
-			'Activity' => ['uniqueChild' => true],
-			'GrantAction' => ['uniqueChild' => true],
+			'File' => [],
+			'Time' => [],
+			'TaskSet' => [],
+			'Note' => [],
+			'Activity' => [],
+			'GrantAction' => [],
 ];
 	}
 

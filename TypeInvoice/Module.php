@@ -51,8 +51,8 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
-			'File' => ['uniqueChild' => true],
-			'Note' => ['uniqueChild' => true],
+			'File' => [],
+			'Note' => [],
 ];
 	}
 

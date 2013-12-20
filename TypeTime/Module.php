@@ -4,9 +4,11 @@ namespace cascade\modules\core\TypeTime;
 
 use Yii;
 
+use infinite\base\language\Noun;
+
 class Module extends \cascade\components\types\Module
 {
-	protected $_title = 'Time';
+	protected $_title = 'Tracked Time';
 	public $icon = 'fa fa-clock-o';
 	public $uniparental = false;
 	public $hasDashboard = false;
@@ -51,9 +53,9 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
-			'File' => ['uniqueChild' => true],
-			'Note' => ['uniqueChild' => true],
-];
+			'File' => [],
+			'Note' => [],
+		];
 	}
 
 	
@@ -63,5 +65,12 @@ class Module extends \cascade\components\types\Module
 	public function taxonomies()
 	{
 		return [];
+	}
+
+	public function getTitle() {
+		if (!is_object($this->_title)) {
+			$this->_title = new Noun($this->_title, ['plural' => $this->_title]);
+		}
+		return $this->_title;
 	}
 }

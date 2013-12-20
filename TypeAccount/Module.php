@@ -10,6 +10,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-building-o';
 	public $uniparental = false;
 	public $hasDashboard = true;
+	public $priority = 105;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeAccount\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeAccount\models';
@@ -29,7 +30,9 @@ class Module extends \cascade\components\types\Module
 	 */
 	public function widgets()
 	{
-		return parent::widgets();
+		$widgets = parent::widgets();
+		$widgets['EmbeddedAccountBrowse']['section'] = Yii::$app->collectors['sections']->getOne('_side');
+		return $widgets;
 	}
 
 	
@@ -50,11 +53,11 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
-			'Account' => ['uniqueChild' => true],
-			'Individual' => ['uniqueChild' => true],
-			'PhoneNumber' => ['uniqueChild' => true],
-			'PostalAddress' => ['uniqueChild' => true],
-			'WebAddress' => ['uniqueChild' => true],
+			'Account' => [],
+			'Individual' => [],
+			'PhoneNumber' => [],
+			'PostalAddress' => [],
+			'WebAddress' => [],
 		];
 	}
 

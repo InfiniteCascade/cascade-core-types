@@ -40,6 +40,7 @@ class Module extends \cascade\components\types\Module
 	{
 		return [
 			'TaskSet' => [],
+			'Individual' => [],
 		];
 	}
 

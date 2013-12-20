@@ -1,18 +1,18 @@
 <?php
 
-namespace cascade\modules\core\TypeActivity;
+namespace cascade\modules\core\TypeEvent;
 
 use Yii;
 
 class Module extends \cascade\components\types\Module
 {
-	protected $_title = 'Activity';
-	public $icon = 'fa fa-bolt';
+	protected $_title = 'Event';
+	public $icon = 'fa fa-calendar';
 	public $uniparental = false;
-	public $hasDashboard = false;
+	public $hasDashboard = true;
 
-	public $widgetNamespace = 'cascade\modules\core\TypeActivity\widgets';
-	public $modelNamespace = 'cascade\modules\core\TypeActivity\models';
+	public $widgetNamespace = 'cascade\modules\core\TypeEvent\widgets';
+	public $modelNamespace = 'cascade\modules\core\TypeEvent\models';
 
 	/**
 	 * @inheritdoc
@@ -21,7 +21,7 @@ class Module extends \cascade\components\types\Module
 	{
 		parent::init();
 		
-		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeActivity/migrations');
+		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeEvent/migrations');
 	}
 
 	/**
@@ -39,9 +39,9 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
-			'Individual' => [],
 			'Account' => [],
-			'Task' => [],
+			'Grant' => [],
+			'Project' => [],
 		];
 	}
 
@@ -52,8 +52,10 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
-			'File' => ['uniqueChild' => true],
-			'Note' => ['uniqueChild' => true],
+			'TaskSet' => [],
+			'Note' => [],
+			'File' => [],
+			'Individual' => [],
 ];
 	}
 

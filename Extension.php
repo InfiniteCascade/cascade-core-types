@@ -58,8 +58,8 @@ class Extension extends \cascade\components\base\ModuleSetExtension {
 		$m['TypeInvoice'] = [
 			'class' => 'cascade\\modules\\core\\TypeInvoice\\Module'
 		];
-		$m['TypeActivity'] = [
-			'class' => 'cascade\\modules\\core\\TypeActivity\\Module'
+		$m['TypeEvent'] = [
+			'class' => 'cascade\\modules\\core\\TypeEvent\\Module'
 		];
 		return $m;
 	}
