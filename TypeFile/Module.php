@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-paperclip';
 	public $uniparental = false;
 	public $hasDashboard = false;
+	public $priority = 2300;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeFile\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeFile\models';

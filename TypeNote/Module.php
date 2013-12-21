@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-file-text-o';
 	public $uniparental = false;
 	public $hasDashboard = false;
+	public $priority = 2400;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeNote\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeNote\models';

@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-money';
 	public $uniparental = false;
 	public $hasDashboard = true;
+	public $priority = 2150;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeInvoice\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeInvoice\models';

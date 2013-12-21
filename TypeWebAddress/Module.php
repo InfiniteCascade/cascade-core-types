@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-external-link';
 	public $uniparental = true;
 	public $hasDashboard = false;
+	public $priority = 2600;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeWebAddress\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeWebAddress\models';

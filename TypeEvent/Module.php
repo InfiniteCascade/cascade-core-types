@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-calendar';
 	public $uniparental = false;
 	public $hasDashboard = true;
+	public $priority = 2100;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeEvent\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeEvent\models';

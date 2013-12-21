@@ -14,6 +14,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-clock-o';
 	public $uniparental = false;
 	public $hasDashboard = false;
+	public $priority = 2400;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeTime\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeTime\models';

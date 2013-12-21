@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-sun-o';
 	public $uniparental = true;
 	public $hasDashboard = false;
+	public $priority = 10;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeGrantAction\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeGrantAction\models';

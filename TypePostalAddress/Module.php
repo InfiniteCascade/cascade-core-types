@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-envelope';
 	public $uniparental = true;
 	public $hasDashboard = false;
+	public $priority = 2100;
 
 	public $widgetNamespace = 'cascade\modules\core\TypePostalAddress\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypePostalAddress\models';

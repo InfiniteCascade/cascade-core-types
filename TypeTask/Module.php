@@ -12,7 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-check';
 	public $hasDashboard = false;
 	public $uniparental = false;
-	public $priority = 1000;
+	public $priority = 2300;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeTask\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeTask\models';

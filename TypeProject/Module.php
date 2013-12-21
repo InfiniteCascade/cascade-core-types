@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-briefcase';
 	public $uniparental = false;
 	public $hasDashboard = true;
+	public $priority = 1400;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeProject\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeProject\models';

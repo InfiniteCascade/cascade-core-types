@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-exchange';
 	public $uniparental = false;
 	public $hasDashboard = true;
+	public $priority = 1900;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeAgreement\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeAgreement\models';
