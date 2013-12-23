@@ -1,29 +1,29 @@
 <?php
 
-$classSettings = array();
+$classSettings = [];
 $classSettings['id'] = $this->widgetId .'-grid';
 $classSettings['dataProvider'] = $items;
 $classSettings['emptyText'] = 'No '. $this->Owner->title->plural .' found.';
 $classSettings['widget'] = $this->widgetId;
 $classSettings['state'] = $this->state;
 $classSettings['limit'] = 10;
-$classSettings['columns'] = array('link');
-$classSettings['sortableAttributes'] = array(
+$classSettings['columns'] = ['link'];
+$classSettings['sortableAttributes'] = [
 			'familiarity' => 'Familiarity',
-			'last_accessed' => 'Last Accessed');
-$classSettings['views'] = array('grid');
+			'last_accessed' => 'Last Accessed'];
+$classSettings['views'] = ['grid'];
 $classSettings['currentView'] = 'grid';
 $classSettings['additionalClasses'] = 'summary-widget';
 // $classSettings['descriptor'] = $objectPrefix .'descriptor';
-$templateContent = array(
+$templateContent = [
 	'link',
-);
+];
 
-$classSettings['rendererSettings'] = array(
-	'grid' => array(
+$classSettings['rendererSettings'] = [
+	'grid' => [
 		'templateContent' => $templateContent
-	)
-);
+	]
+];
 
 $this->widget('\cascade\components\web\widgets\grid\View', $classSettings);
 

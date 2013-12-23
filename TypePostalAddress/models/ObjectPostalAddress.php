@@ -74,12 +74,12 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 			'city' => [],
 			'subnational_division' => [
 				'default' => Yii::$app->params['defaultSubnationalDivision'],
-				'formField' => array('type' => 'smartDropDownList', 'smartOptions' => ['watchField' => 'country', 'fallbackType' => ['tag' => 'input', 'type' => 'text'], 'options' => Locations::allSubnationalDivisions(), 'blank' => true], 'options' => []),
+				'formField' => ['type' => 'smartDropDownList', 'smartOptions' => ['watchField' => 'country', 'fallbackType' => ['tag' => 'input', 'type' => 'text'], 'options' => Locations::allSubnationalDivisions(), 'blank' => true], 'options' => []],
 			],
 			'postal_code' => [],
 			'country' => [
 				'default' => Yii::$app->params['defaultCountry'],
-				'formField' => array('type' => 'dropDownList', 'options' => Locations::countryList()),
+				'formField' => ['type' => 'dropDownList', 'options' => Locations::countryList()],
 			],
 			'no_mailings' => []
 		];
@@ -94,7 +94,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 		if (!array_key_exists('title', $settings)) {
 			$settings['title'] = false;
 		}
-		$settings['fields'] = array();
+		$settings['fields'] = [];
 		$settings['fields'][] = ['relation:taxonomy_id', 'name' => ['columns' => 8]];
 		$settings['fields'][] = ['address1', 'address2'];
 		$settings['fields'][] = ['city', 'subnational_division', 'postal_code'];

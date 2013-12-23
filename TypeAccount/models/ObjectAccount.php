@@ -75,7 +75,7 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 		if (!array_key_exists('title', $settings)) {
 			$settings['title'] = false;
 		}
-		$settings['fields'] = array();
+		$settings['fields'] = [];
 		$settings['fields'][] = ['name' => ['columns' => 8], 'alt_name' => ['columns' => 4]];
 		if ($this->isNewRecord) {
 			$settings['fields'][] = ['parent:Account'];

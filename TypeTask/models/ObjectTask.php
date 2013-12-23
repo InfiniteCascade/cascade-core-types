@@ -74,7 +74,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		if (!array_key_exists('title', $settings)) {
 			$settings['title'] = false;
 		}
-		$settings['fields'] = array();
+		$settings['fields'] = [];
 		$settings['fields'][] = ['task'];
 		$settings['fields'][] = ['start', 'end'];
 		$settings['fields'][] = ['completed'];

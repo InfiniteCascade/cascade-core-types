@@ -71,7 +71,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 		if (!array_key_exists('title', $settings)) {
 			$settings['title'] = false;
 		}
-		$settings['fields'] = array();
+		$settings['fields'] = [];
 		$settings['fields'][] = ['phone' => [ 'columns' => 8], 'extension' => ['columns' => 4]];
 		if (!$this->isNewRecord) {
 			$settings['fields'][] = ['no_call'];
