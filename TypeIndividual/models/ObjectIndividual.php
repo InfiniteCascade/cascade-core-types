@@ -57,7 +57,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['first_name', 'department'], 'required'],
+			[['first_name'], 'required'],
 			[['birthday'], 'safe'],
 			[['id', 'user_id', 'created_user_id', 'modified_user_id', 'deleted_user_id'], 'string', 'max' => 36],
 			[['prefix', 'suffix', 'first_name', 'middle_name', 'last_name', 'title', 'department'], 'string', 'max' => 255]

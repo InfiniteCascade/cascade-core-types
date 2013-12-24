@@ -50,6 +50,12 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+	public function getDefaultValues()
+	{
+		return [
+			'completed' => 0
+		];
+	}
 
 	/**
 	 * @inheritdoc

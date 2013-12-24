@@ -4,6 +4,7 @@ namespace cascade\modules\core\TypeAgreement\models;
 use Yii;
 
 use cascade\models\Registry;
+use infinite\helpers\Date;
 
 /**
  * This is the model class for table "object_agreement".
@@ -58,6 +59,15 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+	/**
+	 * @inheritdoc
+	 */
+	public function getDefaultValues()
+	{
+		return [
+			'start' => Date::date("m/d/Y")
+		];
+	}
 
 	/**
 	 * @inheritdoc
