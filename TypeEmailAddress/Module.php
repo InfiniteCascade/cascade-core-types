@@ -33,7 +33,7 @@ class Module extends \cascade\components\types\Module
 	public function widgets()
 	{
 		$widgets = parent::widgets();
-		$widgets['EmbeddedEmailAddressBrowse']['section'] = Yii::$app->collectors['sections']->getOne('_side');
+		$widgets['ChildrenEmailAddressBrowse']['section'] = Yii::$app->collectors['sections']->getOne('_side');
 		return $widgets;
 	}
 

@@ -2,7 +2,7 @@
 
 namespace cascade\modules\core\TypeWebAddress\widgets;
 
-class EmbeddedList extends \cascade\components\web\widgets\base\SideList
+class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
 	public $renderContentTemplate = ['link' => ['class' => 'list-group-item-heading', 'tag' => 'h5']];
 }

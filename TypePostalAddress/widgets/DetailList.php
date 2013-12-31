@@ -6,7 +6,7 @@ use Yii;
 use infinite\helpers\Html;
 use infinite\helpers\StringHelper;
 
-class EmbeddedList extends \cascade\components\web\widgets\base\SideList
+class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
 	public $renderContentTemplate = ['name' => ['class' => 'list-group-item-heading', 'tag' => 'h5'], 'address1', 'address2', 'csz', 'uniqueCountry'];
 	
