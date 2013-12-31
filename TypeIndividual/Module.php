@@ -27,15 +27,15 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeIndividual/migrations');
 	}
 
-	/**
-	 * @inheritdoc
-	 */
-	public function widgets()
-	{
-		$widgets = parent::widgets();
-		$widgets['EmbeddedIndividualBrowse']['section'] = Yii::$app->collectors['sections']->getOne('_side');
-		return $widgets;
-	}
+	// /**
+	//  * @inheritdoc
+	//  */
+	// public function widgets()
+	// {
+	// 	$widgets = parent::widgets();
+	// 	$widgets['EmbeddedIndividualBrowse']['section'] = Yii::$app->collectors['sections']->getOne('_side');
+	// 	return $widgets;
+	// }
 
 	
 	/**

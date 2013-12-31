@@ -4,7 +4,7 @@ namespace cascade\modules\core\TypeAgreement\widgets;
 
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
-	public function generateContent() {
+	public function generateContent2() {
 		return "<pre>Vero nihil artisan, nisi yr XOXO gastropub tempor magna salvia. Chillwave squid readymade, stumptown +1 Brooklyn nesciunt semiotics artisan commodo. Next level excepteur lomo cupidatat pop-up ut. Shoreditch leggings art party, pour-over fashion axe elit organic 8-bit eiusmod fap synth keytar ennui ex. Deserunt nisi American Apparel trust fund officia, Vice jean shorts wolf Neutra mlkshk salvia art party dolore. In Blue Bottle commodo, Godard PBR selfies iPhone art party minim cred tempor. Ullamco mixtape velit nostrud id, sriracha fanny pack slow-carb tousled art party Pitchfork Banksy Pinterest yr sustainable.
 
 Trust fund food truck Pitchfork Tumblr magna 8-bit. Elit exercitation consequat semiotics selvage photo booth squid, food truck officia. Ethical delectus salvia paleo authentic. Drinking vinegar retro minim odio sriracha Tonx. Magna non bicycle rights, exercitation forage shabby chic sapiente consequat VHS. Banh mi delectus selvage 8-bit, keffiyeh Pinterest sriracha minim Tonx meggings kogi quis art party fashion axe. VHS occaecat paleo authentic placeat, gentrify deep v direct trade mollit Tumblr next level fap.
