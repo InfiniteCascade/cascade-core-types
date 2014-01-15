@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-phone';
 	public $uniparental = true;
 	public $hasDashboard = false;
+	public $searchForParent = true;
 	public $priority = 2300;
 
 	public $widgetNamespace = 'cascade\modules\core\TypePhoneNumber\widgets';

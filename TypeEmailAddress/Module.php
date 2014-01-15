@@ -12,6 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-envelope-o';
 	public $uniparental = true;
 	public $hasDashboard = false;
+	public $searchForParent = true;
 	public $priority = 2200;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeEmailAddress\widgets';
