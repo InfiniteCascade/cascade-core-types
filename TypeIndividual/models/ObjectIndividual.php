@@ -34,7 +34,7 @@ use cascade\models\Registry;
 class ObjectIndividual extends \cascade\components\types\ActiveRecord
 {
 	public $descriptorField = ['first_name', 'middle_name', 'last_name'];
-
+	public $subdescriptorFields = ['parent:Account'];
 	/**
 	 * @inheritdoc
 	 */
