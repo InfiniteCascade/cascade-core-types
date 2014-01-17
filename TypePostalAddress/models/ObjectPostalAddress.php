@@ -152,6 +152,14 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 		return $str;
 	}
 
+	public function getCitySubnational() {
+		$str = $this->city;
+		if (!empty($this->subnational_division)) {
+			$str .= ", ". $this->subnational_division;
+		}
+		return $str;
+	}
+
 	public function getFlatAddressUrl()
 	{
 		return urlencode($this->flatAddress);
