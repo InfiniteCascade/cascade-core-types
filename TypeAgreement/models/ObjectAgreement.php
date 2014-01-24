@@ -49,7 +49,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['title', 'description'], 'required'],
+			[['title'], 'required'],
 			[['description'], 'string'],
 			[['start', 'end'], 'safe'],
 			[['hours', 'revenue', 'cost'], 'number'],
