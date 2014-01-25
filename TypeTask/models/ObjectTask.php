@@ -44,8 +44,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		return [
 			[['task'], 'required'],
 			[['task'], 'string'],
-			[['start', 'end'], 'safe'],
-			[['completed'], 'boolean'],
+			[['completed', 'start', 'end', 'priority'], 'safe'],
 			[['id'], 'string', 'max' => 36]
 		];
 	}
@@ -66,6 +65,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 			'task' => [],
 			'start' => [],
 			'end' => [],
+			'priority' => [],
 			'completed' => []
 		];
 	}
@@ -98,6 +98,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 			'task' => 'Task',
 			'start' => 'Start Date',
 			'end' => 'Due Date',
+			'priority' => 'Priority',
 			'completed' => 'Completed',
 			'created' => 'Created',
 			'modified' => 'Modified',

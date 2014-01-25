@@ -14,7 +14,8 @@ class m131213_230842_initial_object_task extends \infinite\db\Migration
 			'task' => 'text NOT NULL',
 			'start' => 'date DEFAULT NULL',
 			'end' => 'date DEFAULT NULL',
-			'completed' => 'boolean DEFAULT 0',
+			'priority' => 'smallint DEFAULT 0',
+			'completed' => 'datetime DEFAULT NULL',
 			'created' => 'datetime DEFAULT NULL',
 			'modified' => 'datetime DEFAULT NULL'
 		]);

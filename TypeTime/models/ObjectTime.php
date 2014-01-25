@@ -10,6 +10,7 @@ use cascade\models\Registry;
  * @property string $description
  * @property string $hours
  * @property string $log_date
+ * @property binary $billable
  * @property string $created
  * @property string $modified
  *
@@ -43,7 +44,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 		return [
 			[['description'], 'string'],
 			[['hours'], 'number'],
-			[['log_date'], 'safe'],
+			[['log_date', 'billable'], 'safe'],
 			[['id'], 'string', 'max' => 36]
 		];
 	}
@@ -85,6 +86,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 			'description' => 'Description',
 			'hours' => 'Hours',
 			'log_date' => 'Log Date',
+			'billable' => 'Billable',
 			'created' => 'Created',
 			'modified' => 'Modified',
 		];

@@ -13,6 +13,7 @@ class m131213_230842_initial_object_time extends \infinite\db\Migration
 			'id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL PRIMARY KEY',
 			'description' => 'text DEFAULT NULL',
 			'hours' => 'decimal(10,2) NOT NULL DEFAULT \'0.00\'',
+			'billable' => 'boolean DEFAULT 0',
 			'log_date' => 'date DEFAULT NULL',
 			'created' => 'datetime DEFAULT NULL',
 			'modified' => 'datetime DEFAULT NULL'
