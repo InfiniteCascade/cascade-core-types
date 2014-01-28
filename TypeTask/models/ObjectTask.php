@@ -10,6 +10,8 @@ use cascade\models\Registry;
  * @property string $task
  * @property string $start
  * @property string $end
+ * @property int $priority
+ * @property int $position
  * @property boolean $completed
  * @property string $created
  * @property string $modified
@@ -44,7 +46,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		return [
 			[['task'], 'required'],
 			[['task'], 'string'],
-			[['completed', 'start', 'end', 'priority'], 'safe'],
+			[['completed', 'start', 'end', 'priority', 'position'], 'safe'],
 			[['id'], 'string', 'max' => 36]
 		];
 	}
@@ -66,6 +68,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 			'start' => [],
 			'end' => [],
 			'priority' => [],
+			'position' => [],
 			'completed' => []
 		];
 	}
@@ -99,6 +102,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 			'start' => 'Start Date',
 			'end' => 'Due Date',
 			'priority' => 'Priority',
+			'position' => 'Position',
 			'completed' => 'Completed',
 			'created' => 'Created',
 			'modified' => 'Modified',
