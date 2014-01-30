@@ -27,6 +27,17 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeAccount/migrations');
 	}
 
+	public function setup() {
+		$results = [true];
+		if (!empty($this->primaryModel) AND !empty($this->collectorItem->parents)) {
+			$primaryAccount = Yii::$app->gk->primaryAccount;
+			if ($primaryAccount) {
+				$results[] = Yii::$app->gk->allow(null, null, $primaryAccount, $this->primaryModel);
+			}
+		}
+		return min($results);
+	}
+
 	/**
 	 * @inheritdoc
 	 */

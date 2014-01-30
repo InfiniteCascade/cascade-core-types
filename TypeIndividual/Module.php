@@ -5,8 +5,9 @@ namespace cascade\modules\core\TypeIndividual;
 use Yii;
 
 use cascade\components\types\Relationship;
+use cascade\components\security\AuthorityInterface;
 
-class Module extends \cascade\components\types\Module
+class Module extends \cascade\components\types\Module implements AuthorityInterface
 {
 	protected $_title = 'Individual';
 	public $icon = 'fa fa-user';
@@ -14,8 +15,8 @@ class Module extends \cascade\components\types\Module
 	public $hasDashboard = true;
 	public $priority = 110;
 
-	public $widgetNamespace = 'cascade\modules\core\TypeIndividual\widgets';
-	public $modelNamespace = 'cascade\modules\core\TypeIndividual\models';
+	public $widgetNamespace = 'cascade\\modules\\core\\TypeIndividual\\widgets';
+	public $modelNamespace = 'cascade\\modules\\core\\TypeIndividual\\models';
 
 	/**
 	 * @inheritdoc
@@ -27,15 +28,29 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeIndividual/migrations');
 	}
 
-	// /**
-	//  * @inheritdoc
-	//  */
-	// public function widgets()
-	// {
-	// 	$widgets = parent::widgets();
-	// 	$widgets['ChildrenIndividualBrowse']['section'] = Yii::$app->collectors['sections']->getOne('_side');
-	// 	return $widgets;
-	// }
+	public function setup() {
+		$results = [true];
+		if (!empty($this->primaryModel) AND !empty($this->collectorItem->parents)) {
+			$primaryAccount = Yii::$app->gk->primaryAccount;
+			if ($primaryAccount) {
+				$results[] = Yii::$app->gk->allow(null, null, $primaryAccount, $this->primaryModel);
+			}
+		}
+		return min($results);
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function getRequestors()
+	{
+		
+	}
+
+	public function getRequestorTypes()
+	{
+		
+	}
 
 	
 	/**
