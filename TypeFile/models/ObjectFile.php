@@ -1,20 +1,19 @@
 <?php
 namespace cascade\modules\core\TypeFile\models;
 
-use cascade\models\Registry;
+
 
 /**
  * This is the model class for table "object_file".
  *
  * @property string $id
+ * @property string $storage_id
  * @property string $name
- * @property string $file_name
- * @property string $type
- * @property integer $size
  * @property string $created
  * @property string $modified
  *
  * @property Registry $registry
+ * @property Storage $storage
  */
 class ObjectFile extends \cascade\components\types\ActiveRecord
 {
@@ -42,11 +41,9 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['file_name', 'type', 'size'], 'required'],
-			[['size'], 'integer'],
-			[['id'], 'string', 'max' => 36],
-			[['name', 'file_name'], 'string', 'max' => 255],
-			[['type'], 'string', 'max' => 100]
+			[['storage_id'], 'required'],
+			[['id', 'storage_id'], 'string', 'max' => 36],
+			[['name'], 'string', 'max' => 255]
 		];
 	}
 
@@ -57,10 +54,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	public function fieldSettings()
 	{
 		return [
-			'name' => [],
-			'file_name' => ['formField' => ['type' => 'file']],
-			'type' => [],
-			'size' => []
+			'name' => []
 		];
 	}
 
@@ -70,14 +64,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		if (!array_key_exists('title', $settings)) {
-			$settings['title'] = false;
-		}
-		$settings['ignoreFields'] = ['size', 'type'];
-		$settings['fields'] = [];
-		$settings['fields'][] = ['file_name'];
-		$settings['fields'][] = ['name'];
-		return $settings;
+		return parent::formSettings($name, $settings);
 	}
 
 	/**
@@ -87,10 +74,8 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'id' => 'ID',
+			'storage_id' => 'Storage ID',
 			'name' => 'Name',
-			'file_name' => 'File Name',
-			'type' => 'Type',
-			'size' => 'Size',
 			'created' => 'Created',
 			'modified' => 'Modified',
 		];
@@ -102,5 +87,13 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	public function getRegistry()
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
+	}
+
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getStorage()
+	{
+		return $this->hasOne(Storage::className(), ['id' => 'storage_id']);
 	}
 }
