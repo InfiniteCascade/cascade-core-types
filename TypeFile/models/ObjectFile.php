@@ -32,7 +32,11 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	 */
 	public function behaviors()
 	{
-		return array_merge(parent::behaviors(), []);
+		return array_merge(parent::behaviors(), [
+				'Storage' => [
+					'class' => 'cascade\\components\\storageHandlers\\StorageBehavior',
+				]
+			]);
 	}
 
 	/**
