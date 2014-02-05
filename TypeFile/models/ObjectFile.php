@@ -54,7 +54,8 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	public function fieldSettings()
 	{
 		return [
-			'name' => []
+			'name' => [],
+			'storage_id' => ['formField' => ['type' => 'file']],
 		];
 	}
 
@@ -64,7 +65,13 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	 */
 	public function formSettings($name, $settings = [])
 	{
-		return parent::formSettings($name, $settings);
+		if (!isset($settings['fields'])) {
+			$settings['fields'] = [];
+		}
+		$settings['fields'][] = ['name'];
+		$settings['fields'][] = ['storage_id'];
+		// $settings['fields'][] = [];
+		return $settings;
 	}
 
 	/**
@@ -74,7 +81,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'id' => 'ID',
-			'storage_id' => 'Storage ID',
+			'storage_id' => 'File',
 			'name' => 'Name',
 			'created' => 'Created',
 			'modified' => 'Modified',
