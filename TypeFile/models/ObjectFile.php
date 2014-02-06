@@ -46,7 +46,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			[['storage_id'], 'required'],
-			[['id', 'storage_id'], 'string', 'max' => 36],
+			[['id'], 'string', 'max' => 36],
 			[['name'], 'string', 'max' => 255]
 		];
 	}
