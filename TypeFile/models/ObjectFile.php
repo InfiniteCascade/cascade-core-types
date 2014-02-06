@@ -27,7 +27,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 			if (empty($label)) {
 				$label = $storage->file_name;
 			} else {
-				$label .= " ({$storage->name})";
+				$label .= " ({$storage->file_name})";
 			}
 		}
 		return $label;
