@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeFile\models;
 
-
+use cascade\models\Storage;
 
 /**
  * This is the model class for table "object_file".
@@ -18,6 +18,20 @@ namespace cascade\modules\core\TypeFile\models;
 class ObjectFile extends \cascade\components\types\ActiveRecord
 {
 	public $descriptorField = 'name';
+
+	public function getDescriptor()
+	{
+		$label = $this->name;
+		$storage = $this->storage;
+		if (!empty($storage)) {
+			if (empty($label)) {
+				$label = $storage->file_name;
+			} else {
+				$label .= " ({$storage->name})";
+			}
+		}
+		return $label;
+	}
 
 	/**
 	 * @inheritdoc
