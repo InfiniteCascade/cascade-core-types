@@ -18,7 +18,17 @@ use cascade\models\Registry;
  */
 class ObjectTime extends \cascade\components\types\ActiveRecord
 {
-	public $descriptorField = 'name';
+	public $descriptorField = 'hoursWithUnit';
+
+	public function getHoursWithUnit()
+	{
+		if ($this->hours == 1) {
+			$postfix = ' hour';
+		} else {
+			$postfix = ' hours';
+		}
+		return $this->hours . $postfix;
+	}
 
 	/**
 	 * @inheritdoc
@@ -57,7 +67,10 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'description' => [],
-			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],
+			'hours' => [
+				'format' => [],
+				'formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]
+			],
 			'log_date' => []
 		];
 	}
@@ -99,4 +112,6 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
+
+
 }

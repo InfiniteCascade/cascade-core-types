@@ -13,6 +13,7 @@ class Module extends \cascade\components\types\Module
 	public $uniparental = false;
 	public $hasDashboard = true;
 	public $priority = 105;
+	public $primaryAsParent = true;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeAccount\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeAccount\models';

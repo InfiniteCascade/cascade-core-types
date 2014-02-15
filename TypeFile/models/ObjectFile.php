@@ -17,9 +17,44 @@ use cascade\models\Storage;
  */
 class ObjectFile extends \cascade\components\types\ActiveRecord
 {
-	public $descriptorField = 'name';
+	protected $_labelName;
+	public $descriptorField = 'labelName';
 
-	public function getDescriptor()
+	public function getLabelName()
+	{
+		if (is_null($this->_labelName)) {
+			$this->_labelName = $this->name;
+			$storage = $this->storage;
+			if (!empty($storage)) {
+				if (empty($this->_labelName)) {
+					$this->_labelName = $storage->file_name;
+				} else {
+					$this->_labelName .= " ({$storage->file_name})";
+				}
+			}
+		}
+		return $this->_labelName;
+	}
+
+	public function setLabelName($value)
+	{
+		if (!empty($this->name)) {
+			$this->_labelName = $this->name .' ('.$value.')';
+		} else {
+			$this->_labelName = $value;
+		}
+	}
+
+	public static function createQuery()
+	{
+		$query = parent::createQuery();
+		$alias = $query->primaryAlias;
+		$query->select(['`'. $alias .'`.*', '`storage`.`file_name` as `labelName`']);
+		$query->join('INNER JOIN', Storage::tableName() .' storage', '`storage`.`id` = `'.$alias.'`.`storage_id`');
+		return $query;
+	}
+
+/*	public function getDescriptor()
 	{
 		$label = $this->name;
 		$storage = $this->storage;
@@ -31,7 +66,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 			}
 		}
 		return $label;
-	}
+	}*/
 
 	/**
 	 * @inheritdoc
@@ -60,6 +95,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			[['storage_id'], 'required'],
+			[['labelName'], 'safe'],
 			[['id'], 'string', 'max' => 36],
 			[['name'], 'string', 'max' => 255]
 		];

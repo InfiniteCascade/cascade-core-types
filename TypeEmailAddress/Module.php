@@ -14,6 +14,7 @@ class Module extends \cascade\components\types\Module
 	public $hasDashboard = false;
 	public $searchForParent = true;
 	public $priority = 2200;
+	public $primaryAsChild = true;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeEmailAddress\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeEmailAddress\models';

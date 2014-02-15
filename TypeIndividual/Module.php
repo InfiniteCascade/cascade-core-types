@@ -14,6 +14,7 @@ class Module extends \cascade\components\types\Module implements AuthorityInterf
 	public $uniparental = false;
 	public $hasDashboard = true;
 	public $priority = 110;
+	public $primaryAsChild = true;
 
 	public $widgetNamespace = 'cascade\\modules\\core\\TypeIndividual\\widgets';
 	public $modelNamespace = 'cascade\\modules\\core\\TypeIndividual\\models';

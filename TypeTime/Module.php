@@ -7,6 +7,7 @@ use Yii;
 use cascade\components\types\Relationship;
 
 use infinite\base\language\Noun;
+use infinite\db\Query;
 
 class Module extends \cascade\components\types\Module
 {
@@ -75,5 +76,28 @@ class Module extends \cascade\components\types\Module
 			$this->_title = new Noun($this->_title, ['plural' => $this->_title]);
 		}
 		return $this->_title;
+	}
+
+	public function getStats($parentObject)
+	{
+		$stats = [];
+		$stats['total'] = $this->getTotalHours($parentObject);
+		return $stats;
+	}
+
+	public function getTotalHours($parentObject)
+	{
+		$total = 0;
+		$query = $this->getBaseStatsQuery($parentObject);
+		$query->select(['SUM(`hours`)']);
+		return $query->scalar();
+	}
+
+	public function getBaseStatsQuery($parentObject)
+	{
+		$baseQuery = $parentObject->queryChildObjects($this->primaryModel);
+		$query = new Query;
+		$query->from(['('. $baseQuery->createCommand()->rawSql .') raw']);
+		return $query;
 	}
 }

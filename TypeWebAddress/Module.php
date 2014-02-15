@@ -13,6 +13,7 @@ class Module extends \cascade\components\types\Module
 	public $uniparental = true;
 	public $hasDashboard = false;
 	public $priority = 2600;
+	public $primaryAsChild = true;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeWebAddress\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeWebAddress\models';
