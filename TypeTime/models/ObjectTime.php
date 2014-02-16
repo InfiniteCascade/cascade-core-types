@@ -55,7 +55,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 			[['description'], 'string'],
 			[['hours'], 'number'],
 			[['log_date', 'billable'], 'safe'],
-			[['id'], 'string', 'max' => 36]
+			[['id', 'contributor_individual_id'], 'string', 'max' => 36]
 		];
 	}
 
@@ -96,6 +96,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			'id' => 'ID',
+			'contributor_individual_id' => 'Contributor',
 			'description' => 'Description',
 			'hours' => 'Hours',
 			'log_date' => 'Log Date',

@@ -82,6 +82,7 @@ class Module extends \cascade\components\types\Module
 	{
 		$stats = [];
 		$stats['total'] = $this->getTotalHours($parentObject);
+		
 		return $stats;
 	}
 
