@@ -7,20 +7,38 @@ use infinite\helpers\ArrayHelper;
 
 class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 {
+	public $defaultDecoratorClass = 'cascade\\components\\web\\widgets\\decorator\\BlankDecorator';
+	protected $_stats;
 	public $location = 'right';
+
 	public function getGridCellSettings() {
 		return [
-			'columns' => 4,
-			'maxColumns' => 4
+			'columns' => 5,
+			'maxColumns' => 6,
+			'htmlOptions' => ['class' => 'no-left-padding']
 		];
 	}
-	
+
+
+	public function getIsReady()
+	{
+		return !empty($this->stats['total']);
+	}
+
+	public function getStats()
+	{
+		if (is_null($this->_stats)) {
+			$this->_stats = $this->module->getStats(Yii::$app->request->object);
+		}
+		return $this->_stats;
+	}
 
 	public function generateContent()
 	{
-		$parts = [];
-		$parts[] = print_r($this->module->getStats(Yii::$app->request->object), true);
-		return implode($parts);
+		if (!empty($this->stats['total'])) {
+			return $this->render('summary', ['stats' => $this->stats]);;
+		}
+		return false;
 	}
 
 	public function getModule()
