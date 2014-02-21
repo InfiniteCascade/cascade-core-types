@@ -11,7 +11,6 @@ class m131213_230842_initial_object_time extends \infinite\db\Migration
 		
 		$this->createTable('object_time', [
 			'id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL PRIMARY KEY',
-			'contributor_individual_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
 			'description' => 'text DEFAULT NULL',
 			'hours' => 'decimal(10,2) NOT NULL DEFAULT \'0.00\'',
 			'billable' => 'boolean DEFAULT 0',
@@ -21,7 +20,6 @@ class m131213_230842_initial_object_time extends \infinite\db\Migration
 		]);
 
 		$this->addForeignKey('objectTimeRegistry', 'object_time', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
-		$this->addForeignKey('objectTimeIndividual', 'object_time', 'contributor_individual_id', 'object_individual', 'id', 'SET NULL', 'CASCADE');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();
 

@@ -6,6 +6,8 @@ use Yii;
 
 use cascade\components\types\Relationship;
 use cascade\models\Registry;
+use cascade\models\Relation;
+use cascade\models\RelationTaxonomy;
 
 use infinite\base\language\Noun;
 use infinite\db\Query;
@@ -72,7 +74,22 @@ class Module extends \cascade\components\types\Module
 	 */
 	public function taxonomies()
 	{
-		return [];
+		return [
+			[
+				'name' => 'Individual Role',
+				'models' => [\cascade\models\Relation::className()],
+				'modules' => [self::className()],
+				'systemId' => 'ic_time_individual_role',
+				'systemVersion' => 1.0,
+				'multiple' => false,
+				'parentUnique' => true,
+				'required' => true,
+				'initialTaxonomies' => [
+					'contributor' => 'Contributor',
+					'requestor' => 'Requestor',
+				]
+			]
+		];
 	}
 
 	public function getTitle() {
@@ -86,12 +103,14 @@ class Module extends \cascade\components\types\Module
 	{
 		$cacheKey = [__CLASS__.'.'.__FUNCTION__, 'parentObject' => $parentObject->primaryKey, 'options' => $options, 'context' => ['user']];
 		$stats = Cacher::get($cacheKey);
-		if (!$stats) {
+		if (true || !$stats) {
 			$cacheDependency = $this->getCachingDependency($parentObject);
 			$stats = [];
 			$stats['total'] = $this->getTotalHours($parentObject, $options);
 			if ($parentObject->modelAlias !== ':Individual\\ObjectIndividual') {
 				$stats['top_contributors'] = $this->getTopContributors($parentObject, $options);
+			} else {
+				$stats['top_contributions'] = $this->getTopContributions($parentObject, $options);
 			}
 			$stats['month_summary'] = $this->getMonthSummary($parentObject, $options);
 			Cacher::set($cacheKey, $stats, 0, $cacheDependency);
@@ -118,21 +137,63 @@ class Module extends \cascade\components\types\Module
 
 	public function getTopContributors($parentObject, $options = [])
 	{
+		$individualType = Yii::$app->collectors['types']->getOne('Individual')->object;
+		$individualModelClass = $individualType->primaryModel;
+		$individualModelAlias = $individualModelClass::modelAlias();
+		$taxonomyType = Yii::$app->collectors['taxonomies']->getOne('ic_time_individual_role');
+		$taxonomy = $taxonomyType->getTaxonomy('contributor');
 		$limit = isset($options['limit_contributors']) ? $options['limit_contributors'] : 5;
 		$query = $this->getBaseStatsQuery($parentObject);
-		$query->select(['contributor_individual_id', 'SUM(`hours`) as sum']);
-		$query->groupBy(['contributor_individual_id']);
+		$query->join('LEFT JOIN', Relation::tableName() . ' r2', 'r2.child_object_id=innerQuery.id');
+		$query->join('LEFT JOIN', Registry::tableName() . ' reg', 'r2.parent_object_id=reg.id');
+		$query->join('LEFT JOIN', RelationTaxonomy::tableName() . ' tax', 'r2.id=tax.relation_id');
+		$query->select(['r2.parent_object_id', 'SUM(`hours`) as sum']);
+		$query->groupBy(['r2.parent_object_id']);
+		$query->andWhere(['reg.object_model' => $individualModelAlias]);
+		$query->andWhere(['tax.taxonomy_id' => $taxonomy->primaryKey]);
 		$query->addOrderBy(['SUM(`hours`)' => SORT_DESC]);
 		$query->limit($limit);
 		$c = [];
 		foreach ($query->each() as $row) {
-			$individual = Registry::getObject($row['contributor_individual_id']);
+			$individual = Registry::getObject($row['parent_object_id']);
 			if (!$individual) { continue; }
-			$c[$row['contributor_individual_id']] = [
+			$c[$row['parent_object_id']] = [
 				'label' => $individual->descriptor,
 				'sum' => $row['sum']
 			];
 		}
+		return $c;
+	}
+
+
+	public function getTopContributions($parentObject, $options = [])
+	{
+		// $individualType = Yii::$app->collectors['types']->getOne('Individual')->object;
+		// $individualModelClass = $individualType->primaryModel;
+		// $individualModelAlias = $individualModelClass::modelAlias();
+		// $taxonomyType = Yii::$app->collectors['taxonomies']->getOne('ic_time_individual_role');
+		// $taxonomy = $taxonomyType->getTaxonomy('contributor');
+		// $limit = isset($options['limit_contributors']) ? $options['limit_contributors'] : 5;
+		// $query = $this->getBaseStatsQuery($parentObject);
+		// $query->join('LEFT JOIN', Relation::tableName() . ' r2', 'r2.child_object_id=innerQuery.id');
+		// $query->join('LEFT JOIN', Registry::tableName() . ' reg', 'r2.parent_object_id=reg.id');
+		// $query->join('LEFT JOIN', RelationTaxonomy::tableName() . ' tax', 'r2.id=tax.relation_id');
+		// $query->select(['r2.parent_object_id', 'SUM(`hours`) as sum']);
+		// $query->groupBy(['r2.parent_object_id']);
+		// $query->andWhere(['not', ['reg.object_model' => $individualModelAlias]]);
+		// $query->andWhere(['tax.taxonomy_id' => $taxonomy->primaryKey]);
+		// $query->addOrderBy(['SUM(`hours`)' => SORT_DESC]);
+		// $query->limit($limit);
+		$c = [];
+		// echo $query->createCommand()->rawSql;exit;
+		// foreach ($query->each() as $row) {
+		// 	$individual = Registry::getObject($row['parent_object_id']);
+		// 	if (!$individual) { continue; }
+		// 	$c[$row['parent_object_id']] = [
+		// 		'label' => $individual->descriptor,
+		// 		'sum' => $row['sum']
+		// 	];
+		// }
 		return $c;
 	}
 
@@ -148,7 +209,7 @@ class Module extends \cascade\components\types\Module
 	{
 		$baseQuery = $parentObject->queryChildObjects($this->primaryModel);
 		$query = new Query;
-		$query->from(['('. $baseQuery->createCommand()->rawSql .') raw']);
+		$query->from(['('. $baseQuery->createCommand()->rawSql .') innerQuery']);
 		return $query;
 	}
 
@@ -157,8 +218,8 @@ class Module extends \cascade\components\types\Module
 		//$primaryModel = $this->primaryModel;
 		//$alias = $primaryModel::tableName();
 		$baseQuery = $this->getBaseStatsQuery($parentObject);
-		$baseQuery->select(['raw.modified']);
-		$baseQuery->addOrderBy(['raw.modified' => SORT_DESC]);
+		$baseQuery->select(['innerQuery.modified']);
+		$baseQuery->addOrderBy(['innerQuery.modified' => SORT_DESC]);
 		$baseQuery->limit(1);
 		$cacheSql = $baseQuery->createCommand()->rawSql;
 		return new DbDependency(['sql' => $cacheSql]);
