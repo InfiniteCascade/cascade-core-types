@@ -10,7 +10,7 @@ class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Invoice';
 	public $icon = 'fa fa-money';
-	public $uniparental = false;
+	public $uniparental = true;
 	public $hasDashboard = true;
 	public $priority = 2150;
 
@@ -42,8 +42,9 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
-			'Agreement' => [],
-			'Account' => [],
+			'Agreement' => [
+				'type' => Relationship::HAS_ONE
+			],
 		];
 	}
 
@@ -56,6 +57,7 @@ class Module extends \cascade\components\types\Module
 		return [
 			'File' => [],
 			'Note' => [],
+			'Time' => [],
 ];
 	}
 

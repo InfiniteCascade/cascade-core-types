@@ -5,8 +5,10 @@ namespace cascade\modules\core\TypeAccount;
 use Yii;
 
 use cascade\components\types\Relationship;
+use cascade\components\security\AuthorityInterface;
+use infinite\helpers\ArrayHelper;
 
-class Module extends \cascade\components\types\Module
+class Module extends \cascade\components\types\Module implements AuthorityInterface
 {
 	protected $_title = 'Account';
 	public $icon = 'fa fa-building-o';
@@ -37,6 +39,20 @@ class Module extends \cascade\components\types\Module
 			}
 		}
 		return min($results);
+	}
+
+	/**
+	 * @inheritdoc
+	 */
+	public function getRequestors($accessingObject, $firstLevel = true)
+	{
+		if (!$firstLevel) {
+			$parentAccounts = $accessingObject->parents($this->primaryModel, [], ['disableAccessCheck' => true]);
+			if (!empty($parentAccounts)) {
+				return ArrayHelper::getColumn($parentAccounts, 'id', false);
+			}
+		}
+		return false;
 	}
 
 	/**

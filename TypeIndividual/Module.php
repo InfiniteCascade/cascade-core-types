@@ -4,6 +4,7 @@ namespace cascade\modules\core\TypeIndividual;
 
 use Yii;
 
+use cascade\models\Registry;
 use cascade\components\types\Relationship;
 use cascade\components\security\AuthorityInterface;
 
@@ -43,9 +44,29 @@ class Module extends \cascade\components\types\Module implements AuthorityInterf
 	/**
 	 * @inheritdoc
 	 */
-	public function getRequestors()
+	public function getRequestors($accessingObject, $firstLevel = true)
 	{
-		
+		$individual = false;
+		if ($accessingObject->modelAlias === 'cascade\\models\\User' 
+			&& isset($accessingObject->object_individual_id)
+		) {
+			$individual = Registry::getObject($accessingObject->object_individual_id, false);
+		} elseif ($accessingObject->modelAlias === ':Individual\\ObjectIndividual') {
+			$individual = $accessingObject;
+		}
+
+		if ($individual) {
+			$requestors = [$individual->primaryKey];
+			foreach ($this->collectorItem->parents as $parentType) {
+				if ($parentType->parent instanceof AuthorityInterface) {
+					if (($parentRequestors = $parentType->parent->getRequestors($individual, false)) && !empty($parentRequestors)) {
+						$requestors = array_merge($requestors, $parentRequestors);
+					}
+				}
+			}
+			return $requestors;
+		}
+		return false;
 	}
 
 	public function getRequestorTypes()

@@ -4,6 +4,8 @@ namespace cascade\modules\core\TypeTime\widgets;
 
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
+	public $pageSize = 8;
+
 	public function contentTemplate($model)
 	{
 		return [

@@ -60,7 +60,9 @@ class ObjectInvoice extends \cascade\components\types\ActiveRecord
 			'number' => [],
 			'revenue' => [],
 			'start' => [],
-			'end' => []
+			'end' => [],
+			'parent:Agreement' => [
+			]
 		];
 	}
 
@@ -84,6 +86,7 @@ class ObjectInvoice extends \cascade\components\types\ActiveRecord
 			'revenue' => 'Revenue',
 			'start' => 'Start',
 			'end' => 'End',
+			'parent:Agreement' => 'Agreement',
 			'created' => 'Created',
 			'modified' => 'Modified',
 		];

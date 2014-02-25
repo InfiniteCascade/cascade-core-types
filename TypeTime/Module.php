@@ -51,8 +51,12 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
+			'Agreement' => [
+				'type' => Relationship::HAS_ONE
+			],
 			'Project' => [],
 			'Individual' => [],
+			'Invoice' => [],
 		];
 	}
 
@@ -103,7 +107,7 @@ class Module extends \cascade\components\types\Module
 	{
 		$cacheKey = [__CLASS__.'.'.__FUNCTION__, 'parentObject' => $parentObject->primaryKey, 'options' => $options, 'context' => ['user']];
 		$stats = Cacher::get($cacheKey);
-		if (true || !$stats) {
+		if (!$stats) {
 			$cacheDependency = $this->getCachingDependency($parentObject);
 			$stats = [];
 			$stats['total'] = $this->getTotalHours($parentObject, $options);
