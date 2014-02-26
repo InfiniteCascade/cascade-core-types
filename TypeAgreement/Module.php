@@ -68,6 +68,22 @@ class Module extends \cascade\components\types\Module
 	 */
 	public function taxonomies()
 	{
-		return [];
+		return [
+			[
+				'name' => 'Individual Role',
+				'models' => [\cascade\models\Relation::className()],
+				'modules' => [self::className()],
+				'systemId' => 'ic_agreement_individual_role',
+				'systemVersion' => 1.0,
+				'multiple' => false,
+				'parentUnique' => true,
+				'required' => true,
+				'initialTaxonomies' => [
+					'client' => 'Client',
+					'staff' => 'Staff',
+				]
+			]
+		];
 	}
+
 }
