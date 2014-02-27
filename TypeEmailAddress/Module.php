@@ -28,6 +28,14 @@ class Module extends \cascade\components\types\Module
 		
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeEmailAddress/migrations');
 	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function determineOwner($object)
+	{
+        return false;
+	}
 
 	/**
 	 * @inheritdoc

@@ -41,6 +41,11 @@ class Module extends \cascade\components\types\Module implements AuthorityInterf
 		return min($results);
 	}
 
+	public function determineOwner($object)
+	{
+        return false;
+	}
+	
 	/**
 	 * @inheritdoc
 	 */

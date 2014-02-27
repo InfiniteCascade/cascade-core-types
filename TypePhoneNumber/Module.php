@@ -32,6 +32,14 @@ class Module extends \cascade\components\types\Module
 	/**
 	 * @inheritdoc
 	 */
+	public function determineOwner($object)
+	{
+        return false;
+	}
+
+	/**
+	 * @inheritdoc
+	 */
 	public function widgets()
 	{
 		$widgets = parent::widgets();

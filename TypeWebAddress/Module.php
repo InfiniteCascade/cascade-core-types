@@ -27,6 +27,14 @@ class Module extends \cascade\components\types\Module
 		
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeWebAddress/migrations');
 	}
+	
+	/**
+	 * @inheritdoc
+	 */
+	public function determineOwner($object)
+	{
+        return false;
+	}
 
 	/**
 	 * @inheritdoc
