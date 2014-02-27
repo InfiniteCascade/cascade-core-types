@@ -32,7 +32,7 @@ class Module extends \cascade\components\types\Module implements AuthorityInterf
 
 	public function setup() {
 		$results = [true];
-		if (!empty($this->primaryModel) AND !empty($this->collectorItem->parents)) {
+		if (!empty($this->primaryModel) && !empty($this->collectorItem->parents)) {
 			$primaryAccount = Yii::$app->gk->primaryAccount;
 			if ($primaryAccount) {
 				$results[] = Yii::$app->gk->allow(null, null, $primaryAccount, $this->primaryModel);
