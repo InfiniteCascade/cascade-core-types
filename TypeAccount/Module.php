@@ -5,10 +5,9 @@ namespace cascade\modules\core\TypeAccount;
 use Yii;
 
 use cascade\components\types\Relationship;
-use cascade\components\security\AuthorityInterface;
 use infinite\helpers\ArrayHelper;
 
-class Module extends \cascade\components\types\Module implements AuthorityInterface
+class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Account';
 	public $icon = 'fa fa-building-o';
@@ -28,6 +27,16 @@ class Module extends \cascade\components\types\Module implements AuthorityInterf
 		parent::init();
 		
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeAccount/migrations');
+	}
+
+
+	public function behaviors()
+	{
+		return array_merge(parent::behaviors(), [
+			'Authority' => [
+				'class' => 'cascade\\components\\security\\AuthorityBehavior'
+			]
+		]);
 	}
 
 	public function setup() {

@@ -6,9 +6,8 @@ use Yii;
 
 use cascade\models\Registry;
 use cascade\components\types\Relationship;
-use cascade\components\security\AuthorityInterface;
 
-class Module extends \cascade\components\types\Module implements AuthorityInterface
+class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Individual';
 	public $icon = 'fa fa-user';
@@ -28,6 +27,15 @@ class Module extends \cascade\components\types\Module implements AuthorityInterf
 		parent::init();
 		
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeIndividual/migrations');
+	}
+
+	public function behaviors()
+	{
+		return array_merge(parent::behaviors(), [
+			'Authority' => [
+				'class' => 'cascade\\components\\security\\AuthorityBehavior'
+			]
+		]);
 	}
 
 	public function setup() {
@@ -63,7 +71,7 @@ class Module extends \cascade\components\types\Module implements AuthorityInterf
 		if ($individual) {
 			$requestors = [$individual->primaryKey];
 			foreach ($this->collectorItem->parents as $parentType) {
-				if ($parentType->parent instanceof AuthorityInterface) {
+				if (!empty($parentType->parent->getBehavior('Authority'))) {
 					if (($parentRequestors = $parentType->parent->getRequestors($individual, false)) && !empty($parentRequestors)) {
 						$requestors = array_merge($requestors, $parentRequestors);
 					}
