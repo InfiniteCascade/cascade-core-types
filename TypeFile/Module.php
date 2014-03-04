@@ -5,6 +5,7 @@ namespace cascade\modules\core\TypeFile;
 use Yii;
 
 use cascade\components\types\Relationship;
+use infinite\base\exceptions\HttpException;
 
 class Module extends \cascade\components\types\Module
 {
@@ -25,6 +26,23 @@ class Module extends \cascade\components\types\Module
 		parent::init();
 		
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeFile/migrations');
+	}
+
+	public function subactions()
+	{
+		return [
+			'download' => [$this, 'actionDownload']
+		];
+	}
+
+	public function actionDownload($event)
+	{
+		$results = $event->object->serve();
+		if (!$results || !empty($results['error'])) {
+			$errorMessage = isset($results['error']) ? $results['error'] : 'Unknown error';
+			throw new HttpException(500, $errorMessage);
+		}
+		$event->handled = true;
 	}
 
 	/**

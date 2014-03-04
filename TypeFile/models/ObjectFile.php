@@ -2,6 +2,7 @@
 namespace cascade\modules\core\TypeFile\models;
 
 use cascade\models\Storage;
+use infinite\helpers\Html;
 
 /**
  * This is the model class for table "object_file".
@@ -156,5 +157,13 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	public function getStorage()
 	{
 		return $this->hasOne(Storage::className(), ['id' => 'storage_id']);
+	}
+
+	public function getDownloadLink($label = null, $htmlAttributes = [])
+	{
+		if (is_null($label)) {
+			$label = $this->descriptor;
+		}
+		return Html::a($label, ['object/view', 'subaction' => 'download',  'id' => $this->id]);
 	}
 }
