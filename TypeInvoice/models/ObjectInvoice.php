@@ -42,7 +42,6 @@ class ObjectInvoice extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['number'], 'required'],
 			[['revenue'], 'number'],
 			[['start', 'end'], 'safe'],
 			[['id'], 'string', 'max' => 36],
