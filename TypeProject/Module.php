@@ -42,6 +42,8 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
+			'Individual' => [],
+			'Account' => [],
 		];
 	}
 
@@ -56,9 +58,6 @@ class Module extends \cascade\components\types\Module
 			'Note' => [],
 			'Time' => [],
 			'TaskSet' => [],
-			
-			'Individual' => [],
-			'Account' => [],
 ];
 	}
 
