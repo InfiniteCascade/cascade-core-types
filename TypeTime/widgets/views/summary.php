@@ -13,7 +13,7 @@ if (!empty($stats['top_contributors'])) {
 	foreach ($stats['top_contributors'] as $id => $contrib) { 
 		echo Html::beginTag('li', ['class' => 'list-group-item']);
 		echo Html::tag('span', $contrib['sum'], ['class' => 'badge']);
-		echo Html::a($contrib['label'], ['object/view', 'id' => $id]);
+		echo Html::a($contrib['label'], ['object/view', 'id' => $id, 'p' => Yii::$app->request->object->primaryKey]);
 		echo Html::endTag('li');
 	}
 	echo Html::endTag('ul');
