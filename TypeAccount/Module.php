@@ -16,8 +16,8 @@ class Module extends \cascade\components\types\Module
 	public $priority = 105;
 	public $primaryAsParent = true;
 
-	public $widgetNamespace = 'cascade\modules\core\TypeAccount\widgets';
-	public $modelNamespace = 'cascade\modules\core\TypeAccount\models';
+	public $widgetNamespace = 'cascade\\modules\\core\\TypeAccount\\widgets';
+	public $modelNamespace = 'cascade\\modules\\core\\TypeAccount\\models';
 
 	/**
 	 * @inheritdoc
@@ -44,7 +44,7 @@ class Module extends \cascade\components\types\Module
 		if (!empty($this->primaryModel)) {
 			$primaryAccount = Yii::$app->gk->primaryAccount;
 			if ($primaryAccount) {
-				$results[] = Yii::$app->gk->allow(null, null, $primaryAccount, $this->primaryModel);
+				$results[] = $this->objectTypeModel->setRole('manager', $primaryAccount, true);
 			}
 		}
 		return min($results);
@@ -114,3 +114,4 @@ class Module extends \cascade\components\types\Module
 		return [];
 	}
 }
+?>

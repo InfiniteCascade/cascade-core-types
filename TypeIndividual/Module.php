@@ -43,7 +43,7 @@ class Module extends \cascade\components\types\Module
 		if (!empty($this->primaryModel)) {
 			$primaryAccount = Yii::$app->gk->primaryAccount;
 			if ($primaryAccount) {
-				$results[] = Yii::$app->gk->allow(null, null, $primaryAccount, $this->primaryModel);
+				$results[] = $this->objectTypeModel->setRole('manager', $primaryAccount, true);
 			}
 		}
 		return min($results);
