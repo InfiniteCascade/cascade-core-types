@@ -54,6 +54,26 @@ class Module extends \cascade\components\types\Module
         return false;
 	}
 	
+	public function getTopRequestors($accessingObject)
+	{
+		$individual = false;
+		if ($accessingObject->modelAlias === 'cascade\\models\\User' 
+			&& isset($accessingObject->object_individual_id)
+		) {
+			$individual = Registry::getObject($accessingObject->object_individual_id, false);
+			if ($individual) {
+				$requestors[] = $individual->primaryKey;
+			}
+			$requestors[] = $accessingObject->primaryKey;
+		} elseif ($accessingObject->modelAlias === ':Individual\\ObjectIndividual') {
+			$requestors[] = $accessingObject->primaryKey;
+		}
+		if (empty($requestors)) {
+			return false;
+		}
+		return $requestors;
+	}
+
 	/**
 	 * @inheritdoc
 	 */
@@ -71,7 +91,7 @@ class Module extends \cascade\components\types\Module
 		if ($individual) {
 			$requestors = [$individual->primaryKey];
 			foreach ($this->collectorItem->parents as $parentType) {
-				if (!empty($parentType->parent->getBehavior('Authority'))) {
+				if ($parentType->parent->getBehavior('Authority') !== null) {
 					if (($parentRequestors = $parentType->parent->getRequestors($individual, false)) && !empty($parentRequestors)) {
 						$requestors = array_merge($requestors, $parentRequestors);
 					}
