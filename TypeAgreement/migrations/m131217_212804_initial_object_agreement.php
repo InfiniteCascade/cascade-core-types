@@ -20,10 +20,21 @@ class m131217_212804_initial_object_agreement extends \infinite\db\Migration
 			'revenue' => 'decimal(11,2) DEFAULT NULL',
 			'cost' => 'decimal(11,2) DEFAULT NULL',
 			'created' => 'datetime DEFAULT NULL',
-			'modified' => 'datetime DEFAULT NULL'
+			'created_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'modified' => 'datetime DEFAULT NULL',
+			'modified_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'archived' => 'datetime DEFAULT NULL',
+			'archived_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
 		]);
 
 		$this->addForeignKey('objectAgreementRegistry', 'object_agreement', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
+
+		$this->createIndex('objectOBJECTCreatedUser', 'object_agreement', 'created_user_id', false);
+		$this->createIndex('objectOBJECTModifiedUser', 'object_agreement', 'modified_user_id', false);
+		$this->createIndex('objectOBJECTArchivedUser', 'object_agreement', 'archived_user_id', false);
+		$this->addForeignKey('objectOBJECTCreatedUser', 'object_agreement', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectOBJECTArchivedUser', 'object_agreement', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectOBJECTModfiedUser', 'object_agreement', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();
 

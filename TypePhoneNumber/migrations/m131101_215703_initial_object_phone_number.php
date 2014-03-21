@@ -15,10 +15,20 @@ class m131101_215703_initial_object_phone_number extends \infinite\db\Migration
 			'extension' => 'string(15) DEFAULT NULL',
 			'no_call' => 'boolean NOT NULL DEFAULT 0',
 			'created' => 'datetime DEFAULT NULL',
-			'modified' => 'datetime DEFAULT NULL'
+			'created_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'modified' => 'datetime DEFAULT NULL',
+			'modified_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'archived' => 'datetime DEFAULT NULL',
+			'archived_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
 		]);
 
 		$this->addForeignKey('phoneRegistry', 'object_phone_number', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
+		$this->createIndex('objectPhoneNumberCreatedUser', 'object_phone_number', 'created_user_id', false);
+		$this->createIndex('objectPhoneNumberModifiedUser', 'object_phone_number', 'modified_user_id', false);
+		$this->createIndex('objectPhoneNumberArchivedUser', 'object_phone_number', 'archived_user_id', false);
+		$this->addForeignKey('objectPhoneNumberCreatedUser', 'object_phone_number', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectPhoneNumberArchivedUser', 'object_phone_number', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectPhoneNumberModfiedUser', 'object_phone_number', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();
 

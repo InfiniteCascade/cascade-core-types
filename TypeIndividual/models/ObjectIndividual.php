@@ -8,7 +8,6 @@ use cascade\models\Registry;
  * This is the model class for table "object_individual".
  *
  * @property string $id
- * @property string $user_id
  * @property string $prefix
  * @property string $suffix
  * @property string $first_name
@@ -21,11 +20,11 @@ use cascade\models\Registry;
  * @property string $created_user_id
  * @property string $modified
  * @property string $modified_user_id
- * @property string $deleted
- * @property string $deleted_user_id
+ * @property string $archived
+ * @property string $archived_user_id
  *
  * @property User $createdUser
- * @property User $deletedUser
+ * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
  * @property User $user
@@ -59,7 +58,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 		return [
 			[['first_name'], 'required'],
 			[['birthday'], 'safe'],
-			[['id', 'user_id', 'created_user_id', 'modified_user_id', 'deleted_user_id'], 'string', 'max' => 36],
+			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
 			[['prefix', 'suffix', 'first_name', 'middle_name', 'last_name', 'title', 'department'], 'string', 'max' => 255]
 		];
 	}
@@ -119,37 +118,13 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 			'title' => 'Title',
 			'department' => 'Department',
 			'birthday' => 'Birthday',
-			'created' => 'Created',
-			'created_user_id' => 'Created User ID',
-			'modified' => 'Modified',
-			'modified_user_id' => 'Modified User ID',
-			'deleted' => 'Deleted',
-			'deleted_user_id' => 'Deleted User ID',
+			'created' => 'Created Date',
+			'created_user_id' => 'Created by User',
+			'modified' => 'Modified Date',
+			'modified_user_id' => 'Modified by User',
+			'archived' => 'Archived Date',
+			'archived_user_id' => 'Archived by User',
 		];
-	}
-
-	/**
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getCreatedUser()
-	{
-		return $this->hasOne(User::className(), ['id' => 'created_user_id']);
-	}
-
-	/**
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getDeletedUser()
-	{
-		return $this->hasOne(User::className(), ['id' => 'deleted_user_id']);
-	}
-
-	/**
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getModifiedUser()
-	{
-		return $this->hasOne(User::className(), ['id' => 'modified_user_id']);
 	}
 
 	/**
@@ -159,13 +134,29 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
+	
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getCreatedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'created_user_id']);
+	}
 
 	/**
 	 * @return \yii\db\ActiveRelation
 	 */
-	public function getUser()
+	public function getArchivedUser()
 	{
-		return $this->hasOne(User::className(), ['id' => 'user_id']);
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'archived_user_id']);
+	}
+
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getModifiedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
 	}
 
 	/**

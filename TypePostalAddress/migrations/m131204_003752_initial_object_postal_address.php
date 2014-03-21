@@ -21,10 +21,20 @@ class m131204_003752_initial_object_postal_address extends \infinite\db\Migratio
 			'country' => 'string(255) DEFAULT NULL',
 			'no_mailings' => 'boolean NOT NULL DEFAULT 0',
 			'created' => 'datetime DEFAULT NULL',
-			'modified' => 'datetime DEFAULT NULL'
+			'created_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'modified' => 'datetime DEFAULT NULL',
+			'modified_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'archived' => 'datetime DEFAULT NULL',
+			'archived_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
 		]);
 
 		$this->addForeignKey('postalAddressRegistry', 'object_postal_address', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
+		$this->createIndex('objectPostalAddressCreatedUser', 'object_postal_address', 'created_user_id', false);
+		$this->createIndex('objectPostalAddressModifiedUser', 'object_postal_address', 'modified_user_id', false);
+		$this->createIndex('objectPostalAddressArchivedUser', 'object_postal_address', 'archived_user_id', false);
+		$this->addForeignKey('objectPostalAddressCreatedUser', 'object_postal_address', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectPostalAddressArchivedUser', 'object_postal_address', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectPostalAddressModfiedUser', 'object_postal_address', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();
 

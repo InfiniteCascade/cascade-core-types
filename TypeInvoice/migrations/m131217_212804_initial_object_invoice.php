@@ -16,10 +16,20 @@ class m131217_212804_initial_object_invoice extends \infinite\db\Migration
 			'start' => 'date DEFAULT NULL',
 			'end' => 'date DEFAULT NULL',
 			'created' => 'datetime DEFAULT NULL',
-			'modified' => 'datetime DEFAULT NULL'
+			'created_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'modified' => 'datetime DEFAULT NULL',
+			'modified_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
+			'archived' => 'datetime DEFAULT NULL',
+			'archived_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
 		]);
 
 		$this->addForeignKey('objectInvoiceRegistry', 'object_invoice', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
+		$this->createIndex('objectInvoiceCreatedUser', 'object_invoice', 'created_user_id', false);
+		$this->createIndex('objectInvoiceModifiedUser', 'object_invoice', 'modified_user_id', false);
+		$this->createIndex('objectInvoiceArchivedUser', 'object_invoice', 'archived_user_id', false);
+		$this->addForeignKey('objectInvoiceCreatedUser', 'object_invoice', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectInvoiceArchivedUser', 'object_invoice', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectInvoiceModfiedUser', 'object_invoice', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();
 

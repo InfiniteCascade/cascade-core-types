@@ -11,7 +11,6 @@ class m131101_202825_initial_object_individual extends \infinite\db\Migration
 		
 		$this->createTable('object_individual', [
 			'id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL PRIMARY KEY',
-			'user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
 			'prefix' => 'string(255) DEFAULT NULL',
 			'suffix' => 'string(255) DEFAULT NULL',
 			'first_name' => 'string(255) NOT NULL',
@@ -24,20 +23,17 @@ class m131101_202825_initial_object_individual extends \infinite\db\Migration
 			'created_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
 			'modified' => 'datetime DEFAULT NULL',
 			'modified_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
-			'deleted' => 'datetime DEFAULT NULL',
-			'deleted_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
+			'archived' => 'datetime DEFAULT NULL',
+			'archived_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
 		]);
 
-		$this->createIndex('individualUser', 'object_individual', 'user_id', false);
-		$this->createIndex('individualCreatedUser', 'object_individual', 'created_user_id', false);
-		$this->createIndex('individualModifiedUser', 'object_individual', 'modified_user_id', false);
-		$this->createIndex('individualDeletedUser', 'object_individual', 'deleted_user_id', false);
-		$this->createIndex('individualRegistry', 'object_individual', 'id', false);
-		$this->addForeignKey('individualCreatedUser', 'object_individual', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
-		$this->addForeignKey('individualDeletedUser', 'object_individual', 'deleted_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
-		$this->addForeignKey('individualModifiedUser', 'object_individual', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->createIndex('objectIndividualCreatedUser', 'object_individual', 'created_user_id', false);
+		$this->createIndex('objectIndividualModifiedUser', 'object_individual', 'modified_user_id', false);
+		$this->createIndex('objectIndividualArchivedUser', 'object_individual', 'archived_user_id', false);
+		$this->addForeignKey('objectIndividualCreatedUser', 'object_individual', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectIndividualArchivedUser', 'object_individual', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		$this->addForeignKey('objectIndividualModfiedUser', 'object_individual', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 		$this->addForeignKey('individualRegistry', 'object_individual', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
-		$this->addForeignKey('indvidualUser', 'object_individual', 'user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();
 

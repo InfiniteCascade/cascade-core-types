@@ -12,8 +12,15 @@ use cascade\models\Registry;
  * @property string $start
  * @property string $end
  * @property string $created
+ * @property string $created_user_id
  * @property string $modified
+ * @property string $modified_user_id
+ * @property string $archived
+ * @property string $archived_user_id
  *
+ * @property User $createdUser
+ * @property User $archivedUser
+ * @property User $modifiedUser
  * @property Registry $registry
  */
 class ObjectEvent extends \cascade\components\types\ActiveRecord
@@ -44,7 +51,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 		return [
 			[['description'], 'string'],
 			[['start', 'end'], 'safe'],
-			[['id'], 'string', 'max' => 36],
+			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
 			[['name'], 'string', 'max' => 255]
 		];
 	}
@@ -88,10 +95,14 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 			'id' => 'ID',
 			'name' => 'Name',
 			'description' => 'Description',
-			'start' => 'Start',
-			'end' => 'End',
-			'created' => 'Created',
-			'modified' => 'Modified',
+			'start' => 'Start Date',
+			'end' => 'End Date',
+			'created' => 'Created Date',
+			'created_user_id' => 'Created by User',
+			'modified' => 'Modified Date',
+			'modified_user_id' => 'Modified by User',
+			'archived' => 'Archived Date',
+			'archived_user_id' => 'Archived by User',
 		];
 	}
 
@@ -101,5 +112,28 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	public function getRegistry()
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
+	}
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getCreatedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'created_user_id']);
+	}
+
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getArchivedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'archived_user_id']);
+	}
+
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getModifiedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
 	}
 }

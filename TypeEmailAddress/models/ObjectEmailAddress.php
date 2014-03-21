@@ -11,8 +11,15 @@ use infinite\helpers\Html;
  * @property string $email_address
  * @property boolean $no_mailings
  * @property string $created
+ * @property string $created_user_id
  * @property string $modified
+ * @property string $modified_user_id
+ * @property string $archived
+ * @property string $archived_user_id
  *
+ * @property User $createdUser
+ * @property User $archivedUser
+ * @property User $modifiedUser
  * @property Registry $registry
  */
 class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
@@ -44,7 +51,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 			[['email_address'], 'required'],
 			[['email_address'], 'email'],
 			[['no_mailings'], 'boolean'],
-			[['id'], 'string', 'max' => 36],
+			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
 			[['email_address'], 'string', 'max' => 255]
 		];
 	}
@@ -88,8 +95,12 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 			'id' => 'ID',
 			'email_address' => 'Email Address',
 			'no_mailings' => 'No Mailings',
-			'created' => 'Created',
-			'modified' => 'Modified',
+			'created' => 'Created Date',
+			'created_user_id' => 'Created by User',
+			'modified' => 'Modified Date',
+			'modified_user_id' => 'Modified by User',
+			'archived' => 'Archived Date',
+			'archived_user_id' => 'Archived by User',
 		];
 	}
 
@@ -99,6 +110,29 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 	public function getRegistry()
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
+	}
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getCreatedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'created_user_id']);
+	}
+
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getArchivedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'archived_user_id']);
+	}
+
+	/**
+	 * @return \yii\db\ActiveRelation
+	 */
+	public function getModifiedUser()
+	{
+		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
 	}
 
 	public function getMailLink() {
