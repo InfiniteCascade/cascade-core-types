@@ -164,6 +164,6 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		if (is_null($label)) {
 			$label = $this->descriptor;
 		}
-		return Html::a($label, ['object/view', 'subaction' => 'download',  'id' => $this->id]);
+		return Html::a($label, ['/object/view', 'subaction' => 'download',  'id' => $this->id]);
 	}
 }
