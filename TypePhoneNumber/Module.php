@@ -12,7 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-phone';
 	public $uniparental = true;
 	public $hasDashboard = false;
-	public $searchForParent = true;
+	public $childSearchWeight = 0.8;
 	public $priority = 2300;
 	public $primaryAsChild = true;
 

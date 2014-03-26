@@ -12,7 +12,7 @@ class Module extends \cascade\components\types\Module
 	public $icon = 'fa fa-envelope-o';
 	public $uniparental = true;
 	public $hasDashboard = false;
-	public $searchForParent = true;
+	public $childSearchWeight = 0.7;
 	public $priority = 2200;
 	public $primaryAsChild = true;
 

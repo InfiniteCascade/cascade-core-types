@@ -15,6 +15,7 @@ class Module extends \cascade\components\types\Module
 	public $hasDashboard = true;
 	public $priority = 105;
 	public $primaryAsParent = true;
+	public $parentSearchWeight = .2;
 
 	public $widgetNamespace = 'cascade\\modules\\core\\TypeAccount\\widgets';
 	public $modelNamespace = 'cascade\\modules\\core\\TypeAccount\\models';

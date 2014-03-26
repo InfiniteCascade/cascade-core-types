@@ -132,4 +132,11 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
+
+	public static function searchFields()
+	{
+		$fields = parent::searchFields();
+		$fields[] = 'alt_name';
+		return $fields;
+	}
 }
