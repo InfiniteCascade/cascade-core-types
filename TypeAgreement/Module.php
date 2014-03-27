@@ -13,6 +13,7 @@ class Module extends \cascade\components\types\Module
 	public $uniparental = false;
 	public $hasDashboard = true;
 	public $priority = 1900;
+	public $searchWeight = 0.7;
 
 	public $widgetNamespace = 'cascade\modules\core\TypeAgreement\widgets';
 	public $modelNamespace = 'cascade\modules\core\TypeAgreement\models';
