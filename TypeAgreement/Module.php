@@ -58,7 +58,7 @@ class Module extends \cascade\components\types\Module
 			'File' => [],
 			'Note' => [],
 			'Time' => [],
-			'TaskSet' => [],
+			'Task' => [],
 			'Invoice' => [],
 ];
 	}

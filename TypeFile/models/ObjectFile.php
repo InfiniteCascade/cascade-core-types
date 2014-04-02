@@ -37,6 +37,16 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		return $this->_labelName;
 	}
 
+	public static function searchFields()
+	{
+		$modelClass = get_called_class();
+		$model = new $modelClass;
+		$fields = [];
+		$fields[] = ['name'];
+		$fields[] = ['{{storage}}.[[file_name]]'];
+		return $fields;
+	}
+
 	public function setLabelName($value)
 	{
 		if (!empty($this->name)) {

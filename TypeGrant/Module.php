@@ -56,7 +56,7 @@ class Module extends \cascade\components\types\Module
 		return [
 			'File' => [],
 			'Time' => [],
-			'TaskSet' => [],
+			'Task' => [],
 			'Note' => [],
 			'Activity' => [],
 			'GrantAction' => [],

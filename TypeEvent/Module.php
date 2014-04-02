@@ -56,7 +56,7 @@ class Module extends \cascade\components\types\Module
 	public function children()
 	{
 		return [
-			'TaskSet' => [],
+			'Task' => [],
 			'Note' => [],
 			'File' => [],
 ];
