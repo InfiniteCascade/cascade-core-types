@@ -56,9 +56,9 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		}
 	}
 
-	public static function createQuery($config = [])
+	public static function createQuery()
 	{
-		$query = parent::createQuery($config);
+		$query = parent::createQuery();
 		$alias = $query->primaryAlias;
 		$query->select(['`'. $alias .'`.*', '`storage`.`file_name` as `labelName`']);
 		$query->join('INNER JOIN', Storage::tableName() .' storage', '`storage`.`id` = `'.$alias.'`.`storage_id`');
