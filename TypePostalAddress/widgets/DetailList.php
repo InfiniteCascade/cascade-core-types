@@ -8,8 +8,19 @@ use infinite\helpers\StringHelper;
 
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
-	public $renderContentTemplate = ['name' => ['class' => 'list-group-item-heading', 'tag' => 'h5'], 'address1', 'address2', 'csz', 'uniqueCountry'];
+	public $renderContentTemplate = ['descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'], 'address1', 'address2', 'csz', 'uniqueCountry'];
 	
+	public function contentTemplate($model)
+	{
+		return [
+			'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
+			'address1' => [],
+			'address2' => [],
+			'csz' => [],
+			'uniqueCountry' => []
+		];
+	}
+
 	public function getMenuItems($model, $key, $index)
 	{
 		$base = parent::getMenuItems($model, $key, $index);

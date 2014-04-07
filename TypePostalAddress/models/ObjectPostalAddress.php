@@ -33,7 +33,7 @@ use infinite\helpers\Locations;
  */
 class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 {
-	public $descriptorField = 'name';
+	public $descriptorField = ['name', 'citySubnational'];
 
 	/**
 	 * @inheritdoc
