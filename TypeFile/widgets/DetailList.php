@@ -6,6 +6,15 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
 	public function contentTemplate($model)
 	{
-		return ['downloadLink' => ['class' => 'list-group-item-heading', 'tag' => 'h5']];
+		if ($model->can('read')) {
+			return [
+				'downloadLink' => ['class' => 'list-group-item-heading', 'tag' => 'h5']
+			];
+		} else {
+			return [
+				'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5']
+			];
+		}
+		
 	}
 }

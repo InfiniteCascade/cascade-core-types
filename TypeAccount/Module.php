@@ -45,8 +45,11 @@ class Module extends \cascade\components\types\Module
 		if (!empty($this->primaryModel)) {
 			$primaryAccount = Yii::$app->gk->primaryAccount;
 			if ($primaryAccount) {
-
 				$results[] = $this->objectTypeModel->setRole(['system_id' => 'editor'], $primaryAccount, true);
+			}
+			$publicGroup = Yii::$app->gk->publicGroup;
+			if ($publicGroup) {
+				$results[] = $this->objectTypeModel->setRole(['system_id' => 'browser'], $publicGroup, true);
 			}
 		}
 		return min($results);

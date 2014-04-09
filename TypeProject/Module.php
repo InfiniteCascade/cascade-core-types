@@ -32,7 +32,7 @@ class Module extends \cascade\components\types\Module
 	 */
 	public function widgets()
 	{
-			return parent::widgets();
+		return parent::widgets();
 	}
 
 	

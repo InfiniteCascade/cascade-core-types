@@ -28,6 +28,17 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypePostalAddress/migrations');
 	}
 
+	public function setup() {
+		$results = [parent::setup()];
+		if (!empty($this->primaryModel)) {
+			$publicGroup = Yii::$app->gk->publicGroup;
+			if ($publicGroup) {
+				$results[] = $this->objectTypeModel->setRole(['system_id' => 'viewer'], $publicGroup, true);
+			}
+		}
+		return min($results);
+	}
+	
 	/**
 	 * @inheritdoc
 	 */

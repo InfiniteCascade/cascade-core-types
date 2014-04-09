@@ -28,6 +28,17 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeAgreement/migrations');
 	}
 
+	public function setup() {
+		$results = [true];
+		if (!empty($this->primaryModel)) {
+			$primaryAccount = Yii::$app->gk->primaryAccount;
+			if ($primaryAccount) {
+				$results[] = $this->objectTypeModel->setRole(['system_id' => 'viewer'], $primaryAccount, true);
+			}
+		}
+		return min($results);
+	}
+
 	/**
 	 * @inheritdoc
 	 */

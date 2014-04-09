@@ -8,10 +8,16 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 
 	public function contentTemplate($model)
 	{
-		return [
-			'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
-			'description' => [],
-		];
+		if ($model->can('read')) {
+			return [
+				'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
+				'description' => [],
+			];
+		} else {
+			return [
+				'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
+			];
+		}
 	}
 
 

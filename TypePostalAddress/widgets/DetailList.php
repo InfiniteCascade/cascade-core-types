@@ -12,13 +12,19 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 	
 	public function contentTemplate($model)
 	{
-		return [
-			'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
-			'address1' => [],
-			'address2' => [],
-			'csz' => [],
-			'uniqueCountry' => []
-		];
+		if ($model->can('read')) {
+			return [
+				'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
+				'address1' => [],
+				'address2' => [],
+				'csz' => [],
+				'uniqueCountry' => []
+			];
+		} else {
+			return [
+				'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
+			];
+		}
 	}
 
 	public function getMenuItems($model, $key, $index)
