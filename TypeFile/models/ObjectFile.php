@@ -105,7 +105,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
-			[['storage_id'], 'required'],
+			[['storage_id'], 'required', 'on' => 'create'],
 			[['labelName'], 'safe'],
 			[['id'], 'string', 'max' => 36],
 			[['name'], 'string', 'max' => 255]
