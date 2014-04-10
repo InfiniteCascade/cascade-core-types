@@ -69,4 +69,9 @@ class Module extends \cascade\components\types\Module
 	{
 		return [];
 	}
+
+	public function getInheritParentAccess()
+	{
+		return true;
+	}
 }
