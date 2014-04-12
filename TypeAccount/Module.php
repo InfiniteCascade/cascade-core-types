@@ -103,7 +103,9 @@ class Module extends \cascade\components\types\Module
 	{
 		return [
 			'Account' => [],
-			'Individual' => [],
+			'Individual' => [
+				'temporal' => true
+			],
 			'PhoneNumber' => [],
 			'PostalAddress' => [],
 			'WebAddress' => [],
