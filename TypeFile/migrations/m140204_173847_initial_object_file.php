@@ -17,8 +17,8 @@ class m140204_173847_initial_object_file extends \infinite\db\Migration
 			'created_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
 			'modified' => 'datetime DEFAULT NULL',
 			'modified_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
-			'archived' => 'datetime DEFAULT NULL',
-			'archived_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
+			//'archived' => 'datetime DEFAULT NULL',
+			//'archived_user_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL'
 		]);
 
 		$this->createIndex('objectFileStorage', 'object_file', 'storage_id', false);
@@ -26,9 +26,9 @@ class m140204_173847_initial_object_file extends \infinite\db\Migration
 		$this->addForeignKey('objectFileStorage', 'object_file', 'storage_id', 'storage', 'id', 'CASCADE', 'CASCADE');
 		$this->createIndex('objectFileCreatedUser', 'object_file', 'created_user_id', false);
 		$this->createIndex('objectFileModifiedUser', 'object_file', 'modified_user_id', false);
-		$this->createIndex('objectFileArchivedUser', 'object_file', 'archived_user_id', false);
+		// $this->createIndex('objectFileArchivedUser', 'object_file', 'archived_user_id', false);
 		$this->addForeignKey('objectFileCreatedUser', 'object_file', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
-		$this->addForeignKey('objectFileArchivedUser', 'object_file', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
+		// $this->addForeignKey('objectFileArchivedUser', 'object_file', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 		$this->addForeignKey('objectFileModfiedUser', 'object_file', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();

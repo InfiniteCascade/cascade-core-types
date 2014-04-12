@@ -56,7 +56,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		}
 	}
 
-	public static function createQuery()
+	public static function find()
 	{
 		$query = parent::find();
 		$alias = $query->primaryAlias;

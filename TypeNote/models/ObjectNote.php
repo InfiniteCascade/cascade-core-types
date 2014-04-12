@@ -13,8 +13,6 @@ use cascade\models\Registry;
  * @property string $created_user_id
  * @property string $modified
  * @property string $modified_user_id
- * @property string $archived
- * @property string $archived_user_id
  *
  * @property User $createdUser
  * @property User $archivedUser
@@ -48,7 +46,7 @@ class ObjectNote extends \cascade\components\types\ActiveRecord
 	{
 		return [
 			[['note'], 'string'],
-			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
+			[['id', 'created_user_id', 'modified_user_id'], 'string', 'max' => 36],
 			[['title'], 'string', 'max' => 255]
 		];
 	}
@@ -87,8 +85,6 @@ class ObjectNote extends \cascade\components\types\ActiveRecord
 			'created_user_id' => 'Created by User',
 			'modified' => 'Modified Date',
 			'modified_user_id' => 'Modified by User',
-			'archived' => 'Archived Date',
-			'archived_user_id' => 'Archived by User',
 		];
 	}
 
@@ -97,7 +93,7 @@ class ObjectNote extends \cascade\components\types\ActiveRecord
 	 */
 	public function getRegistry()
 	{
-		return $this->hasOne(Registry::className(), ['id' => 'id']);
+		return $this->hasOne(Yii::$app->classes['Registry'], ['id' => 'id']);
 	}
 	
 	/**
@@ -108,13 +104,6 @@ class ObjectNote extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'created_user_id']);
 	}
 
-	/**
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getArchivedUser()
-	{
-		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'archived_user_id']);
-	}
 
 	/**
 	 * @return \yii\db\ActiveRelation
