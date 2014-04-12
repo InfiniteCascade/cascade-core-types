@@ -99,7 +99,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 			$settings['title'] = false;
 		}
 		$settings['fields'] = [];
-		$settings['fields'][] = ['relation:taxonomy_id', 'name' => ['columns' => 8]];
+		$settings['fields'][] = ['relation', 'name' => ['columns' => 8]];
 		$settings['fields'][] = ['address1', 'address2'];
 		$settings['fields'][] = ['city', 'subnational_division', 'postal_code'];
 		$settings['fields'][] = ['country', false, false];

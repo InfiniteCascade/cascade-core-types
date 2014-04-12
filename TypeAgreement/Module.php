@@ -55,7 +55,9 @@ class Module extends \cascade\components\types\Module
 	{
 		return [
 			'Account' => [],
-			'Individual' => [],
+			'Individual' => [
+				'taxonomy' => 'ic_agreement_individual_role'
+			],
 		];
 	}
 
@@ -82,10 +84,10 @@ class Module extends \cascade\components\types\Module
 	{
 		return [
 			[
+				'systemId' => 'ic_agreement_individual_role',
 				'name' => 'Individual Role',
 				'models' => [\cascade\models\Relation::className()],
 				'modules' => [self::className()],
-				'systemId' => 'ic_agreement_individual_role',
 				'systemVersion' => 1.0,
 				'multiple' => false,
 				'parentUnique' => true,
