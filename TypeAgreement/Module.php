@@ -54,7 +54,9 @@ class Module extends \cascade\components\types\Module
 	public function parents()
 	{
 		return [
-			'Account' => [],
+			'Account' => [
+				'taxonomy' => 'ic_agreement_account_role'
+			],
 			'Individual' => [
 				'taxonomy' => 'ic_agreement_individual_role'
 			],
@@ -76,7 +78,6 @@ class Module extends \cascade\components\types\Module
 ];
 	}
 
-	
 	/**
 	 * @inheritdoc
 	 */
@@ -84,17 +85,35 @@ class Module extends \cascade\components\types\Module
 	{
 		return [
 			[
-				'systemId' => 'ic_agreement_individual_role',
-				'name' => 'Individual Role',
+				'name' => 'Role',
 				'models' => [\cascade\models\Relation::className()],
 				'modules' => [self::className()],
-				'systemVersion' => 1.0,
+				'systemId' => 'ic_agreement_account_role',
+				'systemVersion' => 1.1,
 				'multiple' => false,
-				'parentUnique' => true,
+				'parentUnique' => false,
 				'required' => true,
 				'initialTaxonomies' => [
-					'client' => 'Client',
-					'staff' => 'Staff',
+					'contractor' => 'Contractor',
+					'contractee' => 'Contractee',
+					'subcontractor' => 'Subcontractor',
+				]
+			],
+			[
+				'name' => 'Role',
+				'models' => [\cascade\models\Relation::className()],
+				'modules' => [self::className()],
+				'systemId' => 'ic_agreement_individual_role',
+				'systemVersion' => 1.0,
+				'multiple' => true,
+				'parentUnique' => false,
+				'required' => true,
+				'initialTaxonomies' => [
+					'primary_staff' => 'Primary Staff Member',
+					'primary_client_contact' => 'Primary Client Contact',
+					'billing_contact' => 'Billing Contact',
+					'technical_contact' => 'Technical Contact',
+					'other_contact' => 'Other Contact',
 				]
 			]
 		];
