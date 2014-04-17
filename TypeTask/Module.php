@@ -11,6 +11,11 @@ use Yii;
 
 use cascade\components\types\Relationship;
 
+/**
+ * Module [@doctodo write class description for Module]
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
+**/
 class Module extends \cascade\components\types\Module
 {
 	protected $_title = 'Task';

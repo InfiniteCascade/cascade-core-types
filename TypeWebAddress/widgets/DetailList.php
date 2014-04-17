@@ -7,6 +7,11 @@
 
 namespace cascade\modules\core\TypeWebAddress\widgets;
 
+/**
+ * DetailList [@doctodo write class description for DetailList]
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
+**/
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
 	public $renderContentTemplate = ['link' => ['class' => 'list-group-item-heading', 'tag' => 'h5']];

@@ -7,6 +7,11 @@
 
 namespace cascade\modules\core\TypeFile\widgets;
 
+/**
+ * DetailList [@doctodo write class description for DetailList]
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
+**/
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
 	public function contentTemplate($model)

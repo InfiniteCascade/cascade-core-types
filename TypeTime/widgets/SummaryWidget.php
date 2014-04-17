@@ -10,6 +10,11 @@ namespace cascade\modules\core\TypeTime\widgets;
 use Yii;
 use infinite\helpers\ArrayHelper;
 
+/**
+ * SummaryWidget [@doctodo write class description for SummaryWidget]
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
+**/
 class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 {
 	public $defaultDecoratorClass = 'cascade\\components\\web\\widgets\\decorator\\BlankDecorator';
