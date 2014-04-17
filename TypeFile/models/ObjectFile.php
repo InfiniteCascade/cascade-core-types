@@ -11,7 +11,7 @@ use cascade\models\Storage;
 use infinite\helpers\Html;
 
 /**
- * This is the model class for table "object_file".
+ * ObjectFile is the model class for table "object_file".
  *
  * @property string $id
  * @property string $storage_id
@@ -21,6 +21,8 @@ use infinite\helpers\Html;
  *
  * @property Registry $registry
  * @property Storage $storage
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectFile extends \cascade\components\types\ActiveRecord
 {

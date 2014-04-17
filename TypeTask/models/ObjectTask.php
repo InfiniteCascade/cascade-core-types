@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypeTask\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_task".
+ * ObjectTask is the model class for table "object_task".
  *
  * @property string $id
  * @property string $task
@@ -27,6 +27,8 @@ use cascade\models\Registry;
  * @property User $createdUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectTask extends \cascade\components\types\ActiveRecord
 {

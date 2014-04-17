@@ -11,7 +11,7 @@ use cascade\models\User;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_account".
+ * ObjectAccount is the model class for table "object_account".
  *
  * @property string $id
  * @property string $name
@@ -27,6 +27,8 @@ use cascade\models\Registry;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectAccount extends \cascade\components\types\ActiveRecord
 {

@@ -11,7 +11,7 @@ use cascade\models\User;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_individual".
+ * ObjectIndividual is the model class for table "object_individual".
  *
  * @property string $id
  * @property string $prefix
@@ -35,6 +35,8 @@ use cascade\models\Registry;
  * @property Registry $registry
  * @property User $user
  * @property User[] $users
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectIndividual extends \cascade\components\types\ActiveRecord
 {

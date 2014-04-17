@@ -13,7 +13,7 @@ use cascade\models\Registry;
 use infinite\helpers\Date;
 
 /**
- * This is the model class for table "object_agreement".
+ * ObjectAgreement is the model class for table "object_agreement".
  *
  * @property string $id
  * @property string $number
@@ -35,6 +35,8 @@ use infinite\helpers\Date;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectAgreement extends \cascade\components\types\ActiveRecord
 {

@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypeProject\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_project".
+ * ObjectProject is the model class for table "object_project".
  *
  * @property string $id
  * @property string $owner_user_id
@@ -30,6 +30,8 @@ use cascade\models\Registry;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectProject extends \cascade\components\types\ActiveRecord
 {

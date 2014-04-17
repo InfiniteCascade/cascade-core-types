@@ -11,7 +11,7 @@ use cascade\models\Registry;
 use infinite\helpers\Html;
 
 /**
- * This is the model class for table "object_email_address".
+ * ObjectEmailAddress is the model class for table "object_email_address".
  *
  * @property string $id
  * @property string $email_address
@@ -24,6 +24,8 @@ use infinite\helpers\Html;
  * @property User $createdUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 {

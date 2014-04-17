@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypePhoneNumber\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_phone_number".
+ * ObjectPhoneNumber is the model class for table "object_phone_number".
  *
  * @property string $id
  * @property string $phone
@@ -24,6 +24,8 @@ use cascade\models\Registry;
  * @property User $createdUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 {

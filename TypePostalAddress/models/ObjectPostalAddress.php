@@ -13,7 +13,7 @@ use cascade\models\Registry;
 use infinite\helpers\Locations;
 
 /**
- * This is the model class for table "object_postal_address".
+ * ObjectPostalAddress is the model class for table "object_postal_address".
  *
  * @property string $id
  * @property string $name
@@ -33,6 +33,8 @@ use infinite\helpers\Locations;
  * @property User $createdUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 {

@@ -11,7 +11,7 @@ use cascade\models\Registry;
 use infinite\helpers\Html;
 
 /**
- * This is the model class for table "object_web_address".
+ * ObjectWebAddress is the model class for table "object_web_address".
  *
  * @property string $id
  * @property string $title
@@ -24,6 +24,8 @@ use infinite\helpers\Html;
  * @property User $createdUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 {

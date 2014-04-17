@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypeNote\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_note".
+ * ObjectNote is the model class for table "object_note".
  *
  * @property string $id
  * @property string $title
@@ -24,6 +24,8 @@ use cascade\models\Registry;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectNote extends \cascade\components\types\ActiveRecord
 {

@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypeGrantAction\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_grant_action".
+ * ObjectGrantAction is the model class for table "object_grant_action".
  *
  * @property string $id
  * @property string $type
@@ -26,6 +26,8 @@ use cascade\models\Registry;
  * @property User $createdUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectGrantAction extends \cascade\components\types\ActiveRecord
 {

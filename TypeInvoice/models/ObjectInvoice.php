@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypeInvoice\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_invoice".
+ * ObjectInvoice is the model class for table "object_invoice".
  *
  * @property string $id
  * @property string $number
@@ -28,6 +28,8 @@ use cascade\models\Registry;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectInvoice extends \cascade\components\types\ActiveRecord
 {

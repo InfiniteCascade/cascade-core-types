@@ -12,7 +12,7 @@ use Yii;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_grant".
+ * ObjectGrant is the model class for table "object_grant".
  *
  * @property string $id
  * @property string $title
@@ -34,6 +34,8 @@ use cascade\models\Registry;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectGrant extends \cascade\components\types\ActiveRecord
 {

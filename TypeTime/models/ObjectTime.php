@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypeTime\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_time".
+ * ObjectTime is the model class for table "object_time".
  *
  * @property string $id
  * @property string $description
@@ -26,6 +26,8 @@ use cascade\models\Registry;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectTime extends \cascade\components\types\ActiveRecord
 {

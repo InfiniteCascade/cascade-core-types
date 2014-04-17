@@ -10,7 +10,7 @@ namespace cascade\modules\core\TypeEvent\models;
 use cascade\models\Registry;
 
 /**
- * This is the model class for table "object_event".
+ * ObjectEvent is the model class for table "object_event".
  *
  * @property string $id
  * @property string $name
@@ -28,6 +28,8 @@ use cascade\models\Registry;
  * @property User $archivedUser
  * @property User $modifiedUser
  * @property Registry $registry
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
  */
 class ObjectEvent extends \cascade\components\types\ActiveRecord
 {
