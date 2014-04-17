@@ -38,6 +38,9 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypePostalAddress/migrations');
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function setup() {
 		$results = [parent::setup()];
 		if (!empty($this->primaryModel)) {

@@ -80,6 +80,9 @@ class Module extends \cascade\components\types\Module
 		return [];
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function getInheritParentAccess()
 	{
 		return true;

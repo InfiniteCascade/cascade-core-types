@@ -41,6 +41,9 @@ class Module extends \cascade\components\types\Module
 	}
 
 
+	/**
+	* @inheritdoc
+	**/
 	public function behaviors()
 	{
 		return array_merge(parent::behaviors(), [
@@ -50,6 +53,9 @@ class Module extends \cascade\components\types\Module
 		]);
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function setup() {
 		$results = [true];
 		if (!empty($this->primaryModel)) {
@@ -65,6 +71,9 @@ class Module extends \cascade\components\types\Module
 		return min($results);
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function determineOwner($object)
 	{
         return false;

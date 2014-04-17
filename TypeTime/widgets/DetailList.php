@@ -16,6 +16,9 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
 	public $pageSize = 8;
 
+	/**
+	* @inheritdoc
+	**/
 	public function contentTemplate($model)
 	{
 		if ($model->can('read')) {
@@ -31,6 +34,9 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 	}
 
 
+	/**
+	* @inheritdoc
+	**/
 	public function getWidgetAreas()
 	{
 		return [

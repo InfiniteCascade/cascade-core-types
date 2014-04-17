@@ -106,6 +106,9 @@ class Module extends \cascade\components\types\Module
 		];
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function getTitle() {
 		if (!is_object($this->_title)) {
 			$this->_title = new Noun($this->_title, ['plural' => $this->_title]);

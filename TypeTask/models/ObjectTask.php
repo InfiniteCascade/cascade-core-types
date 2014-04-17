@@ -63,6 +63,9 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function getDefaultValues()
 	{
 		return [

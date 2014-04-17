@@ -45,6 +45,9 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		return $this->_labelName;
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public static function searchFields()
 	{
 		$modelClass = get_called_class();
@@ -64,6 +67,9 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		}
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public static function find()
 	{
 		$query = parent::find();

@@ -38,6 +38,9 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeFile/migrations');
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function subactions()
 	{
 		return [

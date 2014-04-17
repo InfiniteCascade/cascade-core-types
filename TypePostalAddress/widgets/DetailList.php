@@ -21,6 +21,9 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
 	public $renderContentTemplate = ['descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'], 'address1', 'address2', 'csz', 'uniqueCountry'];
 	
+	/**
+	* @inheritdoc
+	**/
 	public function contentTemplate($model)
 	{
 		if ($model->can('read')) {
@@ -38,6 +41,9 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 		}
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function getMenuItems($model, $key, $index)
 	{
 		$base = parent::getMenuItems($model, $key, $index);

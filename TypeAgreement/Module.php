@@ -38,6 +38,9 @@ class Module extends \cascade\components\types\Module
 		Yii::$app->registerMigrationAlias('@cascade/modules/core/TypeAgreement/migrations');
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function setup() {
 		$results = [true];
 		if (!empty($this->primaryModel)) {

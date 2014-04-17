@@ -30,6 +30,9 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 	}
 
 
+	/**
+	* @inheritdoc
+	**/
 	public function getIsReady()
 	{
 		return !empty($this->stats['total']);
@@ -43,6 +46,9 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 		return $this->_stats;
 	}
 
+	/**
+	* @inheritdoc
+	**/
 	public function generateContent()
 	{
 		if (!empty($this->stats['total'])) {
