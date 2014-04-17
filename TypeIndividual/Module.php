@@ -19,14 +19,38 @@ use cascade\components\types\Relationship;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Individual';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-user';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 110;
+	/**
+	 * @inheritdoc
+	 */
 	public $primaryAsChild = true;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\\modules\\core\\TypeIndividual\\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\\modules\\core\\TypeIndividual\\models';
 
 	/**
@@ -77,6 +101,11 @@ class Module extends \cascade\components\types\Module
         return false;
 	}
 	
+	/**
+	 * __method_getTopRequestors_description__
+	 * @param __param_accessingObject_type__ $accessingObject __param_accessingObject_description__
+	 * @return __return_getTopRequestors_type__ __return_getTopRequestors_description__
+	 */
 	public function getTopRequestors($accessingObject)
 	{
 		$individual = false;
@@ -125,6 +154,9 @@ class Module extends \cascade\components\types\Module
 		return false;
 	}
 
+	/**
+	 * __method_getRequestorTypes_description__
+	 */
 	public function getRequestorTypes()
 	{
 		

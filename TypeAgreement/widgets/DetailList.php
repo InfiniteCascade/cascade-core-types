@@ -14,6 +14,10 @@ namespace cascade\modules\core\TypeAgreement\widgets;
 **/
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
+	/**
+	 * __method_generateContent2_description__
+	 * @return __return_generateContent2_type__ __return_generateContent2_description__
+	 */
 	public function generateContent2() {
 		return "<pre>Vero nihil artisan, nisi yr XOXO gastropub tempor magna salvia. Chillwave squid readymade, stumptown +1 Brooklyn nesciunt semiotics artisan commodo. Next level excepteur lomo cupidatat pop-up ut. Shoreditch leggings art party, pour-over fashion axe elit organic 8-bit eiusmod fap synth keytar ennui ex. Deserunt nisi American Apparel trust fund officia, Vice jean shorts wolf Neutra mlkshk salvia art party dolore. In Blue Bottle commodo, Godard PBR selfies iPhone art party minim cred tempor. Ullamco mixtape velit nostrud id, sriracha fanny pack slow-carb tousled art party Pitchfork Banksy Pinterest yr sustainable.
 

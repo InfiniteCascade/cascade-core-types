@@ -18,13 +18,34 @@ use cascade\components\types\Relationship;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Invoice';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-money';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 2150;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypeInvoice\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypeInvoice\models';
 
 	/**

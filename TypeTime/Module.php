@@ -27,13 +27,34 @@ use yii\caching\DbDependency;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Tracked Time';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-clock-o';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 2400;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypeTime\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypeTime\models';
 
 	/**
@@ -116,6 +137,12 @@ class Module extends \cascade\components\types\Module
 		return $this->_title;
 	}
 
+	/**
+	 * __method_getStats_description__
+	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
+	 * @param array $options __param_options_description__ [optional]
+	 * @return __return_getStats_type__ __return_getStats_description__
+	 */
 	public function getStats($parentObject, $options = [])
 	{
 		$cacheKey = [__CLASS__.'.'.__FUNCTION__, 'parentObject' => $parentObject->primaryKey, 'options' => $options, 'context' => ['user']];
@@ -135,6 +162,12 @@ class Module extends \cascade\components\types\Module
 		return $stats;
 	}
 
+	/**
+	 * __method_getMonthSummary_description__
+	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
+	 * @param array $options __param_options_description__ [optional]
+	 * @return __return_getMonthSummary_type__ __return_getMonthSummary_description__
+	 */
 	public function getMonthSummary($parentObject, $options = [])
 	{
 		$limit = isset($options['limit_months']) ? $options['limit_months'] : 5;
@@ -152,6 +185,12 @@ class Module extends \cascade\components\types\Module
 		return $c;
 	}
 
+	/**
+	 * __method_getTopContributors_description__
+	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
+	 * @param array $options __param_options_description__ [optional]
+	 * @return __return_getTopContributors_type__ __return_getTopContributors_description__
+	 */
 	public function getTopContributors($parentObject, $options = [])
 	{
 		$individualType = Yii::$app->collectors['types']->getOne('Individual')->object;
@@ -183,6 +222,12 @@ class Module extends \cascade\components\types\Module
 	}
 
 
+	/**
+	 * __method_getTopContributions_description__
+	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
+	 * @param array $options __param_options_description__ [optional]
+	 * @return __return_getTopContributions_type__ __return_getTopContributions_description__
+	 */
 	public function getTopContributions($parentObject, $options = [])
 	{
 		// $individualType = Yii::$app->collectors['types']->getOne('Individual')->object;
@@ -215,6 +260,11 @@ class Module extends \cascade\components\types\Module
 	}
 
 
+	/**
+	 * __method_getTotalHours_description__
+	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
+	 * @return __return_getTotalHours_type__ __return_getTotalHours_description__
+	 */
 	public function getTotalHours($parentObject)
 	{
 		$query = $this->getBaseStatsQuery($parentObject);
@@ -222,6 +272,11 @@ class Module extends \cascade\components\types\Module
 		return $query->scalar();
 	}
 
+	/**
+	 * __method_getBaseStatsQuery_description__
+	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
+	 * @return __return_getBaseStatsQuery_type__ __return_getBaseStatsQuery_description__
+	 */
 	public function getBaseStatsQuery($parentObject)
 	{
 		$baseQuery = $parentObject->queryChildObjects($this->primaryModel);
@@ -230,6 +285,11 @@ class Module extends \cascade\components\types\Module
 		return $query;
 	}
 
+	/**
+	 * __method_getCachingDependency_description__
+	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
+	 * @return __return_getCachingDependency_type__ __return_getCachingDependency_description__
+	 */
 	public function getCachingDependency($parentObject)
 	{
 		//$primaryModel = $this->primaryModel;

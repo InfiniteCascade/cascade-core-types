@@ -29,6 +29,9 @@ use cascade\models\Registry;
  */
 class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = ['phone', 'formattedExtension'];
 
 	/**
@@ -108,6 +111,10 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+	/**
+	 * __method_getFormattedExtension_description__
+	 * @return __return_getFormattedExtension_type__ __return_getFormattedExtension_description__
+	 */
 	public function getFormattedExtension()
 	{
 		if (empty($this->extension)) { return null; }
@@ -115,6 +122,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -123,6 +131,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -131,6 +140,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

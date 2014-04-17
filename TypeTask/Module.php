@@ -18,13 +18,34 @@ use cascade\components\types\Relationship;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Task';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-check';
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 2300;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypeTask\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypeTask\models';
 
 	/**

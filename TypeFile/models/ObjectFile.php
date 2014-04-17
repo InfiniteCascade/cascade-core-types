@@ -26,9 +26,19 @@ use infinite\helpers\Html;
  */
 class ObjectFile extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @var __var__labelName_type__ __var__labelName_description__
+	 */
 	protected $_labelName;
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'labelName';
 
+	/**
+	 * __method_getLabelName_description__
+	 * @return __return_getLabelName_type__ __return_getLabelName_description__
+	 */
 	public function getLabelName()
 	{
 		if (is_null($this->_labelName)) {
@@ -58,6 +68,10 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		return $fields;
 	}
 
+	/**
+	 * __method_setLabelName_description__
+	 * @param __param_value_type__ $value __param_value_description__
+	 */
 	public function setLabelName($value)
 	{
 		if (!empty($this->name)) {
@@ -168,6 +182,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -176,6 +191,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getStorage_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getStorage()
@@ -183,6 +199,12 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Storage::className(), ['id' => 'storage_id']);
 	}
 
+	/**
+	 * __method_getDownloadLink_description__
+	 * @param __param_label_type__ $label __param_label_description__ [optional]
+	 * @param array $htmlAttributes __param_htmlAttributes_description__ [optional]
+	 * @return __return_getDownloadLink_type__ __return_getDownloadLink_description__
+	 */
 	public function getDownloadLink($label = null, $htmlAttributes = [])
 	{
 		if (is_null($label)) {

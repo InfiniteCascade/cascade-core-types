@@ -40,7 +40,13 @@ use cascade\models\Registry;
  */
 class ObjectIndividual extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = ['first_name', 'middle_name', 'last_name'];
+	/**
+	 * @inheritdoc
+	 */
 	public $subdescriptorFields = [['parent:Account', 'child:PostalAddress:citySubnational']];
 	/**
 	 * @inheritdoc
@@ -136,6 +142,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -144,6 +151,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -152,6 +160,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getArchivedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getArchivedUser()
@@ -160,6 +169,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()
@@ -168,6 +178,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getUsers_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getUsers()

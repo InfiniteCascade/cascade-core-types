@@ -33,6 +33,9 @@ use cascade\models\Registry;
  */
 class ObjectEvent extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'name';
 
 	/**
@@ -115,6 +118,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -122,6 +126,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -130,6 +135,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getArchivedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getArchivedUser()
@@ -138,6 +144,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

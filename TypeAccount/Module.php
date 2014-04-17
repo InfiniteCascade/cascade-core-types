@@ -19,15 +19,42 @@ use infinite\helpers\ArrayHelper;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Account';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-building-o';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 105;
+	/**
+	 * @inheritdoc
+	 */
 	public $primaryAsParent = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $parentSearchWeight = .2;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\\modules\\core\\TypeAccount\\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\\modules\\core\\TypeAccount\\models';
 
 	/**

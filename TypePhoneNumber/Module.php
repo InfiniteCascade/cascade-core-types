@@ -18,15 +18,42 @@ use cascade\components\types\Relationship;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Phone Number';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-phone';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $childSearchWeight = 0.8;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 2300;
+	/**
+	 * @inheritdoc
+	 */
 	public $primaryAsChild = true;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypePhoneNumber\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypePhoneNumber\models';
 
 	/**

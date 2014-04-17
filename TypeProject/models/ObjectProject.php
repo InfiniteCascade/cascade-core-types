@@ -35,6 +35,9 @@ use cascade\models\Registry;
  */
 class ObjectProject extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'title';
 
 	/**
@@ -124,6 +127,7 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -132,6 +136,7 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -140,6 +145,7 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getArchivedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getArchivedUser()
@@ -148,6 +154,7 @@ class ObjectProject extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

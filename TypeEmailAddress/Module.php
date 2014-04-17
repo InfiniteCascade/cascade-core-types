@@ -18,15 +18,42 @@ use cascade\components\types\Relationship;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Email Address';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-envelope-o';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $childSearchWeight = 0.7;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 2200;
+	/**
+	 * @inheritdoc
+	 */
 	public $primaryAsChild = true;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypeEmailAddress\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypeEmailAddress\models';
 
 	/**

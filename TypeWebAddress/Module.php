@@ -18,15 +18,42 @@ use cascade\components\types\Relationship;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Web Address';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-external-link';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 2600;
+	/**
+	 * @inheritdoc
+	 */
 	public $primaryAsChild = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $childSearchWeight = .2;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypeWebAddress\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypeWebAddress\models';
 
 	/**

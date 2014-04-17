@@ -29,6 +29,9 @@ use infinite\helpers\Html;
  */
 class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'title';
 
 	/**
@@ -43,6 +46,10 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
     	}
     }
 
+    /**
+     * __method_getLink_description__
+     * @return __return_getLink_type__ __return_getLink_description__
+     */
     public function getLink()
     {
     	return Html::a($this->descriptor, $this->url, ['target' => '_blank']);
@@ -119,6 +126,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -127,6 +135,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -135,6 +144,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

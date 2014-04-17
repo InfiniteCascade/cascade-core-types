@@ -19,13 +19,34 @@ use infinite\base\exceptions\HttpException;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'File';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-paperclip';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 2300;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypeFile\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypeFile\models';
 
 	/**
@@ -48,6 +69,11 @@ class Module extends \cascade\components\types\Module
 		];
 	}
 
+	/**
+	 * __method_actionDownload_description__
+	 * @param __param_event_type__ $event __param_event_description__
+	 * @throws HttpException __exception_HttpException_description__
+	 */
 	public function actionDownload($event)
 	{
 		$results = $event->object->serve();

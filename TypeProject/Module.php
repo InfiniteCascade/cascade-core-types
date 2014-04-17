@@ -18,13 +18,34 @@ use cascade\components\types\Relationship;
 **/
 class Module extends \cascade\components\types\Module
 {
+	/**
+	 * @inheritdoc
+	 */
 	protected $_title = 'Project';
+	/**
+	 * @inheritdoc
+	 */
 	public $icon = 'fa fa-briefcase';
+	/**
+	 * @inheritdoc
+	 */
 	public $uniparental = false;
+	/**
+	 * @inheritdoc
+	 */
 	public $hasDashboard = true;
+	/**
+	 * @inheritdoc
+	 */
 	public $priority = 1400;
 
+	/**
+	 * @inheritdoc
+	 */
 	public $widgetNamespace = 'cascade\modules\core\TypeProject\widgets';
+	/**
+	 * @inheritdoc
+	 */
 	public $modelNamespace = 'cascade\modules\core\TypeProject\models';
 
 	/**

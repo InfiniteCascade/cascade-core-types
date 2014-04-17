@@ -29,6 +29,9 @@ use cascade\models\Registry;
  */
 class ObjectNote extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'title';
 
 	/**
@@ -97,6 +100,7 @@ class ObjectNote extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -105,6 +109,7 @@ class ObjectNote extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -114,6 +119,7 @@ class ObjectNote extends \cascade\components\types\ActiveRecord
 
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

@@ -32,6 +32,9 @@ use cascade\models\Registry;
  */
 class ObjectAccount extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'name';
 
 	/**
@@ -110,6 +113,7 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -118,6 +122,7 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getArchivedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getArchivedUser()
@@ -126,6 +131,7 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()
@@ -134,6 +140,7 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()

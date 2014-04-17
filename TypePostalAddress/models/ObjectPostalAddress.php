@@ -38,6 +38,9 @@ use infinite\helpers\Locations;
  */
 class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = ['name', 'citySubnational'];
 
 	/**
@@ -138,6 +141,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -146,6 +150,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -154,6 +159,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()
@@ -162,6 +168,10 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 
 
+	/**
+	 * __method_getUniqueCountry_description__
+	 * @return __return_getUniqueCountry_type__ __return_getUniqueCountry_description__
+	 */
 	public function getUniqueCountry() {
 		if ($this->country !==Yii::$app->params['defaultCountry']) {
 			$countries = Locations::countryList();
@@ -171,6 +181,10 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 
 
+	/**
+	 * __method_getCsz_description__
+	 * @return __return_getCsz_type__ __return_getCsz_description__
+	 */
 	public function getCsz() {
 		$str = $this->city;
 		if (!empty($this->subnational_division)) {
@@ -182,6 +196,10 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 		return $str;
 	}
 
+	/**
+	 * __method_getCitySubnational_description__
+	 * @return __return_getCitySubnational_type__ __return_getCitySubnational_description__
+	 */
 	public function getCitySubnational() {
 		$str = $this->city;
 		if (!empty($this->subnational_division)) {
@@ -190,11 +208,19 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 		return $str;
 	}
 
+	/**
+	 * __method_getFlatAddressUrl_description__
+	 * @return __return_getFlatAddressUrl_type__ __return_getFlatAddressUrl_description__
+	 */
 	public function getFlatAddressUrl()
 	{
 		return urlencode($this->flatAddress);
 	}
 	
+	/**
+	 * __method_getFlatAddress_description__
+	 * @return __return_getFlatAddress_type__ __return_getFlatAddress_description__
+	 */
 	public function getFlatAddress()
 	{
 		$parts = ['address1', 'address2', 'csz', 'country'];

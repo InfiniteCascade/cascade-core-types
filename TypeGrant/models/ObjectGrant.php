@@ -39,6 +39,9 @@ use cascade\models\Registry;
  */
 class ObjectGrant extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'title';
 
 	/**
@@ -134,6 +137,7 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -141,6 +145,7 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -149,6 +154,7 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getArchivedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getArchivedUser()
@@ -157,6 +163,7 @@ class ObjectGrant extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

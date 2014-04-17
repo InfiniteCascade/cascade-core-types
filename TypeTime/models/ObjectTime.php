@@ -31,8 +31,15 @@ use cascade\models\Registry;
  */
 class ObjectTime extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'hoursWithUnit';
 
+	/**
+	 * __method_getHoursWithUnit_description__
+	 * @return __return_getHoursWithUnit_type__ __return_getHoursWithUnit_description__
+	 */
 	public function getHoursWithUnit()
 	{
 		if ($this->hours == 1) {
@@ -121,6 +128,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -129,6 +137,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -138,6 +147,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 
 
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

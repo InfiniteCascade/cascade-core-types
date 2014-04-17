@@ -29,6 +29,9 @@ use infinite\helpers\Html;
  */
 class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $descriptorField = 'email_address';
 
 	/**
@@ -108,6 +111,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
+	 * __method_getRegistry_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -115,6 +119,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
 	/**
+	 * __method_getCreatedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -123,6 +128,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
+	 * __method_getModifiedUser_description__
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()
@@ -130,6 +136,10 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
 	}
 
+	/**
+	 * __method_getMailLink_description__
+	 * @return __return_getMailLink_type__ __return_getMailLink_description__
+	 */
 	public function getMailLink() {
 		return Html::mailto($this->email_address, $this->email_address);
 	}

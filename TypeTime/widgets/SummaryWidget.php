@@ -17,10 +17,23 @@ use infinite\helpers\ArrayHelper;
 **/
 class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 {
+	/**
+	 * @inheritdoc
+	 */
 	public $defaultDecoratorClass = 'cascade\\components\\web\\widgets\\decorator\\BlankDecorator';
+	/**
+	 * @var __var__stats_type__ __var__stats_description__
+	 */
 	protected $_stats;
+	/**
+	 * @inheritdoc
+	 */
 	public $location = 'right';
 
+	/**
+	 * __method_getGridCellSettings_description__
+	 * @return __return_getGridCellSettings_type__ __return_getGridCellSettings_description__
+	 */
 	public function getGridCellSettings() {
 		return [
 			'columns' => 5,
@@ -38,6 +51,10 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 		return !empty($this->stats['total']);
 	}
 
+	/**
+	 * __method_getStats_description__
+	 * @return __return_getStats_type__ __return_getStats_description__
+	 */
 	public function getStats()
 	{
 		if (is_null($this->_stats)) {
@@ -57,6 +74,10 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 		return false;
 	}
 
+	/**
+	 * __method_getModule_description__
+	 * @return __return_getModule_type__ __return_getModule_description__
+	 */
 	public function getModule()
 	{
 		$method = ArrayHelper::getValue($this->parentWidget->settings, 'queryRole', 'all');
