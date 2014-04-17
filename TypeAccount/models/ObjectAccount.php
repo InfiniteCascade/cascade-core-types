@@ -150,7 +150,7 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public static function searchFields()
 	{
 		$fields = parent::searchFields();

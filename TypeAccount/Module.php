@@ -16,7 +16,7 @@ use infinite\helpers\ArrayHelper;
  * Module [@doctodo write class description for Module]
  *
  * @author Jacob Morrison <email@ofjacob.com>
-**/
+ */
 class Module extends \cascade\components\types\Module
 {
 	/**
@@ -70,7 +70,7 @@ class Module extends \cascade\components\types\Module
 
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public function behaviors()
 	{
 		return array_merge(parent::behaviors(), [
@@ -82,7 +82,7 @@ class Module extends \cascade\components\types\Module
 
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public function setup() {
 		$results = [true];
 		if (!empty($this->primaryModel)) {
@@ -100,7 +100,7 @@ class Module extends \cascade\components\types\Module
 
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public function determineOwner($object)
 	{
         return false;

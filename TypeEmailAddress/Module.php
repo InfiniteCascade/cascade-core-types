@@ -15,7 +15,7 @@ use cascade\components\types\Relationship;
  * Module [@doctodo write class description for Module]
  *
  * @author Jacob Morrison <email@ofjacob.com>
-**/
+ */
 class Module extends \cascade\components\types\Module
 {
 	/**
@@ -68,7 +68,7 @@ class Module extends \cascade\components\types\Module
 	
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public function setup() {
 		$results = [parent::setup()];
 		if (!empty($this->primaryModel)) {

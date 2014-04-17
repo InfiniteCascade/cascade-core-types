@@ -14,7 +14,7 @@ use infinite\helpers\ArrayHelper;
  * SummaryWidget [@doctodo write class description for SummaryWidget]
  *
  * @author Jacob Morrison <email@ofjacob.com>
-**/
+ */
 class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 {
 	/**
@@ -45,7 +45,7 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public function getIsReady()
 	{
 		return !empty($this->stats['total']);
@@ -65,7 +65,7 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public function generateContent()
 	{
 		if (!empty($this->stats['total'])) {

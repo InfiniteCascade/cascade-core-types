@@ -16,7 +16,7 @@ use infinite\base\exceptions\HttpException;
  * Module [@doctodo write class description for Module]
  *
  * @author Jacob Morrison <email@ofjacob.com>
-**/
+ */
 class Module extends \cascade\components\types\Module
 {
 	/**
@@ -61,7 +61,7 @@ class Module extends \cascade\components\types\Module
 
 	/**
 	* @inheritdoc
-	**/
+	 */
 	public function subactions()
 	{
 		return [
