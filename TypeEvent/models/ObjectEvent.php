@@ -118,7 +118,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -126,7 +126,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
 	/**
-	 * __method_getCreatedUser_description__
+	 * Get created user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -135,7 +135,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getArchivedUser_description__
+	 * Get archived user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getArchivedUser()
@@ -144,7 +144,7 @@ class ObjectEvent extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getModifiedUser_description__
+	 * Get modified user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

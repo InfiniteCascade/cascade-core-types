@@ -138,7 +138,7 @@ class Module extends \cascade\components\types\Module
 	}
 
 	/**
-	 * __method_getStats_description__
+	 * Get stats
 	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
 	 * @param array $options __param_options_description__ [optional]
 	 * @return __return_getStats_type__ __return_getStats_description__
@@ -163,7 +163,7 @@ class Module extends \cascade\components\types\Module
 	}
 
 	/**
-	 * __method_getMonthSummary_description__
+	 * Get month summary
 	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
 	 * @param array $options __param_options_description__ [optional]
 	 * @return __return_getMonthSummary_type__ __return_getMonthSummary_description__
@@ -186,7 +186,7 @@ class Module extends \cascade\components\types\Module
 	}
 
 	/**
-	 * __method_getTopContributors_description__
+	 * Get top contributors
 	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
 	 * @param array $options __param_options_description__ [optional]
 	 * @return __return_getTopContributors_type__ __return_getTopContributors_description__
@@ -223,7 +223,7 @@ class Module extends \cascade\components\types\Module
 
 
 	/**
-	 * __method_getTopContributions_description__
+	 * Get top contributions
 	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
 	 * @param array $options __param_options_description__ [optional]
 	 * @return __return_getTopContributions_type__ __return_getTopContributions_description__
@@ -261,7 +261,7 @@ class Module extends \cascade\components\types\Module
 
 
 	/**
-	 * __method_getTotalHours_description__
+	 * Get total hours
 	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
 	 * @return __return_getTotalHours_type__ __return_getTotalHours_description__
 	 */
@@ -273,7 +273,7 @@ class Module extends \cascade\components\types\Module
 	}
 
 	/**
-	 * __method_getBaseStatsQuery_description__
+	 * Get base stats query
 	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
 	 * @return __return_getBaseStatsQuery_type__ __return_getBaseStatsQuery_description__
 	 */
@@ -286,7 +286,7 @@ class Module extends \cascade\components\types\Module
 	}
 
 	/**
-	 * __method_getCachingDependency_description__
+	 * Get caching dependency
 	 * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
 	 * @return __return_getCachingDependency_type__ __return_getCachingDependency_description__
 	 */

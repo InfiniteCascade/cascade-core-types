@@ -111,7 +111,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -119,7 +119,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
 	/**
-	 * __method_getCreatedUser_description__
+	 * Get created user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -128,7 +128,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getModifiedUser_description__
+	 * Get modified user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()
@@ -137,7 +137,7 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getMailLink_description__
+	 * Get mail link
 	 * @return __return_getMailLink_type__ __return_getMailLink_description__
 	 */
 	public function getMailLink() {

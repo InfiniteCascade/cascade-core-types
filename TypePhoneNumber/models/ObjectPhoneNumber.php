@@ -112,7 +112,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getFormattedExtension_description__
+	 * Get formatted extension
 	 * @return __return_getFormattedExtension_type__ __return_getFormattedExtension_description__
 	 */
 	public function getFormattedExtension()
@@ -122,7 +122,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -131,7 +131,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getCreatedUser_description__
+	 * Get created user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -140,7 +140,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getModifiedUser_description__
+	 * Get modified user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

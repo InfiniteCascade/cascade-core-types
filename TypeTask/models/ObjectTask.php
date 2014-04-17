@@ -130,7 +130,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -139,7 +139,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getCreatedUser_description__
+	 * Get created user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -149,7 +149,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 
 
 	/**
-	 * __method_getModifiedUser_description__
+	 * Get modified user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

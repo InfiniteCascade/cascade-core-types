@@ -31,7 +31,7 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 	public $location = 'right';
 
 	/**
-	 * __method_getGridCellSettings_description__
+	 * Get grid cell settings
 	 * @return __return_getGridCellSettings_type__ __return_getGridCellSettings_description__
 	 */
 	public function getGridCellSettings() {
@@ -52,7 +52,7 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 	}
 
 	/**
-	 * __method_getStats_description__
+	 * Get stats
 	 * @return __return_getStats_type__ __return_getStats_description__
 	 */
 	public function getStats()
@@ -75,7 +75,7 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 	}
 
 	/**
-	 * __method_getModule_description__
+	 * Get module
 	 * @return __return_getModule_type__ __return_getModule_description__
 	 */
 	public function getModule()

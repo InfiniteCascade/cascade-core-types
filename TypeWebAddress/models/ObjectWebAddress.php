@@ -47,7 +47,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
     }
 
     /**
-     * __method_getLink_description__
+     * Get link
      * @return __return_getLink_type__ __return_getLink_description__
      */
     public function getLink()
@@ -126,7 +126,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -135,7 +135,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getCreatedUser_description__
+	 * Get created user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -144,7 +144,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getModifiedUser_description__
+	 * Get modified user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

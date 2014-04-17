@@ -141,7 +141,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -150,7 +150,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getCreatedUser_description__
+	 * Get created user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -159,7 +159,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getModifiedUser_description__
+	 * Get modified user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()
@@ -169,7 +169,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 
 
 	/**
-	 * __method_getUniqueCountry_description__
+	 * Get unique country
 	 * @return __return_getUniqueCountry_type__ __return_getUniqueCountry_description__
 	 */
 	public function getUniqueCountry() {
@@ -182,7 +182,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 
 
 	/**
-	 * __method_getCsz_description__
+	 * Get csz
 	 * @return __return_getCsz_type__ __return_getCsz_description__
 	 */
 	public function getCsz() {
@@ -197,7 +197,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getCitySubnational_description__
+	 * Get city subnational
 	 * @return __return_getCitySubnational_type__ __return_getCitySubnational_description__
 	 */
 	public function getCitySubnational() {
@@ -209,7 +209,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getFlatAddressUrl_description__
+	 * Get flat address url
 	 * @return __return_getFlatAddressUrl_type__ __return_getFlatAddressUrl_description__
 	 */
 	public function getFlatAddressUrl()
@@ -218,7 +218,7 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getFlatAddress_description__
+	 * Get flat address
 	 * @return __return_getFlatAddress_type__ __return_getFlatAddress_description__
 	 */
 	public function getFlatAddress()

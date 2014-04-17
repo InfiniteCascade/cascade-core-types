@@ -36,7 +36,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	public $descriptorField = 'labelName';
 
 	/**
-	 * __method_getLabelName_description__
+	 * Get label name
 	 * @return __return_getLabelName_type__ __return_getLabelName_description__
 	 */
 	public function getLabelName()
@@ -69,7 +69,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_setLabelName_description__
+	 * Set label name
 	 * @param __param_value_type__ $value __param_value_description__
 	 */
 	public function setLabelName($value)
@@ -182,7 +182,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -191,7 +191,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getStorage_description__
+	 * Get storage
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getStorage()
@@ -200,7 +200,7 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getDownloadLink_description__
+	 * Get download link
 	 * @param __param_label_type__ $label __param_label_description__ [optional]
 	 * @param array $htmlAttributes __param_htmlAttributes_description__ [optional]
 	 * @return __return_getDownloadLink_type__ __return_getDownloadLink_description__

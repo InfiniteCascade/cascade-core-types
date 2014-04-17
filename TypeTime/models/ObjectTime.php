@@ -37,7 +37,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	public $descriptorField = 'hoursWithUnit';
 
 	/**
-	 * __method_getHoursWithUnit_description__
+	 * Get hours with unit
 	 * @return __return_getHoursWithUnit_type__ __return_getHoursWithUnit_description__
 	 */
 	public function getHoursWithUnit()
@@ -128,7 +128,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	}
 
 	/**
-	 * __method_getRegistry_description__
+	 * Get registry
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getRegistry()
@@ -137,7 +137,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 	}
 	
 	/**
-	 * __method_getCreatedUser_description__
+	 * Get created user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getCreatedUser()
@@ -147,7 +147,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 
 
 	/**
-	 * __method_getModifiedUser_description__
+	 * Get modified user
 	 * @return \yii\db\ActiveRelation
 	 */
 	public function getModifiedUser()

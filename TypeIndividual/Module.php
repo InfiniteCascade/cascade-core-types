@@ -102,7 +102,7 @@ class Module extends \cascade\components\types\Module
 	}
 	
 	/**
-	 * __method_getTopRequestors_description__
+	 * Get top requestors
 	 * @param __param_accessingObject_type__ $accessingObject __param_accessingObject_description__
 	 * @return __return_getTopRequestors_type__ __return_getTopRequestors_description__
 	 */
@@ -155,7 +155,7 @@ class Module extends \cascade\components\types\Module
 	}
 
 	/**
-	 * __method_getRequestorTypes_description__
+	 * Get requestor types
 	 */
 	public function getRequestorTypes()
 	{
