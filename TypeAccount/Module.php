@@ -10,6 +10,7 @@ namespace cascade\modules\core\TypeAccount;
 use Yii;
 
 use cascade\components\types\Relationship;
+use cascade\components\types\Module as TypeModule;
 use infinite\helpers\ArrayHelper;
 
 /**
@@ -17,7 +18,7 @@ use infinite\helpers\ArrayHelper;
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
-class Module extends \cascade\components\types\Module
+class Module extends TypeModule 
 {
 	/**
 	 * @inheritdoc
@@ -42,12 +43,7 @@ class Module extends \cascade\components\types\Module
 	/**
 	 * @inheritdoc
 	 */
-	public $primaryAsParent = true;
-	/**
-	 * @inheritdoc
-	 */
 	public $parentSearchWeight = .2;
-
 	/**
 	 * @inheritdoc
 	 */
@@ -97,6 +93,11 @@ class Module extends \cascade\components\types\Module
 		}
 		return min($results);
 	}
+
+	public function getPrimaryAsParent(TypeModule $child)
+    {
+        return true;
+    }
 
 	/**
 	* @inheritdoc

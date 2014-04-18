@@ -11,13 +11,14 @@ use Yii;
 
 use cascade\models\Registry;
 use cascade\components\types\Relationship;
+use cascade\components\types\Module as TypeModule;
 
 /**
  * Module [@doctodo write class description for Module]
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
-class Module extends \cascade\components\types\Module
+class Module extends TypeModule
 {
 	/**
 	 * @inheritdoc
@@ -39,11 +40,6 @@ class Module extends \cascade\components\types\Module
 	 * @inheritdoc
 	 */
 	public $priority = 110;
-	/**
-	 * @inheritdoc
-	 */
-	public $primaryAsChild = true;
-
 	/**
 	 * @inheritdoc
 	 */
@@ -74,6 +70,27 @@ class Module extends \cascade\components\types\Module
 			]
 		]);
 	}
+
+	public function getPrimaryAsParent(TypeModule $child)
+    {
+    	if (isset($parent)) {
+    		\d($parent->systemId);
+    		if (in_array($parent->systemId, ['Agreement', 'Account'])) {
+    			return true;
+    		}
+    	}
+        return false;
+    }
+
+	public function getPrimaryAsChild(TypeModule $parent)
+    {
+    	if (isset($parent)) {
+    		if (in_array($parent->systemId, ['Agreement', 'Account'])) {
+    			return true;
+    		}
+    	}
+        return false;
+    }
 
 	/**
 	* @inheritdoc

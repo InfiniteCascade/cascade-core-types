@@ -10,13 +10,14 @@ namespace cascade\modules\core\TypePostalAddress;
 use Yii;
 
 use cascade\components\types\Relationship;
+use cascade\components\types\Module as TypeModule;
 
 /**
  * Module [@doctodo write class description for Module]
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
-class Module extends \cascade\components\types\Module
+class Module extends TypeModule
 {
 	/**
 	 * @inheritdoc
@@ -38,11 +39,6 @@ class Module extends \cascade\components\types\Module
 	 * @inheritdoc
 	 */
 	public $priority = 2100;
-	/**
-	 * @inheritdoc
-	 */
-	public $primaryAsChild = true;
-
 	/**
 	 * @inheritdoc
 	 */
@@ -76,6 +72,12 @@ class Module extends \cascade\components\types\Module
 		return min($results);
 	}
 	
+
+	public function getPrimaryAsChild(TypeModule $parent)
+    {
+        return true;
+    }
+
 	/**
 	 * @inheritdoc
 	 */
