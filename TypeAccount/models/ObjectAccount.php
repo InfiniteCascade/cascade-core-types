@@ -65,6 +65,10 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+	public function getSubdescriptorFields()
+    {
+        return [['parent:_', 'child:PostalAddress:citySubnational']];
+    }
 
 	/**
 	 * @inheritdoc

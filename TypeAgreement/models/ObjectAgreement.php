@@ -61,6 +61,11 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 		return array_merge(parent::behaviors(), []);
 	}
 
+	public function getSubdescriptorFields()
+    {
+        return [['parent:Account' => ['relationOptions' => ['taxonomy' => [['systemId' => 'contractee']]]], 'dateRange']];
+    }
+
 	/**
 	 * @inheritdoc
 	 */
@@ -145,6 +150,18 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+	public function getDateRange()
+	{
+		$fields = $this->getFields();
+		if (!empty($this->start) && empty($this->end)) {
+			return 'since ' . $fields['start']->formattedValue;
+		} elseif (empty($this->start) && !empty($this->end)) {
+			return 'until ' . $fields['end']->formattedValue;
+		} else {
+			return implode(' – ', [$fields['start']->formattedValue, $fields['end']->formattedValue]);
+		}
+	}
+
 	/**
 	 * Get registry
 	 * @return \yii\db\ActiveRelation
@@ -153,6 +170,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 	{
 		return $this->hasOne(Registry::className(), ['id' => 'id']);
 	}
+
 	/**
 	 * Get created user
 	 * @return \yii\db\ActiveRelation

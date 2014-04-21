@@ -47,10 +47,6 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	/**
 	 * @inheritdoc
 	 */
-	public $subdescriptorFields = [['parent:Account', 'child:PostalAddress:citySubnational']];
-	/**
-	 * @inheritdoc
-	 */
 	public static function tableName()
 	{
 		return 'object_individual';
@@ -77,6 +73,10 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+    public function getSubdescriptorFields()
+    {
+        return [['parent:Account', 'child:PostalAddress:citySubnational', 'department', 'title']];
+    }
 
 	/**
 	 * @inheritdoc
