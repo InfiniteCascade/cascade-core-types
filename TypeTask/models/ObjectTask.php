@@ -8,6 +8,7 @@
 namespace cascade\modules\core\TypeTask\models;
 
 use cascade\models\Registry;
+use infinite\helpers\Date as DateHelper;
 
 /**
  * ObjectTask is the model class for table "object_task".
@@ -61,7 +62,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		return [
 			[['task'], 'required'],
 			[['task'], 'string'],
-			[['completed', 'start', 'end', 'priority', 'position'], 'safe'],
+			[['completed', 'completedStatus', 'start', 'end', 'priority', 'position'], 'safe'],
 			[['id', 'created_user_id', 'modified_user_id'], 'string', 'max' => 36]
 		];
 	}
@@ -72,7 +73,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	public function getDefaultValues()
 	{
 		return [
-			'completed' => 0
+			'completed' => null
 		];
 	}
 
@@ -127,6 +128,27 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 			'modified' => 'Modified Date',
 			'modified_user_id' => 'Modified by User',
 		];
+	}
+
+	public function additionalFields()
+    {
+        return array_merge(parent::additionalFields(), [
+            'completedStatus' => []
+        ]);
+    }
+
+	public function getCompletedStatus()
+	{
+		return empty($this->completed) ? 0 : 1;
+	}
+
+	public function setCompletedStatus($value)
+	{
+		if (empty($value)) {
+			$this->completed = null;
+		} elseif (empty($this->completed)) {
+			$this->completed = DateHelper::date($this->dbDateFormat ." ". $this->dbTimeFormat, time());
+		}
 	}
 
 	/**

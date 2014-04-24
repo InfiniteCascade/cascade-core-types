@@ -1,0 +1,17 @@
+/* ic-task */
+.ic-task-item.row {
+	margin: 0 30px 0 0;
+}
+.ic-task-item.row .col-xs-1 {
+	text-align: center;
+}
+.ic-task-item.row .col-xs-1,
+.ic-task-item.row .col-xs-10 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.ic-task-item.row h5 {
+	margin: 0;
+	line-height: 1.3;
+}
