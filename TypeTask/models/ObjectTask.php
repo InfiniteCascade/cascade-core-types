@@ -92,7 +92,9 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 				'formField' => [
 					'type' => 'checkBox'
 				]
-			]
+			],
+            'parent:Individual::assignee' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'assignee', 'taxonomyType' => 'ic_task_individual_role']]]],
+            'parent:Individual::requestor' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'requestor', 'taxonomyType' => 'ic_task_individual_role']]]],
 		];
 	}
 
@@ -108,8 +110,8 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		}
 		$settings['fields'] = [];
 		$settings['fields'][] = ['task'];
-		$settings['fields'][] = ['start', 'end'];
-		$settings['fields'][] = ['parent:Individual', 'completedStatus'];
+		$settings['fields'][] = ['start', 'end', 'completedStatus'];
+		$settings['fields'][] = ['parent:Individual::assignee', 'parent:Individual::requestor'];
 
 		return $settings;
 	}
@@ -132,13 +134,17 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 			'created_user_id' => 'Created by User',
 			'modified' => 'Modified Date',
 			'modified_user_id' => 'Modified by User',
+            'parent:Individual::assignee' => 'Assigned To',
+            'parent:Individual::requestor' => 'Requestor',
 		];
 	}
 
 	public function additionalFields()
     {
         return array_merge(parent::additionalFields(), [
-            'completedStatus' => []
+            'completedStatus' => [],
+            'parent:Individual::assignee' => 'parent:Individual',
+            'parent:Individual::requestor' => 'parent:Individual',
         ]);
     }
 

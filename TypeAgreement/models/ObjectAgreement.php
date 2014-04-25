@@ -105,10 +105,16 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'end' => [],
 			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],
 			'revenue' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
-			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
+			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]]
 		];
 	}
 
+	public function additionalFields()
+    {
+    	return array_merge(parent::additionalFields(), [
+    			'parent:Individual::primary_staff' => [],
+    		]);
+    }
 
 	/**
 	 * @inheritdoc
@@ -122,6 +128,8 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 		$settings['fields'][] = ['description'];
 		$settings['fields'][] = ['start', 'end'];
 		$settings['fields'][] = ['hours', 'revenue', 'cost'];
+		// $settings['fields'][] = ['parent:Account', 'parent:Individual'];
+
 		// $settings['fields'][] = [];
 		return $settings;
 	}

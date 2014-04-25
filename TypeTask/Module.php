@@ -74,7 +74,9 @@ class Module extends \cascade\components\types\Module
 	{
 		return [
 			'Project' => [],
-			'Individual' => [],
+			'Individual' => [
+				'taxonomy' => 'ic_task_individual_role'
+			],
 			'Grant' => [],
 			'Event' => [],
 			'Time' => [],
@@ -99,6 +101,21 @@ class Module extends \cascade\components\types\Module
 	 */
 	public function taxonomies()
 	{
-		return [];
+		return [
+			[
+				'name' => 'Role',
+				'models' => [\cascade\models\Relation::className()],
+				'modules' => [self::className()],
+				'systemId' => 'ic_task_individual_role',
+				'systemVersion' => 1.0,
+				'multiple' => false,
+				'parentUnique' => true,
+				'required' => true,
+				'initialTaxonomies' => [
+					'assignee' => 'Assigned To',
+					'requestor' => 'Requestor',
+				]
+			],
+		];
 	}
 }
