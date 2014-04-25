@@ -88,7 +88,11 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 			'end' => [],
 			'priority' => [],
 			'position' => [],
-			'completed' => []
+			'completedStatus' => [
+				'formField' => [
+					'type' => 'checkBox'
+				]
+			]
 		];
 	}
 
@@ -105,7 +109,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		$settings['fields'] = [];
 		$settings['fields'][] = ['task'];
 		$settings['fields'][] = ['start', 'end'];
-		$settings['fields'][] = ['completed'];
+		$settings['fields'][] = ['parent:Individual', 'completedStatus'];
 
 		return $settings;
 	}
@@ -118,11 +122,12 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 		return [
 			'id' => 'ID',
 			'task' => 'Task',
-			'start' => 'Start Date',
+			'start' => 'Deferred Date',
 			'end' => 'Due Date',
 			'priority' => 'Priority',
 			'position' => 'Position',
 			'completed' => 'Completed',
+			'completedStatus' => 'Completed',
 			'created' => 'Created Date',
 			'created_user_id' => 'Created by User',
 			'modified' => 'Modified Date',
@@ -177,5 +182,22 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 	public function getModifiedUser()
 	{
 		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
+	}
+
+	public function isPassedDue()
+	{
+		if (empty($this->end)) {
+			return false;
+		}
+		$dueDate = DateHelper::endOfDay($this->end);
+		return DateHelper::inPast($dueDate);
+	}
+
+	public function isDueToday()
+	{
+		if (empty($this->end)) {
+			return false;
+		}
+		return DateHelper::isToday(DateHelper::endOfDay($this->end));
 	}
 }

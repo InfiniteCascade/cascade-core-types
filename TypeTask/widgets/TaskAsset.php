@@ -24,12 +24,11 @@ class TaskAsset extends AssetBundle
     /**
      * @inheritdoc
      */
-    public $css = ['css/task.css'];
+    public $css = ['css/cascade.object.task.css'];
     /**
      * @inheritdoc
      */
-    public $js = [
-    ];
+    public $js = ['js/cascade.object.task.js'];
     /**
      * @inheritdoc
      */

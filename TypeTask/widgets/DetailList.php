@@ -24,6 +24,53 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
         ]);
     }
 
+    public function contentTemplate($model)
+    {
+    	$contentTemplate = parent::contentTemplate($model);
+    	$contentTemplate[] = [
+    		'settings' => ['class' => 'expanded-only list-group-label-block'],
+    		function($widget, $model, $settings) {
+    			$parts = [];
+    			$parts[] = Html::tag('span', 'Assigned To', ['class' => 'list-group-sub-label']);
+    			$assigned = $widget->getItemFieldValue($model, 'parent:Indvidual', []);
+    			if (empty($assigned)) {
+    				$parts[] = Html::tag('span', '<span class="empty">no one</span>', ['class' => 'list-group-sub-value']);
+    			} else {
+    				$parts[] = Html::tag('span', $assigned, ['class' => 'list-group-sub-value']);
+    			}
+    			return implode($parts);
+    		},
+    		function($widget, $model, $settings) {
+    			$parts = [];
+    			$parts[] = Html::tag('span', 'Deferred Date', ['class' => 'list-group-sub-label']);
+    			if (empty($model->start)) {
+    				$parts[] = Html::tag('span', '<span class="empty">none set</span>', ['class' => 'list-group-sub-value']);
+    			} else {
+    				$parts[] = Html::tag('span', $model->start, ['class' => 'list-group-sub-value']);
+    			}
+    			return implode($parts);
+    		},
+    		function($widget, $model, $settings) {
+    			$parts = [];
+    			$parts[] = Html::tag('span', 'Due Date', ['class' => 'list-group-sub-label']);
+    			$valueOptions = ['class' => 'list-group-sub-value'];
+    			if ($model->isDueToday()) {
+    				Html::addCssClass($valueOptions, 'text-warning');
+    			} elseif ($model->isPassedDue()) {
+    				Html::addCssClass($valueOptions, 'text-danger');
+    			}
+    			if (empty($model->end)) {
+    				$parts[] = Html::tag('span', '<span class="empty">none set</span>', ['class' => 'list-group-sub-value']);
+    			} else {
+    				$parts[] = Html::tag('span', $model->end, $valueOptions);
+    			}
+    			return implode($parts);
+    		}
+    	];
+    	return $contentTemplate;
+    }
+
+
 	public function renderItemContent($model, $key, $index)
     {
     	$descriptorContent = parent::renderItemContent($model, $key, $index);
@@ -43,9 +90,15 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
         	$radioOptions['disabled'] = true;
         }
         $radioOptions['uncheckedValue'] = 0;
-        $parts[] = Html::checkbox($fields['completedStatus']->formField->getModelFieldName(), !empty($model->completed), $radioOptions);
+        $title = 'Task has not been completed';
+        if (!empty($model->completed)) {
+        	$title = 'Task was completed on '. $model->completed;
+        }
+        $radioOptions['title'] = $title;
+        Html::addCssClass($radioOptions, 'taskCompletedStatus');
+        $parts[] = Html::checkbox($fields['completedStatus']->formField->getModelFieldName(), !empty($model->completedStatus), $radioOptions);
         $parts[] = Html::endTag('div');
-        $parts[] = Html::beginTag('div', ['class' => 'col-xs-10']);
+        $parts[] = Html::beginTag('div', ['class' => 'col-xs-10 expandable-child']);
         $parts[] = $descriptorContent;
         $parts[] = Html::endTag('div');
         $parts[] = Html::endTag('div');
