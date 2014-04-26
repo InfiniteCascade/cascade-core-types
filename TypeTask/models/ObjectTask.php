@@ -93,6 +93,7 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 					'type' => 'checkBox'
 				]
 			],
+            'parent:Individual' => ['alias' => 'parent:Individual::assignee'],
             'parent:Individual::assignee' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'assignee', 'taxonomyType' => 'ic_task_individual_role']]]],
             'parent:Individual::requestor' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'requestor', 'taxonomyType' => 'ic_task_individual_role']]]],
 		];

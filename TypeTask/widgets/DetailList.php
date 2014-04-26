@@ -32,7 +32,7 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
     		function($widget, $model, $settings) {
     			$parts = [];
     			$parts[] = Html::tag('span', 'Assigned To', ['class' => 'list-group-sub-label']);
-    			$assigned = $widget->getItemFieldValue($model, 'parent:Indvidual', []);
+    			$assigned = $widget->getItemFieldValue($model, 'parent:Individual::assignee', []);
     			if (empty($assigned)) {
     				$parts[] = Html::tag('span', '<span class="empty">no one</span>', ['class' => 'list-group-sub-value']);
     			} else {
