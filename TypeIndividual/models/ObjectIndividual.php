@@ -108,7 +108,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 		$settings['fields'][] = ['first_name', 'middle_name', 'last_name'];
 		$settings['fields'][] = ['title', 'department'];
 		if ($this->isNewRecord) {
-			$settings['fields'][] = ['child:EmailAddress' => ['linkExisting' => false], 'child:PhoneNumber' => ['linkExisting' => false]];
+			$settings['fields'][] = ['child:EmailAddress' => ['relationSettings' => false], 'child:PhoneNumber' => ['relationSettings' => false]];
 		}
 		if (!$this->isNewRecord) {
 			$settings['fields'][] = ['birthday', false];

@@ -63,7 +63,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 
 	public function getSubdescriptorFields()
     {
-        return [['parent:Account' => ['relationOptions' => ['taxonomy' => [['systemId' => 'contractee']]]], 'dateRange']];
+        return [['parent:Account' => ['relationOptions' => ['taxonomy' => [['taxonomyType' => 'ic_agreement_account_role', 'systemId' => 'contractee']]]], 'dateRange']];
     }
 
 	/**
