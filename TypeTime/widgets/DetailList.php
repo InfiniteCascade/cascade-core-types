@@ -28,7 +28,7 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 			return [
 				'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
 				'description' => [],
-				['parent:Individual' => [], 'parent:_' => []]
+				//['parent:Individual' => [], 'parent:_' => []]
 			];
 		} else {
 			return [

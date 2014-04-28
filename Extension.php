@@ -20,7 +20,8 @@ class Extension extends \cascade\components\base\ModuleSetExtension {
 	{
 		$m = [];
 		$m['TypeAccount'] = [
-			'class' => 'cascade\\modules\\core\\TypeAccount\\Module'
+			'class' => 'cascade\\modules\\core\\TypeAccount\\Module',
+			'title' => 'Organization'
 		];
 		$m['TypeIndividual'] = [
 			'class' => 'cascade\\modules\\core\\TypeIndividual\\Module'
