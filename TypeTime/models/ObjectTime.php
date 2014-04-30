@@ -47,7 +47,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 		} else {
 			$postfix = ' hours';
 		}
-		return $this->hours . $postfix;
+		return $this->hours . $postfix .' on '.$this->log_date.'';
 	}
 
 	/**
@@ -91,7 +91,10 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 				'format' => [],
 				'formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]
 			],
-			'log_date' => []
+			'log_date' => [],
+            'parent:Individual' => ['alias' => 'parent:Individual::contributor'],
+            'parent:Individual::contributor' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'contributor', 'taxonomyType' => 'ic_time_individual_role']]]],
+            'parent:Individual::requestor' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'requestor', 'taxonomyType' => 'ic_time_individual_role']]]],
 		];
 	}
 
@@ -106,6 +109,7 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 		}
 		$settings['fields'][] = ['hours', 'log_date'];
 		$settings['fields'][] = ['description'];
+		$settings['fields'][] = ['parent:Individual::contributor', 'parent:Individual::requestor'];
 		return $settings;
 	}
 
@@ -124,8 +128,20 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 			'created_user_id' => 'Created by User',
 			'modified' => 'Modified Date',
 			'modified_user_id' => 'Modified by User',
+            'parent:Individual::contributor' => 'Contributor',
+            'parent:Individual::requestor' => 'Requestor',
 		];
 	}
+
+
+	public function additionalFields()
+    {
+        return array_merge(parent::additionalFields(), [
+            'completedStatus' => [],
+            'parent:Individual::contributor' => 'parent:Individual',
+            'parent:Individual::requestor' => 'parent:Individual',
+        ]);
+    }
 
 	/**
 	 * Get registry

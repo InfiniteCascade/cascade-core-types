@@ -14,4 +14,10 @@ namespace cascade\modules\core\TypeNote\widgets;
  */
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
+	public function contentTemplate($model)
+	{
+		$template = parent::contentTemplate($model);
+		$template['note'] = ['class' => 'expanded-only expanded-pre list-group-label-block'];
+		return $template;
+	}
 }

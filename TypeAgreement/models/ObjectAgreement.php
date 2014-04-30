@@ -88,7 +88,8 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 	public function getDefaultValues()
 	{
 		return [
-			'start' => Date::date("m/d/Y")
+			'start' => Date::date("m/d/Y"),
+			'parent:Account::contractor' => Yii::$app->params['primaryAccount']
 		];
 	}
 
@@ -105,7 +106,11 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'end' => [],
 			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],
 			'revenue' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
-			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]]
+			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
+
+            'parent:Account' => ['alias' => 'parent:Account::contractee'],
+            'parent:Account::contractee' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'contractee', 'taxonomyType' => 'ic_agreement_account_role']]]],
+            'parent:Account::contractor' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'contractor', 'taxonomyType' => 'ic_agreement_account_role']]]],
 		];
 	}
 
@@ -113,6 +118,8 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
     {
     	return array_merge(parent::additionalFields(), [
     			'parent:Individual::primary_staff' => [],
+            	'parent:Account::contractee' => 'parent:Account',
+            	'parent:Account::contractor' => 'parent:Account',
     		]);
     }
 
@@ -128,6 +135,9 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 		$settings['fields'][] = ['description'];
 		$settings['fields'][] = ['start', 'end'];
 		$settings['fields'][] = ['hours', 'revenue', 'cost'];
+		if ($this->isNewRecord) {
+			$settings['fields'][] = ['parent:Account::contractee', 'parent:Account::contractor'];
+		}
 		// $settings['fields'][] = ['parent:Account', 'parent:Individual'];
 
 		// $settings['fields'][] = [];
@@ -155,6 +165,8 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'modified_user_id' => 'Modified by User',
 			'archived' => 'Archived Date',
 			'archived_user_id' => 'Archived by User',
+			'parent:Account::contractee' => 'Contractee',
+			'parent:Account::contractor' => 'Contractor'
 		];
 	}
 

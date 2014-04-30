@@ -26,18 +26,33 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 
     public function contentTemplate($model)
     {
-    	$contentTemplate = parent::contentTemplate($model);
+        $contentTemplate = [
+            'descriptor' => ['class' => 'list-group-item-heading expanded-pre', 'tag' => 'h5'],
+        ];
     	$contentTemplate[] = [
     		'settings' => ['class' => 'expanded-only list-group-label-block'],
     		function($widget, $model, $settings) {
     			$parts = [];
-    			$parts[] = Html::tag('span', 'Assigned To', ['class' => 'list-group-sub-label']);
-    			$assigned = $widget->getItemFieldValue($model, 'parent:Individual::assignee', []);
-    			if (empty($assigned)) {
-    				$parts[] = Html::tag('span', '<span class="empty">no one</span>', ['class' => 'list-group-sub-value']);
-    			} else {
-    				$parts[] = Html::tag('span', $assigned, ['class' => 'list-group-sub-value']);
-    			}
+                $parent = null;
+                foreach ($model->objectTypeItem->parents as $parentRelationship) {
+                    if ($parentRelationship->parent->systemId === 'Individual') { continue; }
+                    $parent = $model->getForeignField('parent:'. $parentRelationship->parent->systemId, [], $this->getContext());
+                    if (!empty($parent)) {
+                        break;
+                    }
+                }
+                if (!empty($parent)) {
+                    $parts[] = Html::tag('span', $parent->model->objectType->title->upperSingular, ['class' => 'list-group-sub-label']);
+                    $parts[] = Html::tag('span', $parent->model->viewLink, ['class' => 'list-group-sub-value']);
+                } else {
+        			$parts[] = Html::tag('span', 'Assigned To', ['class' => 'list-group-sub-label']);
+        			$assigned = $widget->getItemFieldValue($model, 'parent:Individual:viewLink:assignee', []);
+        			if (empty($assigned)) {
+        				$parts[] = Html::tag('span', '<span class="empty">no one</span>', ['class' => 'list-group-sub-value']);
+        			} else {
+        				$parts[] = Html::tag('span', $assigned, ['class' => 'list-group-sub-value']);
+        			}
+                }
     			return implode($parts);
     		},
     		function($widget, $model, $settings) {
