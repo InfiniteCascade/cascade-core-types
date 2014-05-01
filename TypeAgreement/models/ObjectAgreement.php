@@ -107,7 +107,9 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'hours' => ['formField' => ['fieldConfig' => ['inputGroupPostfix' => 'hours']]],
 			'revenue' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
 			'cost' => ['formField' => ['fieldConfig' => ['inputGroupPrefix' => '<i class="fa fa-'.Yii::$app->params['currency'].'"></i>']]],
-
+			//'parent:Individual' => ['alias' => 'parent:Individual::primary_staff'],
+            'parent:Individual::primary_staff' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'primary_staff', 'taxonomyType' => 'ic_agreement_individual_role']]]],
+            
             'parent:Account' => ['alias' => 'parent:Account::contractee'],
             'parent:Account::contractee' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'contractee', 'taxonomyType' => 'ic_agreement_account_role']]]],
             'parent:Account::contractor' => ['formField' => ['lockFields' => ['taxonomy_id']], 'attributes' => ['taxonomy_id' => [['systemId' => 'contractor', 'taxonomyType' => 'ic_agreement_account_role']]]],
@@ -117,7 +119,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 	public function additionalFields()
     {
     	return array_merge(parent::additionalFields(), [
-    			'parent:Individual::primary_staff' => [],
+    			'parent:Individual::primary_staff' => 'parent:Individual',
             	'parent:Account::contractee' => 'parent:Account',
             	'parent:Account::contractor' => 'parent:Account',
     		]);
@@ -165,6 +167,7 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
 			'modified_user_id' => 'Modified by User',
 			'archived' => 'Archived Date',
 			'archived_user_id' => 'Archived by User',
+			'parent:Individual::primary_staff' => 'Primary Staff',
 			'parent:Account::contractee' => 'Contractee',
 			'parent:Account::contractor' => 'Contractor'
 		];
