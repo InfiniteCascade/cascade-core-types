@@ -19,11 +19,7 @@ use infinite\helpers\StringHelper;
  */
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
-	/**
-	 * @var __var_renderContentTemplate_type__ __var_renderContentTemplate_description__
-	 */
-	public $renderContentTemplate = ['descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'], 'address1', 'address2', 'csz', 'uniqueCountry'];
-	
+
 	/**
 	* @inheritdoc
 	 */

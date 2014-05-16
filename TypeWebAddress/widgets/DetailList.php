@@ -14,8 +14,10 @@ namespace cascade\modules\core\TypeWebAddress\widgets;
  */
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
-	/**
-	 * @var __var_renderContentTemplate_type__ __var_renderContentTemplate_description__
-	 */
-	public $renderContentTemplate = ['link' => ['class' => 'list-group-item-heading', 'tag' => 'h5']];
+	public function contentTemplate($model)
+	{
+		return [
+			'webLink' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
+		];
+	}
 }

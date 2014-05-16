@@ -84,15 +84,17 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 		return [
 			'name' => [],
 			'type' => [],
-			'address1' => [],
-			'address2' => [],
+			'address1' => ['format' => ['showEmptyString' => false]],
+			'address2' => ['format' => ['showEmptyString' => false]],
 			'city' => [],
 			'subnational_division' => [
+				'format' => ['showEmptyString' => false],
 				'default' => Yii::$app->params['defaultSubnationalDivision'],
 				'formField' => ['type' => 'smartDropDownList', 'smartOptions' => ['watchField' => 'country', 'fallbackType' => ['tag' => 'input', 'type' => 'text'], 'options' => Locations::allSubnationalDivisions(), 'blank' => true], 'options' => []],
 			],
-			'postal_code' => [],
+			'postal_code' => ['format' => ['showEmptyString' => false]],
 			'country' => [
+				'format' => ['showEmptyString' => false],
 				'default' => Yii::$app->params['defaultCountry'],
 				'formField' => ['type' => 'dropDownList', 'options' => Locations::countryList()],
 			],

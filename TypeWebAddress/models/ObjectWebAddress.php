@@ -50,7 +50,7 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
      * Get link
      * @return __return_getLink_type__ __return_getLink_description__
      */
-    public function getLink()
+    public function getWebLink()
     {
     	return Html::a($this->descriptor, $this->url, ['target' => '_blank']);
     }

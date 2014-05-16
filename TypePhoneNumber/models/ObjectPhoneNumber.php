@@ -32,7 +32,7 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 	/**
 	 * @inheritdoc
 	 */
-	public $descriptorField = ['phone', 'formattedExtension'];
+	public $descriptorField = ['formattedPhone'];
 
 	/**
 	 * @inheritdoc
@@ -77,7 +77,28 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 		];
 	}
 
+	public function beforeValidate()
+    {
+    	$originalPhone = $this->phone;
+    	$originalExtension = $this->extension;
 
+    	$phone = preg_replace('/[^0-9a-zA-Z]/', '', $originalPhone);
+    	preg_match('/([0-9]+)([a-zA-Z]*)([0-9]*)/', $phone, $matches);
+    	$this->phone = isset($matches[1]) ? $matches[1] : null;
+    	if (empty($originalExtension) || (isset($matches[3]) && $originalExtension === $matches[3])) {
+    		$this->extension = isset($matches[3]) ? $matches[3] : null;
+    	} else {
+    		unset($matches[0]);
+    		$this->phone = trim(implode(' ', $matches));
+    	}
+    	if (empty($this->phone)) {
+    		$this->phone = null;
+    	}
+    	if (empty($this->extension)) {
+    		$this->extension = null;
+    	}
+    	return parent::beforeValidate();
+    }
 	/**
 	 * @inheritdoc
 	 */
@@ -121,6 +142,34 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 		return 'x'. $this->extension;
 	}
 
+	public function getFormattedPhone()
+	{
+		$parts = [$this->formatPhoneNumber($this->phone)];
+		if (isset($this->formattedExtension)) {
+			$parts[] = $this->formattedExtension;
+		}
+		return implode(' ', $parts);
+	}
+
+	protected function formatPhoneNumber($phoneNumber) {
+		if (strlen($phoneNumber) > 10) {
+			$countryCode = substr($phoneNumber, 0, strlen($phoneNumber)-10);
+			$areaCode = substr($phoneNumber, -10, 3);
+			$nextThree = substr($phoneNumber, -7, 3);
+			$lastFour = substr($phoneNumber, -4, 4);
+			$phoneNumber = '+'.$countryCode.' ('.$areaCode.') '.$nextThree.'-'.$lastFour;
+		} elseif(strlen($phoneNumber) === 10) {
+			$areaCode = substr($phoneNumber, 0, 3);
+			$nextThree = substr($phoneNumber, 3, 3);
+			$lastFour = substr($phoneNumber, 6, 4);
+			$phoneNumber = '('.$areaCode.') '.$nextThree.'-'.$lastFour;
+		} elseif (strlen($phoneNumber) === 7) {
+			$nextThree = substr($phoneNumber, 0, 3);
+			$lastFour = substr($phoneNumber, 3, 4);
+			$phoneNumber = $nextThree.'-'.$lastFour;
+		}
+		return $phoneNumber;
+	}
 	/**
 	 * Get registry
 	 * @return \yii\db\ActiveRelation
