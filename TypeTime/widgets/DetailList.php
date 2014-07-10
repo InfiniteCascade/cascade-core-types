@@ -27,7 +27,7 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 	{
 		$template = [
 			'descriptor' => ['class' => 'list-group-item-heading', 'tag' => 'h5'],
-			'description' => [],
+			'description' => ['class' => 'list-group-item-text'],
 			//['parent:Individual' => [], 'parent:_' => []]
 		];
 		$row = ['settings' => ['class' => 'expanded-only list-group-label-block']];
