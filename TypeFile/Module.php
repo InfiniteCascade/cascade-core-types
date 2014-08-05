@@ -92,6 +92,16 @@ class Module extends \cascade\components\types\Module
 			return parent::widgets();
 	}
 
+	public function getCreateVerb($object)
+    {
+        return new \infinite\base\language\Verb('upload');
+    }
+
+    public function getUpdateVerb($object)
+    {
+        return new \infinite\base\language\Verb('upload');
+    }
+
 	
 	/**
 	 * @inheritdoc
