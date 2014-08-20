@@ -11,6 +11,7 @@ class m131101_202825_initial_object_individual extends \infinite\db\Migration
 		
 		$this->createTable('object_individual', [
 			'id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL PRIMARY KEY',
+			'photo_storage_id' => 'char(36) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL',
 			'prefix' => 'string(255) DEFAULT NULL',
 			'suffix' => 'string(255) DEFAULT NULL',
 			'first_name' => 'string(255) NOT NULL',
@@ -30,10 +31,12 @@ class m131101_202825_initial_object_individual extends \infinite\db\Migration
 		$this->createIndex('objectIndividualCreatedUser', 'object_individual', 'created_user_id', false);
 		$this->createIndex('objectIndividualModifiedUser', 'object_individual', 'modified_user_id', false);
 		$this->createIndex('objectIndividualArchivedUser', 'object_individual', 'archived_user_id', false);
+        $this->createIndex('objectIndividualPhotoStorage', 'object_individual', 'photo_storage_id', false);
+        $this->addForeignKey('objectIndividualPhotoStorage', 'object_individual', 'photo_storage_id', 'storage', 'id', 'SET NULL', 'CASCADE');
 		$this->addForeignKey('objectIndividualCreatedUser', 'object_individual', 'created_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 		$this->addForeignKey('objectIndividualArchivedUser', 'object_individual', 'archived_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
 		$this->addForeignKey('objectIndividualModfiedUser', 'object_individual', 'modified_user_id', 'user', 'id', 'SET NULL', 'SET NULL');
-		$this->addForeignKey('individualRegistry', 'object_individual', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
+		$this->addForeignKey('objectIndividualRegistry', 'object_individual', 'id', 'registry', 'id', 'CASCADE', 'CASCADE');
 
 		$this->db->createCommand()->checkIntegrity(true)->execute();
 

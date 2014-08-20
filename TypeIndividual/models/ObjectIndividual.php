@@ -57,7 +57,9 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 	 */
 	public function behaviors()
 	{
-		return array_merge(parent::behaviors(), []);
+		return array_merge(parent::behaviors(), [
+			'Photo' => 'cascade\components\db\behaviors\Photo',
+		]);
 	}
 
 	/**
@@ -68,7 +70,7 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 		return [
 			[['first_name'], 'required'],
 			[['birthday'], 'safe'],
-			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
+			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id', 'photo_storage_id'], 'string', 'max' => 36],
 			[['prefix', 'suffix', 'first_name', 'middle_name', 'last_name', 'title', 'department'], 'string', 'max' => 255]
 		];
 	}

@@ -50,7 +50,9 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 	 */
 	public function behaviors()
 	{
-		return array_merge(parent::behaviors(), []);
+		return array_merge(parent::behaviors(), [
+			'Photo' => 'cascade\components\db\behaviors\Photo',
+		]);
 	}
 
 	/**
@@ -59,6 +61,7 @@ class ObjectAccount extends \cascade\components\types\ActiveRecord
 	public function rules()
 	{
 		return [
+            [['photo_storage_id'], 'string', 'max' => 36],
 			[['name'], 'required'],
 			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
 			[['name', 'alt_name'], 'string', 'max' => 255]
