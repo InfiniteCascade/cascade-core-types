@@ -7,6 +7,7 @@
 
 namespace cascade\modules\core\TypeIndividual\models;
 
+use Yii;
 use cascade\models\User;
 use cascade\models\Registry;
 
@@ -117,6 +118,24 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
 		}
 		return $settings;
 	}
+
+
+	public function getPhotoEmail()
+    {
+    	$email = false;
+    	$emailType = Yii::$app->collectors['types']->getOne('EmailAddress');
+    	if (empty($emailType->object)) {
+    		return false;
+    	}
+    	foreach ($this->children($emailType->object->primaryModel, ['where' => ['primary_child' => 1]]) as $child) {
+    		$email = $child->email_address;
+    		break;
+    	}
+        if (!empty($email) && substr($email, -6) !== ".local") {
+            return $email;
+        }
+        return false;
+    }
 
 	/**
 	 * @inheritdoc
