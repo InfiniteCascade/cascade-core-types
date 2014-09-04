@@ -10,7 +10,8 @@ $classSettings['limit'] = 10;
 $classSettings['columns'] = ['link'];
 $classSettings['sortableAttributes'] = [
 			'familiarity' => 'Familiarity',
-			'last_accessed' => 'Last Accessed'];
+			'last_accessed' => 'Last Accessed'
+];
 $classSettings['views'] = ['grid'];
 $classSettings['currentView'] = 'grid';
 $classSettings['additionalClasses'] = 'summary-widget';
