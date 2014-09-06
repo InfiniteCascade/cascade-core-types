@@ -68,6 +68,12 @@ class Extension extends \cascade\components\base\ModuleSetExtension {
 		$m['TypeEvent'] = [
 			'class' => 'cascade\\modules\\core\\TypeEvent\\Module'
 		];
+		$m['ReportTime'] = [
+			'class' => 'cascade\\modules\\core\\ReportTime\\Module'
+		];
+		$m['ToolTimeInvoice'] = [
+			'class' => 'cascade\\modules\\core\\ToolTimeInvoice\\Module'
+		];
 		return $m;
 	}
 }
