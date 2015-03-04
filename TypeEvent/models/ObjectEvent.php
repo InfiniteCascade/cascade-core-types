@@ -1,6 +1,7 @@
 <?php
 /**
  * @link http://www.infinitecascade.com/
+ *
  * @copyright Copyright (c) 2014 Infinite Cascade
  * @license http://www.infinitecascade.com/license/
  */
@@ -23,7 +24,6 @@ use cascade\models\Registry;
  * @property string $modified_user_id
  * @property string $archived
  * @property string $archived_user_id
- *
  * @property User $createdUser
  * @property User $archivedUser
  * @property User $modifiedUser
@@ -33,122 +33,124 @@ use cascade\models\Registry;
  */
 class ObjectEvent extends \cascade\components\types\ActiveRecord
 {
-	/**
-	 * @inheritdoc
-	 */
-	public $descriptorField = 'name';
+    /**
+     * @inheritdoc
+     */
+    public $descriptorField = 'name';
 
-	/**
-	 * @inheritdoc
-	 */
-	public static function tableName()
-	{
-		return 'object_event';
-	}
+    /**
+     * @inheritdoc
+     */
+    public static function tableName()
+    {
+        return 'object_event';
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function behaviors()
-	{
-		return array_merge(parent::behaviors(), []);
-	}
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return array_merge(parent::behaviors(), []);
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function rules()
-	{
-		return [
-			[['description'], 'string'],
-			[['start', 'end'], 'safe'],
-			[['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
-			[['name'], 'string', 'max' => 255]
-		];
-	}
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['description'], 'string'],
+            [['start', 'end'], 'safe'],
+            [['id', 'created_user_id', 'modified_user_id', 'archived_user_id'], 'string', 'max' => 36],
+            [['name'], 'string', 'max' => 255],
+        ];
+    }
 
+    /**
+     * @inheritdoc
+     */
+    public function fieldSettings()
+    {
+        return [
+            'name' => [],
+            'description' => [],
+            'start' => [],
+            'end' => [],
+        ];
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function fieldSettings()
-	{
-		return [
-			'name' => [],
-			'description' => [],
-			'start' => [],
-			'end' => []
-		];
-	}
+    /**
+     * @inheritdoc
+     */
+    public function formSettings($name, $settings = [])
+    {
+        if (!isset($settings['fields'])) {
+            $settings['fields'] = [];
+        }
+        $settings['fields'][] = ['name'];
+        $settings['fields'][] = ['description'];
+        $settings['fields'][] = ['start', 'end'];
+        // $settings['fields'][] = [];
+        return $settings;
+    }
 
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'name' => 'Name',
+            'description' => 'Description',
+            'start' => 'Start Date',
+            'end' => 'End Date',
+            'created' => 'Created Date',
+            'created_user_id' => 'Created by User',
+            'modified' => 'Modified Date',
+            'modified_user_id' => 'Modified by User',
+            'archived' => 'Archived Date',
+            'archived_user_id' => 'Archived by User',
+        ];
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function formSettings($name, $settings = [])
-	{
-		if (!isset($settings['fields'])) {
-			$settings['fields'] = [];
-		}
-		$settings['fields'][] = ['name'];
-		$settings['fields'][] = ['description'];
-		$settings['fields'][] = ['start', 'end'];
-		// $settings['fields'][] = [];
-		return $settings;
-	}
+    /**
+     * Get registry.
+     *
+     * @return \yii\db\ActiveRelation
+     */
+    public function getRegistry()
+    {
+        return $this->hasOne(Registry::className(), ['id' => 'id']);
+    }
+    /**
+     * Get created user.
+     *
+     * @return \yii\db\ActiveRelation
+     */
+    public function getCreatedUser()
+    {
+        return $this->hasOne(Yii::$app->classes['User'], ['id' => 'created_user_id']);
+    }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function attributeLabels()
-	{
-		return [
-			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
-			'start' => 'Start Date',
-			'end' => 'End Date',
-			'created' => 'Created Date',
-			'created_user_id' => 'Created by User',
-			'modified' => 'Modified Date',
-			'modified_user_id' => 'Modified by User',
-			'archived' => 'Archived Date',
-			'archived_user_id' => 'Archived by User',
-		];
-	}
+    /**
+     * Get archived user.
+     *
+     * @return \yii\db\ActiveRelation
+     */
+    public function getArchivedUser()
+    {
+        return $this->hasOne(Yii::$app->classes['User'], ['id' => 'archived_user_id']);
+    }
 
-	/**
-	 * Get registry
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getRegistry()
-	{
-		return $this->hasOne(Registry::className(), ['id' => 'id']);
-	}
-	/**
-	 * Get created user
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getCreatedUser()
-	{
-		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'created_user_id']);
-	}
-
-	/**
-	 * Get archived user
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getArchivedUser()
-	{
-		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'archived_user_id']);
-	}
-
-	/**
-	 * Get modified user
-	 * @return \yii\db\ActiveRelation
-	 */
-	public function getModifiedUser()
-	{
-		return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
-	}
+    /**
+     * Get modified user.
+     *
+     * @return \yii\db\ActiveRelation
+     */
+    public function getModifiedUser()
+    {
+        return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
+    }
 }
