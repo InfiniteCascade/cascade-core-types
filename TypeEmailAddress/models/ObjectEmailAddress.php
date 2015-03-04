@@ -140,8 +140,6 @@ class ObjectEmailAddress extends \cascade\components\types\ActiveRecord
 
     /**
      * Get mail link.
-     *
-     * @return __return_getMailLink_type__ __return_getMailLink_description__
      */
     public function getMailLink()
     {

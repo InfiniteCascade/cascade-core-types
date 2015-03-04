@@ -27,7 +27,6 @@ use infinite\helpers\Html;
 class ObjectFile extends \cascade\components\types\ActiveRecord
 {
     /**
-     * @var __var__labelName_type__ __var__labelName_description__
      */
     protected $_labelName;
     /**
@@ -37,8 +36,6 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 
     /**
      * Get label name.
-     *
-     * @return __return_getLabelName_type__ __return_getLabelName_description__
      */
     public function getLabelName()
     {
@@ -73,8 +70,6 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 
     /**
      * Set label name.
-     *
-     * @param __param_value_type__ $value __param_value_description__
      */
     public function setLabelName($value)
     {
@@ -206,11 +201,6 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 
     /**
      * Get download link.
-     *
-     * @param __param_label_type__ $label          __param_label_description__ [optional]
-     * @param array                $htmlAttributes __param_htmlAttributes_description__ [optional]
-     *
-     * @return __return_getDownloadLink_type__ __return_getDownloadLink_description__
      */
     public function getDownloadLink($label = null, $htmlAttributes = [])
     {

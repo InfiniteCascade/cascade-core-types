@@ -69,11 +69,7 @@ class Module extends \cascade\components\types\Module
     }
 
     /**
-     * __method_actionDownload_description__.
      *
-     * @param __param_event_type__ $event __param_event_description__
-     *
-     * @throws HttpException __exception_HttpException_description__
      */
     public function actionDownload($event)
     {

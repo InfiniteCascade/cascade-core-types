@@ -38,8 +38,6 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 
     /**
      * Get hours with unit.
-     *
-     * @return __return_getHoursWithUnit_type__ __return_getHoursWithUnit_description__
      */
     public function getHoursWithUnit()
     {

@@ -48,8 +48,6 @@ class ObjectWebAddress extends \cascade\components\types\ActiveRecord
 
     /**
      * Get link.
-     *
-     * @return __return_getLink_type__ __return_getLink_description__
      */
     public function getWebLink()
     {

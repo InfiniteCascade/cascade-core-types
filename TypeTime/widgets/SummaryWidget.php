@@ -23,7 +23,6 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
      */
     public $defaultDecoratorClass = 'cascade\components\web\widgets\decorator\BlankDecorator';
     /**
-     * @var __var__stats_type__ __var__stats_description__
      */
     protected $_stats;
     /**
@@ -33,8 +32,6 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
     /**
      * Get grid cell settings.
-     *
-     * @return __return_getGridCellSettings_type__ __return_getGridCellSettings_description__
      */
     public function getGridCellSettings()
     {
@@ -55,8 +52,6 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
     /**
      * Get stats.
-     *
-     * @return __return_getStats_type__ __return_getStats_description__
      */
     public function getStats()
     {
@@ -81,8 +76,6 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
     /**
      * Get module.
-     *
-     * @return __return_getModule_type__ __return_getModule_description__
      */
     public function getModule()
     {

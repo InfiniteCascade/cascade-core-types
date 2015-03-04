@@ -136,11 +136,6 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get stats.
-     *
-     * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
-     * @param array                       $options      __param_options_description__ [optional]
-     *
-     * @return __return_getStats_type__ __return_getStats_description__
      */
     public function getStats($parentObject, $options = [])
     {
@@ -164,11 +159,6 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get month summary.
-     *
-     * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
-     * @param array                       $options      __param_options_description__ [optional]
-     *
-     * @return __return_getMonthSummary_type__ __return_getMonthSummary_description__
      */
     public function getMonthSummary($parentObject, $options = [])
     {
@@ -190,11 +180,6 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get top contributors.
-     *
-     * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
-     * @param array                       $options      __param_options_description__ [optional]
-     *
-     * @return __return_getTopContributors_type__ __return_getTopContributors_description__
      */
     public function getTopContributors($parentObject, $options = [])
     {
@@ -231,11 +216,6 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get top contributions.
-     *
-     * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
-     * @param array                       $options      __param_options_description__ [optional]
-     *
-     * @return __return_getTopContributions_type__ __return_getTopContributions_description__
      */
     public function getTopContributions($parentObject, $options = [])
     {
@@ -270,10 +250,6 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get total hours.
-     *
-     * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
-     *
-     * @return __return_getTotalHours_type__ __return_getTotalHours_description__
      */
     public function getTotalHours($parentObject)
     {
@@ -285,10 +261,6 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get base stats query.
-     *
-     * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
-     *
-     * @return __return_getBaseStatsQuery_type__ __return_getBaseStatsQuery_description__
      */
     public function getBaseStatsQuery($parentObject)
     {
@@ -301,10 +273,6 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get caching dependency.
-     *
-     * @param __param_parentObject_type__ $parentObject __param_parentObject_description__
-     *
-     * @return __return_getCachingDependency_type__ __return_getCachingDependency_description__
      */
     public function getCachingDependency($parentObject)
     {

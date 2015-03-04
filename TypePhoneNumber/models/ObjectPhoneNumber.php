@@ -135,8 +135,6 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 
     /**
      * Get formatted extension.
-     *
-     * @return __return_getFormattedExtension_type__ __return_getFormattedExtension_description__
      */
     public function getFormattedExtension()
     {

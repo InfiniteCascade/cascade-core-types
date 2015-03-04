@@ -123,10 +123,6 @@ class Module extends TypeModule
 
     /**
      * Get top requestors.
-     *
-     * @param __param_accessingObject_type__ $accessingObject __param_accessingObject_description__
-     *
-     * @return __return_getTopRequestors_type__ __return_getTopRequestors_description__
      */
     public function getTopRequestors($accessingObject)
     {
