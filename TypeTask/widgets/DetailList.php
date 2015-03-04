@@ -20,7 +20,7 @@ class DetailList extends \cascade\components\web\widgets\base\DetailList
 	public function getAssetBundles()
     {
         return array_merge(parent::getAssetBundles(), [
-        	'cascade\\modules\\core\\TypeTask\\widgets\\TaskAsset'
+        	'cascade\modules\core\TypeTask\widgets\TaskAsset'
         ]);
     }
 

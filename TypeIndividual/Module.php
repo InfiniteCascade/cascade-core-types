@@ -43,11 +43,11 @@ class Module extends TypeModule
 	/**
 	 * @inheritdoc
 	 */
-	public $widgetNamespace = 'cascade\\modules\\core\\TypeIndividual\\widgets';
+	public $widgetNamespace = 'cascade\modules\core\TypeIndividual\widgets';
 	/**
 	 * @inheritdoc
 	 */
-	public $modelNamespace = 'cascade\\modules\\core\\TypeIndividual\\models';
+	public $modelNamespace = 'cascade\modules\core\TypeIndividual\models';
 
 	/**
 	 * @inheritdoc
@@ -66,7 +66,7 @@ class Module extends TypeModule
 	{
 		return array_merge(parent::behaviors(), [
 			'Authority' => [
-				'class' => 'cascade\\components\\security\\AuthorityBehavior'
+				'class' => 'cascade\components\security\AuthorityBehavior'
 			]
 		]);
 	}
@@ -126,7 +126,7 @@ class Module extends TypeModule
 	public function getTopRequestors($accessingObject)
 	{
 		$individual = false;
-		if ($accessingObject->modelAlias === 'cascade\\models\\User' 
+		if ($accessingObject->modelAlias === 'cascade\models\User' 
 			&& isset($accessingObject->object_individual_id)
 		) {
 			$individual = Registry::getObject($accessingObject->object_individual_id, false);
@@ -149,7 +149,7 @@ class Module extends TypeModule
 	public function getRequestors($accessingObject, $firstLevel = true)
 	{
 		$individual = false;
-		if ($accessingObject->modelAlias === 'cascade\\models\\User' 
+		if ($accessingObject->modelAlias === 'cascade\models\User' 
 			&& isset($accessingObject->object_individual_id)
 		) {
 			$individual = Registry::getObject($accessingObject->object_individual_id, false);

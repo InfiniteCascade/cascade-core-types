@@ -47,11 +47,11 @@ class Module extends TypeModule
 	/**
 	 * @inheritdoc
 	 */
-	public $widgetNamespace = 'cascade\\modules\\core\\TypeAccount\\widgets';
+	public $widgetNamespace = 'cascade\modules\core\TypeAccount\widgets';
 	/**
 	 * @inheritdoc
 	 */
-	public $modelNamespace = 'cascade\\modules\\core\\TypeAccount\\models';
+	public $modelNamespace = 'cascade\modules\core\TypeAccount\models';
 
 	/**
 	 * @inheritdoc
@@ -71,7 +71,7 @@ class Module extends TypeModule
 	{
 		return array_merge(parent::behaviors(), [
 			'Authority' => [
-				'class' => 'cascade\\components\\security\\AuthorityBehavior'
+				'class' => 'cascade\components\security\AuthorityBehavior'
 			]
 		]);
 	}

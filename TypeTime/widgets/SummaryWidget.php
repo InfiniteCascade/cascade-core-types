@@ -20,7 +20,7 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 	/**
 	 * @inheritdoc
 	 */
-	public $defaultDecoratorClass = 'cascade\\components\\web\\widgets\\decorator\\BlankDecorator';
+	public $defaultDecoratorClass = 'cascade\components\web\widgets\decorator\BlankDecorator';
 	/**
 	 * @var __var__stats_type__ __var__stats_description__
 	 */
