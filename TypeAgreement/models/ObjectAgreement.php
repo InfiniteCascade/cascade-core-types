@@ -60,6 +60,9 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
         return array_merge(parent::behaviors(), []);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getSubdescriptorFields()
     {
         return [['parent:Account' => ['relationOptions' => ['taxonomy' => [['taxonomyType' => 'ic_agreement_account_role', 'systemId' => 'contractee']]]], 'dateRange']];
@@ -115,6 +118,9 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function additionalFields()
     {
         return array_merge(parent::additionalFields(), [
@@ -172,6 +178,11 @@ class ObjectAgreement extends \cascade\components\types\ActiveRecord
         ];
     }
 
+    /**
+     * Get date range.
+     *
+     * @return [[@doctodo return_type:getDateRange]] [[@doctodo return_description:getDateRange]]
+     */
     public function getDateRange()
     {
         $fields = $this->getFields();

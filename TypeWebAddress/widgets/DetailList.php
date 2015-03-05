@@ -9,12 +9,15 @@
 namespace cascade\modules\core\TypeWebAddress\widgets;
 
 /**
- * DetailList [@doctodo write class description for DetailList].
+ * DetailList [[@doctodo class_description:cascade\modules\core\TypeWebAddress\widgets\DetailList]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
 class DetailList extends \cascade\components\web\widgets\base\DetailList
 {
+    /**
+     * @inheritdoc
+     */
     public function contentTemplate($model)
     {
         return [

@@ -13,7 +13,7 @@ use infinite\helpers\ArrayHelper;
 use Yii;
 
 /**
- * Module [@doctodo write class description for Module].
+ * Module [[@doctodo class_description:cascade\modules\core\TypeAccount\Module]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
@@ -94,6 +94,9 @@ class Module extends TypeModule
         return min($results);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getPrimaryAsParent(TypeModule $child)
     {
         return true;

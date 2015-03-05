@@ -27,6 +27,7 @@ use infinite\helpers\Html;
 class ObjectFile extends \cascade\components\types\ActiveRecord
 {
     /**
+     * @var [[@doctodo var_type:_labelName]] [[@doctodo var_description:_labelName]]
      */
     protected $_labelName;
     /**
@@ -36,6 +37,8 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 
     /**
      * Get label name.
+     *
+     * @return [[@doctodo return_type:getLabelName]] [[@doctodo return_description:getLabelName]]
      */
     public function getLabelName()
     {
@@ -201,6 +204,10 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 
     /**
      * Get download link.
+     *
+     * @param array $htmlAttributes [[@doctodo param_description:htmlAttributes]] [optional]
+     *
+     * @return [[@doctodo return_type:getDownloadLink]] [[@doctodo return_description:getDownloadLink]]
      */
     public function getDownloadLink($label = null, $htmlAttributes = [])
     {

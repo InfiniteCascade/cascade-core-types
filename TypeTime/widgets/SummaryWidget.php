@@ -12,7 +12,7 @@ use infinite\helpers\ArrayHelper;
 use Yii;
 
 /**
- * SummaryWidget [@doctodo write class description for SummaryWidget].
+ * SummaryWidget [[@doctodo class_description:cascade\modules\core\TypeTime\widgets\SummaryWidget]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
@@ -23,6 +23,7 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
      */
     public $defaultDecoratorClass = 'cascade\components\web\widgets\decorator\BlankDecorator';
     /**
+     * @var [[@doctodo var_type:_stats]] [[@doctodo var_description:_stats]]
      */
     protected $_stats;
     /**
@@ -32,6 +33,8 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
     /**
      * Get grid cell settings.
+     *
+     * @return [[@doctodo return_type:getGridCellSettings]] [[@doctodo return_description:getGridCellSettings]]
      */
     public function getGridCellSettings()
     {
@@ -52,6 +55,8 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
     /**
      * Get stats.
+     *
+     * @return [[@doctodo return_type:getStats]] [[@doctodo return_description:getStats]]
      */
     public function getStats()
     {
@@ -76,6 +81,8 @@ class SummaryWidget extends \cascade\components\web\widgets\base\WidgetArea
 
     /**
      * Get module.
+     *
+     * @return [[@doctodo return_type:getModule]] [[@doctodo return_description:getModule]]
      */
     public function getModule()
     {

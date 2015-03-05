@@ -9,7 +9,7 @@
 namespace cascade\modules\core\TypeIndividual\widgets;
 
 /**
- * SimpleLinkList [@doctodo write class description for SimpleLinkList].
+ * SimpleLinkList [[@doctodo class_description:cascade\modules\core\TypeIndividual\widgets\SimpleLinkList]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */

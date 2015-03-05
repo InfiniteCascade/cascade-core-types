@@ -12,7 +12,7 @@ use infinite\helpers\StringHelper;
 use Yii;
 
 /**
- * DetailList [@doctodo write class description for DetailList].
+ * DetailList [[@doctodo class_description:cascade\modules\core\TypePostalAddress\widgets\DetailList]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */

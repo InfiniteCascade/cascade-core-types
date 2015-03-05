@@ -11,7 +11,7 @@ namespace cascade\modules\core\TypeProject;
 use Yii;
 
 /**
- * Module [@doctodo write class description for Module].
+ * Module [[@doctodo class_description:cascade\modules\core\TypeProject\Module]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */

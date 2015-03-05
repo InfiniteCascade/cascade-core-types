@@ -38,6 +38,8 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
 
     /**
      * Get hours with unit.
+     *
+     * @return [[@doctodo return_type:getHoursWithUnit]] [[@doctodo return_description:getHoursWithUnit]]
      */
     public function getHoursWithUnit()
     {
@@ -132,6 +134,9 @@ class ObjectTime extends \cascade\components\types\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function additionalFields()
     {
         return array_merge(parent::additionalFields(), [

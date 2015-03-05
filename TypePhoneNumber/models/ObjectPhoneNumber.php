@@ -76,6 +76,9 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function beforeValidate()
     {
         $originalPhone = $this->phone;
@@ -135,6 +138,8 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
 
     /**
      * Get formatted extension.
+     *
+     * @return [[@doctodo return_type:getFormattedExtension]] [[@doctodo return_description:getFormattedExtension]]
      */
     public function getFormattedExtension()
     {
@@ -145,6 +150,11 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
         return 'x' . $this->extension;
     }
 
+    /**
+     * Get formatted phone.
+     *
+     * @return [[@doctodo return_type:getFormattedPhone]] [[@doctodo return_description:getFormattedPhone]]
+     */
     public function getFormattedPhone()
     {
         $parts = [$this->formatPhoneNumber($this->phone)];
@@ -155,6 +165,11 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
         return implode(' ', $parts);
     }
 
+    /**
+     * [[@doctodo method_description:formatPhoneNumber]].
+     *
+     * @return [[@doctodo return_type:formatPhoneNumber]] [[@doctodo return_description:formatPhoneNumber]]
+     */
     protected function formatPhoneNumber($phoneNumber)
     {
         if (strlen($phoneNumber) > 10) {

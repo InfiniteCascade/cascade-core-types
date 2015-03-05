@@ -11,7 +11,7 @@ namespace cascade\modules\core\TypeTime\widgets;
 use cascade\components\helpers\Html;
 
 /**
- * DetailList [@doctodo write class description for DetailList].
+ * DetailList [[@doctodo class_description:cascade\modules\core\TypeTime\widgets\DetailList]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */

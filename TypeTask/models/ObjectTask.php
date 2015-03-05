@@ -139,6 +139,9 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function additionalFields()
     {
         return array_merge(parent::additionalFields(), [
@@ -148,11 +151,19 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
         ]);
     }
 
+    /**
+     * Get completed status.
+     *
+     * @return [[@doctodo return_type:getCompletedStatus]] [[@doctodo return_description:getCompletedStatus]]
+     */
     public function getCompletedStatus()
     {
         return empty($this->completed) ? 0 : 1;
     }
 
+    /**
+     * Set completed status.
+     */
     public function setCompletedStatus($value)
     {
         if (empty($value)) {
@@ -192,6 +203,11 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
         return $this->hasOne(Yii::$app->classes['User'], ['id' => 'modified_user_id']);
     }
 
+    /**
+     * [[@doctodo method_description:isPassedDue]].
+     *
+     * @return [[@doctodo return_type:isPassedDue]] [[@doctodo return_description:isPassedDue]]
+     */
     public function isPassedDue()
     {
         if (empty($this->end)) {
@@ -202,6 +218,11 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
         return DateHelper::inPast($dueDate);
     }
 
+    /**
+     * [[@doctodo method_description:isDueToday]].
+     *
+     * @return [[@doctodo return_type:isDueToday]] [[@doctodo return_description:isDueToday]]
+     */
     public function isDueToday()
     {
         if (empty($this->end)) {

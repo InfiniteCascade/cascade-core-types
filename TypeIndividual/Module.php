@@ -13,7 +13,7 @@ use cascade\models\Registry;
 use Yii;
 
 /**
- * Module [@doctodo write class description for Module].
+ * Module [[@doctodo class_description:cascade\modules\core\TypeIndividual\Module]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
@@ -70,6 +70,9 @@ class Module extends TypeModule
         ]);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getPrimaryAsParent(TypeModule $child)
     {
         if (isset($parent)) {
@@ -82,6 +85,9 @@ class Module extends TypeModule
         return false;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getPrimaryAsChild(TypeModule $parent)
     {
         if (isset($parent)) {
@@ -123,6 +129,8 @@ class Module extends TypeModule
 
     /**
      * Get top requestors.
+     *
+     * @return [[@doctodo return_type:getTopRequestors]] [[@doctodo return_description:getTopRequestors]]
      */
     public function getTopRequestors($accessingObject)
     {

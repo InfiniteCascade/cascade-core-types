@@ -11,7 +11,7 @@ namespace cascade\modules\core\TypeTask\widgets;
 use yii\web\AssetBundle;
 
 /**
- * AppAsset [@doctodo write class description for AppAsset].
+ * TaskAsset [[@doctodo class_description:cascade\modules\core\TypeTask\widgets\TaskAsset]].
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  *

@@ -19,7 +19,7 @@ use Yii;
 use yii\caching\DbDependency;
 
 /**
- * Module [@doctodo write class description for Module].
+ * Module [[@doctodo class_description:cascade\modules\core\TypeTime\Module]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
@@ -136,6 +136,10 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get stats.
+     *
+     * @param array $options [[@doctodo param_description:options]] [optional]
+     *
+     * @return [[@doctodo return_type:getStats]] [[@doctodo return_description:getStats]]
      */
     public function getStats($parentObject, $options = [])
     {
@@ -159,6 +163,10 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get month summary.
+     *
+     * @param array $options [[@doctodo param_description:options]] [optional]
+     *
+     * @return [[@doctodo return_type:getMonthSummary]] [[@doctodo return_description:getMonthSummary]]
      */
     public function getMonthSummary($parentObject, $options = [])
     {
@@ -180,6 +188,10 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get top contributors.
+     *
+     * @param array $options [[@doctodo param_description:options]] [optional]
+     *
+     * @return [[@doctodo return_type:getTopContributors]] [[@doctodo return_description:getTopContributors]]
      */
     public function getTopContributors($parentObject, $options = [])
     {
@@ -216,6 +228,10 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get top contributions.
+     *
+     * @param array $options [[@doctodo param_description:options]] [optional]
+     *
+     * @return [[@doctodo return_type:getTopContributions]] [[@doctodo return_description:getTopContributions]]
      */
     public function getTopContributions($parentObject, $options = [])
     {
@@ -250,6 +266,8 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get total hours.
+     *
+     * @return [[@doctodo return_type:getTotalHours]] [[@doctodo return_description:getTotalHours]]
      */
     public function getTotalHours($parentObject)
     {
@@ -261,6 +279,8 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get base stats query.
+     *
+     * @return [[@doctodo return_type:getBaseStatsQuery]] [[@doctodo return_description:getBaseStatsQuery]]
      */
     public function getBaseStatsQuery($parentObject)
     {
@@ -273,6 +293,8 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get caching dependency.
+     *
+     * @return [[@doctodo return_type:getCachingDependency]] [[@doctodo return_description:getCachingDependency]]
      */
     public function getCachingDependency($parentObject)
     {

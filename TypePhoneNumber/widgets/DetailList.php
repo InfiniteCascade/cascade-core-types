@@ -9,7 +9,7 @@
 namespace cascade\modules\core\TypePhoneNumber\widgets;
 
 /**
- * DetailList [@doctodo write class description for DetailList].
+ * DetailList [[@doctodo class_description:cascade\modules\core\TypePhoneNumber\widgets\DetailList]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */

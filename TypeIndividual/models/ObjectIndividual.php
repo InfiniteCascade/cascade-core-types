@@ -76,6 +76,9 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getSubdescriptorFields()
     {
         return [['parent:Account', 'child:PostalAddress:citySubnational', 'department', 'title']];
@@ -119,6 +122,11 @@ class ObjectIndividual extends \cascade\components\types\ActiveRecord
         return $settings;
     }
 
+    /**
+     * Get photo email.
+     *
+     * @return [[@doctodo return_type:getPhotoEmail]] [[@doctodo return_description:getPhotoEmail]]
+     */
     public function getPhotoEmail()
     {
         $email = false;

@@ -10,14 +10,25 @@ namespace cascade\modules\core;
 
 use Yii;
 
+/**
+ * Extension [[@doctodo class_description:cascade\modules\core\Extension]].
+ *
+ * @author Jacob Morrison <email@ofjacob.com>
+ */
 class Extension extends \cascade\components\base\ModuleSetExtension
 {
+    /**
+     * Initializes.
+     */
     public static function init()
     {
         parent::init();
         Yii::setAlias('@cascade/modules/core', __DIR__);
     }
 
+    /**
+     * @inheritdoc
+     */
     public static function getModules()
     {
         $m = [];

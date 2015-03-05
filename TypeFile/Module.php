@@ -12,7 +12,7 @@ use infinite\base\exceptions\HttpException;
 use Yii;
 
 /**
- * Module [@doctodo write class description for Module].
+ * Module [[@doctodo class_description:cascade\modules\core\TypeFile\Module]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
@@ -69,7 +69,9 @@ class Module extends \cascade\components\types\Module
     }
 
     /**
+     * [[@doctodo method_description:actionDownload]].
      *
+     * @throws HttpException [[@doctodo exception_description:HttpException]]
      */
     public function actionDownload($event)
     {
@@ -89,11 +91,19 @@ class Module extends \cascade\components\types\Module
         return parent::widgets();
     }
 
+    /**
+     * Get create verb.
+     *
+     * @return [[@doctodo return_type:getCreateVerb]] [[@doctodo return_description:getCreateVerb]]
+     */
     public function getCreateVerb($object)
     {
         return new \infinite\base\language\Verb('upload');
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getUpdateVerb($object)
     {
         return new \infinite\base\language\Verb('upload');

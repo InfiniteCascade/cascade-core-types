@@ -12,7 +12,7 @@ use cascade\components\types\Module as TypeModule;
 use Yii;
 
 /**
- * Module [@doctodo write class description for Module].
+ * Module [[@doctodo class_description:cascade\modules\core\TypeWebAddress\Module]].
  *
  * @author Jacob Morrison <email@ofjacob.com>
  */
@@ -78,6 +78,9 @@ class Module extends TypeModule
         return min($results);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getPrimaryAsChild(TypeModule $parent)
     {
         return true;

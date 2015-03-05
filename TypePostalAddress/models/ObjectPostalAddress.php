@@ -172,6 +172,8 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 
     /**
      * Get unique country.
+     *
+     * @return [[@doctodo return_type:getUniqueCountry]] [[@doctodo return_description:getUniqueCountry]]
      */
     public function getUniqueCountry()
     {
@@ -186,6 +188,8 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 
     /**
      * Get csz.
+     *
+     * @return [[@doctodo return_type:getCsz]] [[@doctodo return_description:getCsz]]
      */
     public function getCsz()
     {
@@ -202,6 +206,8 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 
     /**
      * Get city subnational.
+     *
+     * @return [[@doctodo return_type:getCitySubnational]] [[@doctodo return_description:getCitySubnational]]
      */
     public function getCitySubnational()
     {
@@ -215,6 +221,8 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 
     /**
      * Get flat address url.
+     *
+     * @return [[@doctodo return_type:getFlatAddressUrl]] [[@doctodo return_description:getFlatAddressUrl]]
      */
     public function getFlatAddressUrl()
     {
@@ -223,6 +231,8 @@ class ObjectPostalAddress extends \cascade\components\types\ActiveRecord
 
     /**
      * Get flat address.
+     *
+     * @return [[@doctodo return_type:getFlatAddress]] [[@doctodo return_description:getFlatAddress]]
      */
     public function getFlatAddress()
     {
