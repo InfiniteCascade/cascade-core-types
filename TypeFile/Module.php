@@ -71,6 +71,8 @@ class Module extends \cascade\components\types\Module
     /**
      * [[@doctodo method_description:actionDownload]].
      *
+     * @param [[@doctodo param_type:event]] $event [[@doctodo param_description:event]]
+     *
      * @throws HttpException [[@doctodo exception_description:HttpException]]
      */
     public function actionDownload($event)
@@ -93,6 +95,8 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get create verb.
+     *
+     * @param [[@doctodo param_type:object]] $object [[@doctodo param_description:object]]
      *
      * @return [[@doctodo return_type:getCreateVerb]] [[@doctodo return_description:getCreateVerb]]
      */

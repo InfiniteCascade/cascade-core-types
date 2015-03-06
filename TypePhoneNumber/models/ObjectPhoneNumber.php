@@ -168,6 +168,8 @@ class ObjectPhoneNumber extends \cascade\components\types\ActiveRecord
     /**
      * [[@doctodo method_description:formatPhoneNumber]].
      *
+     * @param [[@doctodo param_type:phoneNumber]] $phoneNumber [[@doctodo param_description:phoneNumber]]
+     *
      * @return [[@doctodo return_type:formatPhoneNumber]] [[@doctodo return_description:formatPhoneNumber]]
      */
     protected function formatPhoneNumber($phoneNumber)

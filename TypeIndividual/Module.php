@@ -130,6 +130,8 @@ class Module extends TypeModule
     /**
      * Get top requestors.
      *
+     * @param [[@doctodo param_type:accessingObject]] $accessingObject [[@doctodo param_description:accessingObject]]
+     *
      * @return [[@doctodo return_type:getTopRequestors]] [[@doctodo return_description:getTopRequestors]]
      */
     public function getTopRequestors($accessingObject)

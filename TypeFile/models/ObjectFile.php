@@ -73,6 +73,8 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
 
     /**
      * Set label name.
+     *
+     * @param [[@doctodo param_type:value]] $value [[@doctodo param_description:value]]
      */
     public function setLabelName($value)
     {
@@ -205,7 +207,8 @@ class ObjectFile extends \cascade\components\types\ActiveRecord
     /**
      * Get download link.
      *
-     * @param array $htmlAttributes [[@doctodo param_description:htmlAttributes]] [optional]
+     * @param [[@doctodo param_type:label]] $label          [[@doctodo param_description:label]] [optional]
+     * @param array                         $htmlAttributes [[@doctodo param_description:htmlAttributes]] [optional]
      *
      * @return [[@doctodo return_type:getDownloadLink]] [[@doctodo return_description:getDownloadLink]]
      */

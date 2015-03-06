@@ -163,6 +163,8 @@ class ObjectTask extends \cascade\components\types\ActiveRecord
 
     /**
      * Set completed status.
+     *
+     * @param [[@doctodo param_type:value]] $value [[@doctodo param_description:value]]
      */
     public function setCompletedStatus($value)
     {

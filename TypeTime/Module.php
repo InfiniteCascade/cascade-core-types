@@ -137,7 +137,8 @@ class Module extends \cascade\components\types\Module
     /**
      * Get stats.
      *
-     * @param array $options [[@doctodo param_description:options]] [optional]
+     * @param [[@doctodo param_type:parentObject]] $parentObject [[@doctodo param_description:parentObject]]
+     * @param array                                $options      [[@doctodo param_description:options]] [optional]
      *
      * @return [[@doctodo return_type:getStats]] [[@doctodo return_description:getStats]]
      */
@@ -164,7 +165,8 @@ class Module extends \cascade\components\types\Module
     /**
      * Get month summary.
      *
-     * @param array $options [[@doctodo param_description:options]] [optional]
+     * @param [[@doctodo param_type:parentObject]] $parentObject [[@doctodo param_description:parentObject]]
+     * @param array                                $options      [[@doctodo param_description:options]] [optional]
      *
      * @return [[@doctodo return_type:getMonthSummary]] [[@doctodo return_description:getMonthSummary]]
      */
@@ -189,7 +191,8 @@ class Module extends \cascade\components\types\Module
     /**
      * Get top contributors.
      *
-     * @param array $options [[@doctodo param_description:options]] [optional]
+     * @param [[@doctodo param_type:parentObject]] $parentObject [[@doctodo param_description:parentObject]]
+     * @param array                                $options      [[@doctodo param_description:options]] [optional]
      *
      * @return [[@doctodo return_type:getTopContributors]] [[@doctodo return_description:getTopContributors]]
      */
@@ -229,7 +232,8 @@ class Module extends \cascade\components\types\Module
     /**
      * Get top contributions.
      *
-     * @param array $options [[@doctodo param_description:options]] [optional]
+     * @param [[@doctodo param_type:parentObject]] $parentObject [[@doctodo param_description:parentObject]]
+     * @param array                                $options      [[@doctodo param_description:options]] [optional]
      *
      * @return [[@doctodo return_type:getTopContributions]] [[@doctodo return_description:getTopContributions]]
      */
@@ -267,6 +271,8 @@ class Module extends \cascade\components\types\Module
     /**
      * Get total hours.
      *
+     * @param [[@doctodo param_type:parentObject]] $parentObject [[@doctodo param_description:parentObject]]
+     *
      * @return [[@doctodo return_type:getTotalHours]] [[@doctodo return_description:getTotalHours]]
      */
     public function getTotalHours($parentObject)
@@ -279,6 +285,8 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get base stats query.
+     *
+     * @param [[@doctodo param_type:parentObject]] $parentObject [[@doctodo param_description:parentObject]]
      *
      * @return [[@doctodo return_type:getBaseStatsQuery]] [[@doctodo return_description:getBaseStatsQuery]]
      */
@@ -293,6 +301,8 @@ class Module extends \cascade\components\types\Module
 
     /**
      * Get caching dependency.
+     *
+     * @param [[@doctodo param_type:parentObject]] $parentObject [[@doctodo param_description:parentObject]]
      *
      * @return [[@doctodo return_type:getCachingDependency]] [[@doctodo return_description:getCachingDependency]]
      */
