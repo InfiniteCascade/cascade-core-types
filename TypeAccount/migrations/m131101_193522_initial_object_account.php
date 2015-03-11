@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeAccount\migrations;
 
-class m131101_193522_initial_object_account extends \infinite\db\Migration
+class m131101_193522_initial_object_account extends \teal\db\Migration
 {
     public function up()
     {

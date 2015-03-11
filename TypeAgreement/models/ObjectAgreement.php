@@ -1,15 +1,15 @@
 <?php
 /**
- * @link http://www.infinitecascade.com/
+ * @link http://teal.blue/
  *
- * @copyright Copyright (c) 2014 Infinite Cascade
- * @license http://www.infinitecascade.com/license/
+ * @copyright Copyright (c) 2015 Teal Software
+ * @license http://teal.blue/license/
  */
 
 namespace cascade\modules\core\TypeAgreement\models;
 
 use cascade\models\Registry;
-use infinite\helpers\Date;
+use teal\helpers\Date;
 use Yii;
 
 /**

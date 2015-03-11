@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypePhoneNumber\migrations;
 
-class m131101_215703_initial_object_phone_number extends \infinite\db\Migration
+class m131101_215703_initial_object_phone_number extends \teal\db\Migration
 {
     public function up()
     {

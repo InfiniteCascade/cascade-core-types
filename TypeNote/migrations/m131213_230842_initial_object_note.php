@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeNote\migrations;
 
-class m131213_230842_initial_object_note extends \infinite\db\Migration
+class m131213_230842_initial_object_note extends \teal\db\Migration
 {
     public function up()
     {

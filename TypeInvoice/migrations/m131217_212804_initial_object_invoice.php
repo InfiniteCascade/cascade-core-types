@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeInvoice\migrations;
 
-class m131217_212804_initial_object_invoice extends \infinite\db\Migration
+class m131217_212804_initial_object_invoice extends \teal\db\Migration
 {
     public function up()
     {

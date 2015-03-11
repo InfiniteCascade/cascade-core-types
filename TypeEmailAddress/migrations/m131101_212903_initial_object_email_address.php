@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeEmailAddress\migrations;
 
-class m131101_212903_initial_object_email_address extends \infinite\db\Migration
+class m131101_212903_initial_object_email_address extends \teal\db\Migration
 {
     public function up()
     {

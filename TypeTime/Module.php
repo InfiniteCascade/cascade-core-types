@@ -1,9 +1,9 @@
 <?php
 /**
- * @link http://www.infinitecascade.com/
+ * @link http://teal.blue/
  *
- * @copyright Copyright (c) 2014 Infinite Cascade
- * @license http://www.infinitecascade.com/license/
+ * @copyright Copyright (c) 2015 Teal Software
+ * @license http://teal.blue/license/
  */
 
 namespace cascade\modules\core\TypeTime;
@@ -12,9 +12,9 @@ use cascade\components\types\Relationship;
 use cascade\models\Registry;
 use cascade\models\Relation;
 use cascade\models\RelationTaxonomy;
-use infinite\base\language\Noun;
-use infinite\caching\Cacher;
-use infinite\db\Query;
+use teal\base\language\Noun;
+use teal\caching\Cacher;
+use teal\db\Query;
 use Yii;
 use yii\caching\DbDependency;
 

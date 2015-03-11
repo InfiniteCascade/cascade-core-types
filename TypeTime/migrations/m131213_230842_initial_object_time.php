@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeTime\migrations;
 
-class m131213_230842_initial_object_time extends \infinite\db\Migration
+class m131213_230842_initial_object_time extends \teal\db\Migration
 {
     public function up()
     {

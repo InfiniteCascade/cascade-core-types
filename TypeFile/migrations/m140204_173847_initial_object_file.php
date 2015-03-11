@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeFile\migrations;
 
-class m140204_173847_initial_object_file extends \infinite\db\Migration
+class m140204_173847_initial_object_file extends \teal\db\Migration
 {
     public function up()
     {

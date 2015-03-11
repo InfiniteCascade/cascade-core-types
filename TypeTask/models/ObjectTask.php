@@ -1,15 +1,15 @@
 <?php
 /**
- * @link http://www.infinitecascade.com/
+ * @link http://teal.blue/
  *
- * @copyright Copyright (c) 2014 Infinite Cascade
- * @license http://www.infinitecascade.com/license/
+ * @copyright Copyright (c) 2015 Teal Software
+ * @license http://teal.blue/license/
  */
 
 namespace cascade\modules\core\TypeTask\models;
 
 use cascade\models\Registry;
-use infinite\helpers\Date as DateHelper;
+use teal\helpers\Date as DateHelper;
 
 /**
  * ObjectTask is the model class for table "object_task".

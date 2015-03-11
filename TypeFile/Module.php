@@ -1,14 +1,14 @@
 <?php
 /**
- * @link http://www.infinitecascade.com/
+ * @link http://teal.blue/
  *
- * @copyright Copyright (c) 2014 Infinite Cascade
- * @license http://www.infinitecascade.com/license/
+ * @copyright Copyright (c) 2015 Teal Software
+ * @license http://teal.blue/license/
  */
 
 namespace cascade\modules\core\TypeFile;
 
-use infinite\base\exceptions\HttpException;
+use teal\base\exceptions\HttpException;
 use Yii;
 
 /**
@@ -102,7 +102,7 @@ class Module extends \cascade\components\types\Module
      */
     public function getCreateVerb($object)
     {
-        return new \infinite\base\language\Verb('upload');
+        return new \teal\base\language\Verb('upload');
     }
 
     /**
@@ -110,7 +110,7 @@ class Module extends \cascade\components\types\Module
      */
     public function getUpdateVerb($object)
     {
-        return new \infinite\base\language\Verb('upload');
+        return new \teal\base\language\Verb('upload');
     }
 
     /**
