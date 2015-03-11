@@ -1,14 +1,14 @@
 {
-	"name": "infiniteCascade/cascade-core-types",
+	"name": "teal/cascade-core-types",
 	"description": "Core object types used in Cascade",
 	"keywords": ["cascade"],
-	"homepage": "http://www.infinitecascade.com",
+	"homepage": "http://teal.blue",
 	"type": "yii2-extension",
 	"license": "GPL -2.0",
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.4.0",
-		"InfiniteCascade/cascade": "*"
+		"teal/cascade": "*"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "3.7.*"
