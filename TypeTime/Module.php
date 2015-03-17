@@ -1,9 +1,9 @@
 <?php
 /**
- * @link http://teal.blue/
+ * @link http://canis.io/
  *
- * @copyright Copyright (c) 2015 Teal Software
- * @license http://teal.blue/license/
+ * @copyright Copyright (c) 2015 Canis
+ * @license http://canis.io/license/
  */
 
 namespace cascade\modules\core\TypeTime;
@@ -12,9 +12,9 @@ use cascade\components\types\Relationship;
 use cascade\models\Registry;
 use cascade\models\Relation;
 use cascade\models\RelationTaxonomy;
-use teal\base\language\Noun;
-use teal\caching\Cacher;
-use teal\db\Query;
+use canis\base\language\Noun;
+use canis\caching\Cacher;
+use canis\db\Query;
 use Yii;
 use yii\caching\DbDependency;
 

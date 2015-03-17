@@ -1,15 +1,15 @@
 <?php
 /**
- * @link http://teal.blue/
+ * @link http://canis.io/
  *
- * @copyright Copyright (c) 2015 Teal Software
- * @license http://teal.blue/license/
+ * @copyright Copyright (c) 2015 Canis
+ * @license http://canis.io/license/
  */
 
 namespace cascade\modules\core\TypeTask\models;
 
 use cascade\models\Registry;
-use teal\helpers\Date as DateHelper;
+use canis\helpers\Date as DateHelper;
 
 /**
  * ObjectTask is the model class for table "object_task".

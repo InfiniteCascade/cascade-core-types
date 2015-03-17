@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypePostalAddress\migrations;
 
-class m131204_003752_initial_object_postal_address extends \teal\db\Migration
+class m131204_003752_initial_object_postal_address extends \canis\db\Migration
 {
     public function up()
     {

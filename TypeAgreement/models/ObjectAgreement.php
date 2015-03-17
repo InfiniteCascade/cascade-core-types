@@ -1,15 +1,15 @@
 <?php
 /**
- * @link http://teal.blue/
+ * @link http://canis.io/
  *
- * @copyright Copyright (c) 2015 Teal Software
- * @license http://teal.blue/license/
+ * @copyright Copyright (c) 2015 Canis
+ * @license http://canis.io/license/
  */
 
 namespace cascade\modules\core\TypeAgreement\models;
 
 use cascade\models\Registry;
-use teal\helpers\Date;
+use canis\helpers\Date;
 use Yii;
 
 /**

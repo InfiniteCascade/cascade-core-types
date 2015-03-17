@@ -1,5 +1,5 @@
 <?php
-use teal\helpers\Html;
+use canis\helpers\Html;
 
 echo Html::beginTag('ul', ['class' => 'list-group']);
 echo Html::beginTag('li', ['class' => 'list-group-item']);

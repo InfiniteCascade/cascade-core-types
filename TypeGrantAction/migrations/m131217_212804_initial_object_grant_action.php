@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeGrantAction\migrations;
 
-class m131217_212804_initial_object_grant_action extends \teal\db\Migration
+class m131217_212804_initial_object_grant_action extends \canis\db\Migration
 {
     public function up()
     {

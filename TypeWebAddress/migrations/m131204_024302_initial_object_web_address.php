@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeWebAddress\migrations;
 
-class m131204_024302_initial_object_web_address extends \teal\db\Migration
+class m131204_024302_initial_object_web_address extends \canis\db\Migration
 {
     public function up()
     {

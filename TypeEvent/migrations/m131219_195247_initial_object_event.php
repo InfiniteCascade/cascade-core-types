@@ -1,7 +1,7 @@
 <?php
 namespace cascade\modules\core\TypeEvent\migrations;
 
-class m131219_195247_initial_object_event extends \teal\db\Migration
+class m131219_195247_initial_object_event extends \canis\db\Migration
 {
     public function up()
     {

@@ -1,14 +1,14 @@
 <?php
 /**
- * @link http://teal.blue/
+ * @link http://canis.io/
  *
- * @copyright Copyright (c) 2015 Teal Software
- * @license http://teal.blue/license/
+ * @copyright Copyright (c) 2015 Canis
+ * @license http://canis.io/license/
  */
 
 namespace cascade\modules\core\TypeFile;
 
-use teal\base\exceptions\HttpException;
+use canis\base\exceptions\HttpException;
 use Yii;
 
 /**
@@ -102,7 +102,7 @@ class Module extends \cascade\components\types\Module
      */
     public function getCreateVerb($object)
     {
-        return new \teal\base\language\Verb('upload');
+        return new \canis\base\language\Verb('upload');
     }
 
     /**
@@ -110,7 +110,7 @@ class Module extends \cascade\components\types\Module
      */
     public function getUpdateVerb($object)
     {
-        return new \teal\base\language\Verb('upload');
+        return new \canis\base\language\Verb('upload');
     }
 
     /**
