@@ -20,9 +20,17 @@ class Module extends ReportModule
     /**
      * @inheritdoc
      */
-    protected $_title = 'Time Invoice';
+    protected $_title = 'Time';
     /**
      * @inheritdoc
      */
     public $icon = 'fa fa-clock-o';
+
+    public function getDescription() {
+        return 'Lists recorded time';
+    }
+
+    public function getObjectTypes() {
+        return ['Time', 'Invoice'];
+    }
 }
