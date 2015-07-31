@@ -38,7 +38,6 @@ class Module extends \cascade\components\types\Module
      * @inheritdoc
      */
     public $priority = 2300;
-
     /**
      * @inheritdoc
      */

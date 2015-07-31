@@ -42,7 +42,6 @@ class Module extends TypeModule
      * @inheritdoc
      */
     public $childSearchWeight = .2;
-
     /**
      * @inheritdoc
      */
