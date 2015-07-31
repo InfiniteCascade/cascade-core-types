@@ -1,8 +1,8 @@
 {
-	"name": "canis/cascade-core-types",
+	"name": "psesd/cascade-core-types",
 	"description": "Core object types used in Cascade",
 	"keywords": ["cascade"],
-	"homepage": "http://canis.io",
+	"homepage": "http://psesd.org",
 	"type": "yii2-extension",
 	"license": "BSD-3-Clause",
 	"minimum-stability": "dev",
