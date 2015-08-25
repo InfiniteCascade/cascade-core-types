@@ -161,6 +161,9 @@ class Module extends TypeModule
     public function getRequestors($accessingObject, $firstLevel = true)
     {
         $individual = false;
+        if (empty($accessingObject)) {
+            return false;
+        }
         if ($accessingObject->modelAlias === 'cascade\models\User'
             && isset($accessingObject->object_individual_id)
         ) {
